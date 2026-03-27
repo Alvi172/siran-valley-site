@@ -7,6 +7,13 @@
   <meta name="description" content="Siran Valley Organic Farm offers farm fresh eggs, ethical poultry supply, egg subscriptions, and WhatsApp ordering from the heart of Siran Valley, Mansehra, Pakistan." />
   <meta name="keywords" content="farm fresh eggs Mansehra, organic farm Mansehra, poultry for sale Mansehra, Lohmann brown eggs Pakistan, ethical poultry farm Pakistan, Siran Valley Organic Farm" />
   <meta name="theme-color" content="#47653e" />
+
+  <link id="favicon-main" rel="icon" type="image/png" sizes="32x32" href="egg-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="egg-favicon-16.png" />
+  <link rel="icon" type="image/png" href="egg-favicon.png" />
+  <link rel="shortcut icon" href="egg-favicon.ico" />
+  <link rel="apple-touch-icon" href="egg-favicon.png" />
+
   <style>
     :root{
       --bg:#f7f4ed;--paper:#fffdf9;--text:#1f2a1f;--muted:#647162;--brand:#47653e;--brand-dark:#32492c;
@@ -482,5 +489,32 @@ DISCOUNT SWITCH
       setLanguage(savedLang);
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const favicon = document.getElementById("favicon-main");
+      if (!favicon) return;
+
+      const normalIcon = "egg-favicon-32.png";
+      const pulseIcon = "egg-favicon-pulse.png";
+      const clickIcon = "egg-favicon-click.png";
+      let pulseState = false;
+
+      setInterval(() => {
+        pulseState = !pulseState;
+        favicon.href = pulseState ? pulseIcon : normalIcon;
+      }, 2200);
+
+      document.querySelectorAll(".order-link").forEach((el) => {
+        el.addEventListener("click", () => {
+          favicon.href = clickIcon;
+          setTimeout(() => {
+            favicon.href = normalIcon;
+          }, 2600);
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
