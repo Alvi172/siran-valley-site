@@ -24,6 +24,10 @@
         var(--bg);
       line-height:1.58
     }
+    body.rtl{
+      direction: rtl;
+      font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
+    }
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
     .container{width:min(var(--max), calc(100% - 28px));margin:0 auto}
@@ -44,21 +48,24 @@
     .nav-links a:hover{color:var(--brand)}
     .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--brand);transition:.2s ease}
     .nav-links a:hover::after{width:100%}
-    .nav-cta{display:flex;gap:10px;flex-wrap:wrap}
+    .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .lang-switch{display:flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);padding:4px;border-radius:999px}
+    .lang-btn{border:none;background:transparent;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800;color:var(--muted)}
+    .lang-btn.active{background:var(--brand);color:#fff}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border-radius:999px;font-weight:700;cursor:pointer;border:1px solid transparent;transition:.22s ease;text-align:center;transform:translateY(0)}
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
     .btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
     .btn-secondary{background:#fff;color:var(--text);border-color:var(--line)}
     .btn-whatsapp{background:#1fa855;color:#fff;box-shadow:var(--shadow)}
-
     .hero{padding:68px 0 34px}
     .hero-grid{display:grid;grid-template-columns:.94fr 1.06fr;gap:34px;align-items:center}
     .hero-copy{max-width:590px}
+    body.rtl .hero-copy{max-width:none}
     .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--brand);font-weight:800;font-size:13px}
     h1{margin:18px 0 14px;font-size:clamp(2.45rem,4.4vw,5.1rem);line-height:1.01;letter-spacing:-.05em}
     .hero p{color:var(--muted);font-size:1.05rem;max-width:54ch;margin:0 0 26px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
-    .trust-strip{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;box-shadow:var(--shadow)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .trust-strip{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;box-shadow:var(--shadow);margin-top:26px}
     .trust-item{display:flex;gap:10px;align-items:flex-start}
     .trust-icon{width:34px;height:34px;border-radius:12px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-weight:900;color:var(--earth);flex-shrink:0}
     .hero-card{background:linear-gradient(180deg,#fff,#fbf8f1);border:1px solid var(--line);border-radius:30px;padding:20px;box-shadow:var(--shadow);overflow:hidden}
@@ -66,12 +73,10 @@
     .hero-card:hover img{transform:scale(1.02)}
     .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
     .pill{padding:7px 11px;border-radius:999px;background:#f8f3e9;border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--earth)}
-
     .below-hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;transition:transform .18s ease, box-shadow .18s ease}
     .stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
     .stat strong{display:block;font-size:1.14rem}
-
     .quick-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .flow-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
     .flow-num{width:42px;height:42px;border-radius:14px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-weight:900;color:var(--earth);margin-bottom:12px}
@@ -124,7 +129,7 @@
     .floating-label{position:fixed;right:90px;bottom:30px;z-index:94;background:#1f2a1f;color:#fff;padding:10px 12px;border-radius:999px;font-size:.88rem;font-weight:700;box-shadow:var(--shadow)}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,168,85,.35),0 16px 28px rgba(31,168,85,.35)}70%{box-shadow:0 0 0 14px rgba(31,168,85,0),0 16px 28px rgba(31,168,85,.2)}100%{box-shadow:0 0 0 0 rgba(31,168,85,0),0 16px 28px rgba(31,168,85,.35)}}
     @media (max-width:1100px){.grid-5,.testimonials{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:980px){.hero-grid,.grid-3,.grid-4,.grid-2,.grid-5,.quick-flow,.trust-strip,.testimonials,.below-hero-stats{grid-template-columns:1fr}.nav-inner,.section-head,.footer-top{flex-direction:column;align-items:flex-start}.brand img{height:52px}.hero{padding-top:34px}.floating-label{display:none}.hero-copy{max-width:none}}
+    @media (max-width:980px){.hero-grid,.grid-3,.grid-4,.grid-2,.grid-5,.quick-flow,.trust-strip,.testimonials,.below-hero-stats{grid-template-columns:1fr}.nav-inner,.section-head,.footer-top{flex-direction:column;align-items:flex-start}.brand img{height:52px}.hero{padding-top:34px}.floating-label{display:none}.hero-copy{max-width:none}.nav-right{width:100%;justify-content:space-between}}
   </style>
 </head>
 <!--
@@ -143,20 +148,27 @@ DISCOUNT SWITCH
         <img src="logo.png" alt="Siran Valley Organic Farm Logo">
         <div>
           <div class="brand-title">Siran Valley Organic Farm</div>
-          <div class="brand-sub">Fresh eggs, pure and ethical natural farm supply</div>
+          <div class="brand-sub" data-i18n="brandSub">Fresh eggs, pure and ethical natural farm supply</div>
         </div>
       </a>
-      <div class="nav-links">
-        <a href="#subscriptions">Subscriptions</a>
-        <a href="#shop">Shop Eggs</a>
-        <a href="#poultry">Poultry</a>
-        <a href="#meat">Meat</a>
-        <a href="#faq">FAQs</a>
-        <a href="#terms">Terms</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn btn-whatsapp order-link" data-product="General Inquiry" data-type="General" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a>
+          <a href="#shop" data-i18n="navShop">Shop Eggs</a>
+          <a href="#poultry" data-i18n="navPoultry">Poultry</a>
+          <a href="#meat" data-i18n="navMeat">Meat</a>
+          <a href="#faq" data-i18n="navFaq">FAQs</a>
+          <a href="#terms" data-i18n="navTerms">Terms</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-btn active" id="btn-en" type="button">EN</button>
+          <button class="lang-btn" id="btn-ur" type="button">اردو</button>
+        </div>
+
+        <a class="btn btn-whatsapp order-link" data-product="General Inquiry" data-type="General" target="_blank" rel="noopener" href="#" data-i18n="orderWhatsApp">Order on WhatsApp</a>
       </div>
     </div>
   </nav>
@@ -164,25 +176,29 @@ DISCOUNT SWITCH
   <header class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-up">
-        <div class="eyebrow">Organic Eggs • Poultry • Pure & Ethical Farm Supply</div>
-        <h1>Farm Fresh Eggs & Poultry from the Heart of Siran Valley</h1>
-        <p>Farm fresh eggs, poultry, and ethical natural supply from Siran Valley. Order on WhatsApp in minutes and choose from simple weekly plans or one-time family packs.</p>
+        <div class="eyebrow" data-i18n="heroEyebrow">Organic Eggs • Poultry • Pure & Ethical Farm Supply</div>
+        <h1 data-i18n="heroTitle">Farm Fresh Eggs & Poultry from the Heart of Siran Valley</h1>
+        <p data-i18n="heroText">Farm fresh eggs, poultry, and ethical natural supply from Siran Valley. Order on WhatsApp in minutes and choose from simple weekly plans or one-time family packs.</p>
         <div class="hero-actions">
-          <a class="btn btn-whatsapp order-link" data-product="Hero Order" data-type="General" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
-          <a class="btn btn-secondary" href="#subscriptions">View Subscription Plans</a>
+          <a class="btn btn-whatsapp order-link" data-product="Hero Order" data-type="General" target="_blank" rel="noopener" href="#" data-i18n="heroPrimaryBtn">Order on WhatsApp</a>
+          <a class="btn btn-secondary" href="#subscriptions" data-i18n="heroSecondaryBtn">View Subscription Plans</a>
         </div>
 
         <div class="trust-strip">
-          <div class="trust-item"><div class="trust-icon">1</div><div><strong>Mansehra based</strong><br><span class="muted small">Fresh local supply from Siran Valley.</span></div></div>
-          <div class="trust-item"><div class="trust-icon">2</div><div><strong>Weekly slots</strong><br><span class="muted small">Easy recurring plans for regular households.</span></div></div>
-          <div class="trust-item"><div class="trust-icon">3</div><div><strong>WhatsApp first</strong><br><span class="muted small">Simple order confirmation before dispatch.</span></div></div>
-          <div class="trust-item"><div class="trust-icon">4</div><div><strong>Other cities</strong><br><span class="muted small">Message us to enquire about delivery options.</span></div></div>
+          <div class="trust-item"><div class="trust-icon">1</div><div><strong data-i18n="trust1Title">Mansehra based</strong><br><span class="muted small" data-i18n="trust1Text">Fresh local supply from Siran Valley.</span></div></div>
+          <div class="trust-item"><div class="trust-icon">2</div><div><strong data-i18n="trust2Title">Weekly slots</strong><br><span class="muted small" data-i18n="trust2Text">Easy recurring plans for regular households.</span></div></div>
+          <div class="trust-item"><div class="trust-icon">3</div><div><strong data-i18n="trust3Title">WhatsApp first</strong><br><span class="muted small" data-i18n="trust3Text">Simple order confirmation before dispatch.</span></div></div>
+          <div class="trust-item"><div class="trust-icon">4</div><div><strong data-i18n="trust4Title">Other cities</strong><br><span class="muted small" data-i18n="trust4Text">Message us to enquire about delivery options.</span></div></div>
         </div>
       </div>
 
       <div class="hero-card fade-up delay-1">
         <img src="hero.png" alt="Farm fresh Lohmann brown eggs and poultry from Siran Valley Organic Farm">
-        <div class="pill-row"><span class="pill">Farm fresh eggs</span><span class="pill">Lohmann brown eggs</span><span class="pill">Poultry & meat</span></div>
+        <div class="pill-row">
+          <span class="pill" data-i18n="heroPill1">Farm fresh eggs</span>
+          <span class="pill" data-i18n="heroPill2">Lohmann brown eggs</span>
+          <span class="pill" data-i18n="heroPill3">Poultry & meat</span>
+        </div>
       </div>
     </div>
   </header>
@@ -190,9 +206,9 @@ DISCOUNT SWITCH
   <section class="section">
     <div class="container">
       <div class="below-hero-stats">
-        <div class="stat"><strong>12 to 60 eggs</strong><span class="muted small">Flexible weekly and monthly plans</span></div>
-        <div class="stat"><strong>Pure & ethical</strong><span class="muted small">Natural farm supply with trusted service</span></div>
-        <div class="stat"><strong>Batch fresh supply</strong><span class="muted small">Limited weekly slots for careful fulfillment</span></div>
+        <div class="stat"><strong data-i18n="stat1Title">12 to 60 eggs</strong><span class="muted small" data-i18n="stat1Text">Flexible weekly and monthly plans</span></div>
+        <div class="stat"><strong data-i18n="stat2Title">Pure & ethical</strong><span class="muted small" data-i18n="stat2Text">Natural farm supply with trusted service</span></div>
+        <div class="stat"><strong data-i18n="stat3Title">Batch fresh supply</strong><span class="muted small" data-i18n="stat3Text">Limited weekly slots for careful fulfillment</span></div>
       </div>
     </div>
   </section>
@@ -200,13 +216,13 @@ DISCOUNT SWITCH
   <section class="section alt-bg">
     <div class="container">
       <div class="section-head fade-up">
-        <div><h2>How ordering works</h2><p>Simple, clear, and fast — designed for a small agri farm launch.</p></div>
-        <span class="tag">3 easy steps</span>
+        <div><h2 data-i18n="howTitle">How ordering works</h2><p data-i18n="howText">Simple, clear, and fast — designed for a small agri farm launch.</p></div>
+        <span class="tag" data-i18n="howTag">3 easy steps</span>
       </div>
       <div class="quick-flow">
-        <div class="flow-card fade-up"><div class="flow-num">1</div><h3>Choose your product</h3><p class="muted">Pick a one-time egg pack, a subscription plan, or send a poultry inquiry based on the age group you want.</p></div>
-        <div class="flow-card fade-up delay-1"><div class="flow-num">2</div><h3>Message on WhatsApp</h3><p class="muted">Click any WhatsApp button and your message opens with product details already filled in for quicker ordering.</p></div>
-        <div class="flow-card fade-up delay-2"><div class="flow-num">3</div><h3>Confirm and receive</h3><p class="muted">Share your address and preferred timing. Orders are confirmed directly before dispatch or delivery.</p></div>
+        <div class="flow-card fade-up"><div class="flow-num">1</div><h3 data-i18n="flow1Title">Choose your product</h3><p class="muted" data-i18n="flow1Text">Pick a one-time egg pack, a subscription plan, or send a poultry inquiry based on the age group you want.</p></div>
+        <div class="flow-card fade-up delay-1"><div class="flow-num">2</div><h3 data-i18n="flow2Title">Message on WhatsApp</h3><p class="muted" data-i18n="flow2Text">Click any WhatsApp button and your message opens with product details already filled in for quicker ordering.</p></div>
+        <div class="flow-card fade-up delay-2"><div class="flow-num">3</div><h3 data-i18n="flow3Title">Confirm and receive</h3><p class="muted" data-i18n="flow3Text">Share your address and preferred timing. Orders are confirmed directly before dispatch or delivery.</p></div>
       </div>
     </div>
   </section>
@@ -214,63 +230,63 @@ DISCOUNT SWITCH
   <section class="section" id="subscriptions">
     <div class="container">
       <div class="section-head fade-up">
-        <div><h2>Egg subscription plans</h2><p>Choose the plan that suits your household and enjoy fresh egg supply from Siran Valley Organic Farm with direct WhatsApp ordering.</p></div>
-        <span class="tag">Aligned with current pack pricing</span>
+        <div><h2 data-i18n="subTitle">Egg subscription plans</h2><p data-i18n="subText">Choose the plan that suits your household and enjoy fresh egg supply from Siran Valley Organic Farm with direct WhatsApp ordering.</p></div>
+        <span class="tag" data-i18n="subTag">Aligned with current pack pricing</span>
       </div>
       <div class="grid-3">
         <article class="card fade-up">
           <img class="card-img" src="eggs-12.png" alt="12 egg subscription pack from Siran Valley Organic Farm">
-          <span class="tag">Starter Plan</span>
-          <h3>12 eggs per week</h3>
-          <div class="price">Rs. 1,728<span class="small muted"> / month</span></div>
-          <div class="compare">Same as 4 weekly 12-egg deliveries</div>
-          <div class="discount-row">Discount active: Save 5% this month</div>
+          <span class="tag" data-i18n="plan1Tag">Starter Plan</span>
+          <h3 data-i18n="plan1Title">12 eggs per week</h3>
+          <div class="price">Rs. 1,728<span class="small muted"> / <span data-i18n="perMonth">month</span></span></div>
+          <div class="compare" data-i18n="plan1Compare">Same as 4 weekly 12-egg deliveries</div>
+          <div class="discount-row" data-i18n="plan1Discount">Discount active: Save 5% this month</div>
           <ul class="clean">
-            <li>48 eggs per month</li>
-            <li>Aligned with 12-egg pack pricing</li>
-            <li>Fresh and convenient weekly supply</li>
-            <li>Ideal for light to moderate household use</li>
+            <li data-i18n="plan1b1">48 eggs per month</li>
+            <li data-i18n="plan1b2">Aligned with 12-egg pack pricing</li>
+            <li data-i18n="plan1b3">Fresh and convenient weekly supply</li>
+            <li data-i18n="plan1b4">Ideal for light to moderate household use</li>
           </ul>
-          <div class="urgency">Limited weekly household slots available.</div>
-          <a class="btn btn-whatsapp order-link" data-product="Starter Plan" data-type="Subscription" target="_blank" rel="noopener" href="#">Subscribe on WhatsApp</a>
+          <div class="urgency" data-i18n="plan1Urgency">Limited weekly household slots available.</div>
+          <a class="btn btn-whatsapp order-link" data-product="Starter Plan" data-type="Subscription" target="_blank" rel="noopener" href="#" data-i18n="subscribeBtn">Subscribe on WhatsApp</a>
         </article>
 
         <article class="card fade-up delay-1" style="outline:2px solid rgba(71,101,62,.16)">
           <img class="card-img" src="eggs-30.png" alt="30 egg subscription crate from Siran Valley Organic Farm">
-          <span class="tag">Most Popular</span>
-          <h3>30 eggs per week</h3>
-          <div class="price">Rs. 3,840<span class="small muted"> / month</span></div>
-          <div class="compare">Best fit for regular family use</div>
-          <div class="discount-row">Discount active: Save 10% on family plan</div>
+          <span class="tag" data-i18n="plan2Tag">Most Popular</span>
+          <h3 data-i18n="plan2Title">30 eggs per week</h3>
+          <div class="price">Rs. 3,840<span class="small muted"> / <span data-i18n="perMonth2">month</span></span></div>
+          <div class="compare" data-i18n="plan2Compare">Best fit for regular family use</div>
+          <div class="discount-row" data-i18n="plan2Discount">Discount active: Save 10% on family plan</div>
           <ul class="clean">
-            <li>120 eggs per month</li>
-            <li>Aligned with 30-egg crate pricing</li>
-            <li>Best for growing families</li>
-            <li>Reliable weekly household supply</li>
+            <li data-i18n="plan2b1">120 eggs per month</li>
+            <li data-i18n="plan2b2">Aligned with 30-egg crate pricing</li>
+            <li data-i18n="plan2b3">Best for growing families</li>
+            <li data-i18n="plan2b4">Reliable weekly household supply</li>
           </ul>
-          <div class="urgency">Popular choice for repeat weekly buyers.</div>
-          <a class="btn btn-whatsapp order-link" data-product="Family Plan" data-type="Subscription" target="_blank" rel="noopener" href="#">Subscribe on WhatsApp</a>
+          <div class="urgency" data-i18n="plan2Urgency">Popular choice for repeat weekly buyers.</div>
+          <a class="btn btn-whatsapp order-link" data-product="Family Plan" data-type="Subscription" target="_blank" rel="noopener" href="#" data-i18n="subscribeBtn2">Subscribe on WhatsApp</a>
         </article>
 
         <article class="card fade-up delay-2">
           <img class="card-img" src="eggs-60.png" alt="60 egg bulk subscription pack from Siran Valley Organic Farm">
-          <span class="tag">Premium Plan</span>
-          <h3>60 eggs per week</h3>
-          <div class="price">Rs. 7,200<span class="small muted"> / month</span></div>
-          <div class="compare">Strongest value for high egg usage</div>
-          <div class="discount-row">Discount active: Premium family saver offer</div>
+          <span class="tag" data-i18n="plan3Tag">Premium Plan</span>
+          <h3 data-i18n="plan3Title">60 eggs per week</h3>
+          <div class="price">Rs. 7,200<span class="small muted"> / <span data-i18n="perMonth3">month</span></span></div>
+          <div class="compare" data-i18n="plan3Compare">Strongest value for high egg usage</div>
+          <div class="discount-row" data-i18n="plan3Discount">Discount active: Premium family saver offer</div>
           <ul class="clean">
-            <li>240 eggs per month</li>
-            <li>Aligned with 60-egg pack pricing</li>
-            <li>Ideal for large households or shared use</li>
-            <li>Convenient recurring supply every week</li>
+            <li data-i18n="plan3b1">240 eggs per month</li>
+            <li data-i18n="plan3b2">Aligned with 60-egg pack pricing</li>
+            <li data-i18n="plan3b3">Ideal for large households or shared use</li>
+            <li data-i18n="plan3b4">Convenient recurring supply every week</li>
           </ul>
-          <div class="urgency">Best suited for larger weekly demand.</div>
-          <a class="btn btn-whatsapp order-link" data-product="Premium Plan" data-type="Subscription" target="_blank" rel="noopener" href="#">Subscribe on WhatsApp</a>
+          <div class="urgency" data-i18n="plan3Urgency">Best suited for larger weekly demand.</div>
+          <a class="btn btn-whatsapp order-link" data-product="Premium Plan" data-type="Subscription" target="_blank" rel="noopener" href="#" data-i18n="subscribeBtn3">Subscribe on WhatsApp</a>
         </article>
       </div>
-      <div class="switch-note">
-        Discount rows are switched <strong>off</strong> by default. To switch them <strong>on</strong>, add <code>class="show-discounts"</code> to the opening <code>&lt;body&gt;</code> tag near the top of this file.
+      <div class="switch-note" data-i18n="discountNote">
+        Discount rows are switched off by default. To switch them on, add class="show-discounts" to the opening &lt;body&gt; tag near the top of this file.
       </div>
     </div>
   </section>
@@ -278,14 +294,14 @@ DISCOUNT SWITCH
   <section class="section alt-bg" id="shop">
     <div class="container">
       <div class="section-head fade-up">
-        <div><h2>Shop eggs one-time</h2><p>Try one-time packs before subscribing, or order exactly what your household needs.</p></div>
-        <span class="tag">Fresh one-time orders</span>
+        <div><h2 data-i18n="shopTitle">Shop eggs one-time</h2><p data-i18n="shopText">Try one-time packs before subscribing, or order exactly what your household needs.</p></div>
+        <span class="tag" data-i18n="shopTag">Fresh one-time orders</span>
       </div>
       <div class="grid-4">
-        <article class="card fade-up"><img class="card-img" src="eggs-6.png" alt="6 egg trial pack from Siran Valley Organic Farm"><div class="product-head"><div><h3>6 Egg Pack</h3><div class="muted small">Trial Pack</div></div><div class="tag">Entry</div></div><div class="price">Rs. 240</div><p class="muted">Based on Rs. 40 per egg. A simple first order for new customers.</p><a class="btn btn-secondary order-link" data-product="6 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#">Order on WhatsApp</a></article>
-        <article class="card fade-up delay-1"><img class="card-img" src="eggs-12.png" alt="12 egg family pack from Siran Valley Organic Farm"><div class="product-head"><div><h3>12 Egg Pack</h3><div class="muted small">Family Pack</div></div><div class="tag">Popular</div></div><div class="price">Rs. 432</div><p class="muted">Based on Rs. 36 per egg. Good for regular weekly household use.</p><a class="btn btn-secondary order-link" data-product="12 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#">Order on WhatsApp</a></article>
-        <article class="card fade-up delay-2"><img class="card-img" src="eggs-30.png" alt="30 egg crate from Siran Valley Organic Farm"><div class="product-head"><div><h3>30 Egg Crate</h3><div class="muted small">Value Crate</div></div><div class="tag">Value</div></div><div class="price">Rs. 960</div><p class="muted">Based on Rs. 32 per egg. Better value for stronger weekly consumption.</p><a class="btn btn-secondary order-link" data-product="30 Egg Crate" data-type="One-Time Pack" target="_blank" rel="noopener" href="#">Order on WhatsApp</a></article>
-        <article class="card fade-up delay-3"><img class="card-img" src="eggs-60.png" alt="60 egg bulk pack from Siran Valley Organic Farm"><div class="product-head"><div><h3>60 Egg Pack</h3><div class="muted small">Bulk Pack</div></div><div class="tag">Bulk</div></div><div class="price">Rs. 1,800</div><p class="muted">Based on Rs. 30 per egg. Ideal for large households or combined family orders.</p><a class="btn btn-secondary order-link" data-product="60 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#">Order on WhatsApp</a></article>
+        <article class="card fade-up"><img class="card-img" src="eggs-6.png" alt="6 egg trial pack from Siran Valley Organic Farm"><div class="product-head"><div><h3 data-i18n="pack1Title">6 Egg Pack</h3><div class="muted small" data-i18n="pack1Sub">Trial Pack</div></div><div class="tag" data-i18n="pack1Tag">Entry</div></div><div class="price">Rs. 240</div><p class="muted" data-i18n="pack1Text">Based on Rs. 40 per egg. A simple first order for new customers.</p><a class="btn btn-secondary order-link" data-product="6 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#" data-i18n="orderBtn">Order on WhatsApp</a></article>
+        <article class="card fade-up delay-1"><img class="card-img" src="eggs-12.png" alt="12 egg family pack from Siran Valley Organic Farm"><div class="product-head"><div><h3 data-i18n="pack2Title">12 Egg Pack</h3><div class="muted small" data-i18n="pack2Sub">Family Pack</div></div><div class="tag" data-i18n="pack2Tag">Popular</div></div><div class="price">Rs. 432</div><p class="muted" data-i18n="pack2Text">Based on Rs. 36 per egg. Good for regular weekly household use.</p><a class="btn btn-secondary order-link" data-product="12 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#" data-i18n="orderBtn2">Order on WhatsApp</a></article>
+        <article class="card fade-up delay-2"><img class="card-img" src="eggs-30.png" alt="30 egg crate from Siran Valley Organic Farm"><div class="product-head"><div><h3 data-i18n="pack3Title">30 Egg Crate</h3><div class="muted small" data-i18n="pack3Sub">Value Crate</div></div><div class="tag" data-i18n="pack3Tag">Value</div></div><div class="price">Rs. 960</div><p class="muted" data-i18n="pack3Text">Based on Rs. 32 per egg. Better value for stronger weekly consumption.</p><a class="btn btn-secondary order-link" data-product="30 Egg Crate" data-type="One-Time Pack" target="_blank" rel="noopener" href="#" data-i18n="orderBtn3">Order on WhatsApp</a></article>
+        <article class="card fade-up delay-3"><img class="card-img" src="eggs-60.png" alt="60 egg bulk pack from Siran Valley Organic Farm"><div class="product-head"><div><h3 data-i18n="pack4Title">60 Egg Pack</h3><div class="muted small" data-i18n="pack4Sub">Bulk Pack</div></div><div class="tag" data-i18n="pack4Tag">Bulk</div></div><div class="price">Rs. 1,800</div><p class="muted" data-i18n="pack4Text">Based on Rs. 30 per egg. Ideal for large households or combined family orders.</p><a class="btn btn-secondary order-link" data-product="60 Egg Pack" data-type="One-Time Pack" target="_blank" rel="noopener" href="#" data-i18n="orderBtn4">Order on WhatsApp</a></article>
       </div>
     </div>
   </section>
@@ -293,15 +309,15 @@ DISCOUNT SWITCH
   <section class="section" id="poultry">
     <div class="container">
       <div class="section-head fade-up">
-        <div><h2>Poultry listings</h2><p>Browse poultry at different ages and inquire directly on WhatsApp for current stock, pictures, and future availability.</p></div>
-        <span class="tag oos">Currently out of stock</span>
+        <div><h2 data-i18n="poultryTitle">Poultry listings</h2><p data-i18n="poultryText">Browse poultry at different ages and inquire directly on WhatsApp for current stock, pictures, and future availability.</p></div>
+        <span class="tag oos" data-i18n="poultryTag">Currently out of stock</span>
       </div>
       <div class="grid-5">
-        <article class="card fade-up"><img class="card-img" src="chicks-day-old.png" alt="Day old Lohmann brown and black chicks for sale in Mansehra"><h3>Day-old chicken</h3><div class="pill-row"><span class="pill">Age: 1 day</span><span class="pill">Price: Rs. 350</span><span class="pill">Stock: Out of stock</span></div><p class="muted">Suitable for buyers who want to rear birds from the very beginning.</p><div class="urgency oos">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="Day-old chicken" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></article>
-        <article class="card fade-up delay-1"><img class="card-img" src="chicks-8week.png" alt="8 week Lohmann brown and black pullets in Mansehra"><h3>8 weeks old</h3><div class="pill-row"><span class="pill">Age: 8 weeks</span><span class="pill">Price: Rs. 900</span><span class="pill">Stock: Out of stock</span></div><p class="muted">A stronger early-stage option for customers looking for growing birds.</p><div class="urgency oos">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="8 weeks old pullets" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></article>
-        <article class="card fade-up delay-2"><img class="card-img" src="chicks-12week.png" alt="12 week Lohmann brown and black pullets in Mansehra"><h3>12 weeks old</h3><div class="pill-row"><span class="pill">Age: 12 weeks</span><span class="pill">Price: Rs. 1,300</span><span class="pill">Stock: Out of stock</span></div><p class="muted">Ideal for customers who want a more advanced bird with less early-stage care.</p><div class="urgency oos">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="12 weeks old pullets" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></article>
-        <article class="card fade-up delay-3"><img class="card-img" src="chicks-18week.png" alt="18 week ready to lay Lohmann brown and black birds in Mansehra"><h3>18 weeks old</h3><div class="pill-row"><span class="pill">Age: 18 weeks</span><span class="pill">Price: Rs. 2,000</span><span class="pill">Stock: Out of stock</span></div><p class="muted">Well suited for customers looking for near-ready birds with stronger value.</p><div class="urgency oos">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="18 weeks old ready-to-lay birds" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></article>
-        <article class="card fade-up delay-3"><img class="card-img" src="chicks-24week.png" alt="24 week mature Lohmann brown and black layers in Mansehra"><h3>24 weeks old</h3><div class="pill-row"><span class="pill">Age: 24 weeks</span><span class="pill">Price: Rs. 2,850</span><span class="pill">Stock: Out of stock</span></div><p class="muted">A premium mature option for buyers wanting stronger birds with less waiting time.</p><div class="urgency oos">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="24 weeks old mature layers" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#">Ask on WhatsApp</a></article>
+        <article class="card fade-up"><img class="card-img" src="chicks-day-old.png" alt="Day old Lohmann brown and black chicks for sale in Mansehra"><h3 data-i18n="p1Title">Day-old chicken</h3><div class="pill-row"><span class="pill" data-i18n="p1Age">Age: 1 day</span><span class="pill" data-i18n="p1Price">Price: Rs. 350</span><span class="pill" data-i18n="p1Stock">Stock: Out of stock</span></div><p class="muted" data-i18n="p1Text">Suitable for buyers who want to rear birds from the very beginning.</p><div class="urgency oos" data-i18n="waitlist">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="Day-old chicken" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#" data-i18n="askBtn">Ask on WhatsApp</a></article>
+        <article class="card fade-up delay-1"><img class="card-img" src="chicks-8week.png" alt="8 week Lohmann brown and black pullets in Mansehra"><h3 data-i18n="p2Title">8 weeks old</h3><div class="pill-row"><span class="pill" data-i18n="p2Age">Age: 8 weeks</span><span class="pill" data-i18n="p2Price">Price: Rs. 900</span><span class="pill" data-i18n="p2Stock">Stock: Out of stock</span></div><p class="muted" data-i18n="p2Text">A stronger early-stage option for customers looking for growing birds.</p><div class="urgency oos" data-i18n="waitlist2">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="8 weeks old pullets" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#" data-i18n="askBtn2">Ask on WhatsApp</a></article>
+        <article class="card fade-up delay-2"><img class="card-img" src="chicks-12week.png" alt="12 week Lohmann brown and black pullets in Mansehra"><h3 data-i18n="p3Title">12 weeks old</h3><div class="pill-row"><span class="pill" data-i18n="p3Age">Age: 12 weeks</span><span class="pill" data-i18n="p3Price">Price: Rs. 1,300</span><span class="pill" data-i18n="p3Stock">Stock: Out of stock</span></div><p class="muted" data-i18n="p3Text">Ideal for customers who want a more advanced bird with less early-stage care.</p><div class="urgency oos" data-i18n="waitlist3">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="12 weeks old pullets" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#" data-i18n="askBtn3">Ask on WhatsApp</a></article>
+        <article class="card fade-up delay-3"><img class="card-img" src="chicks-18week.png" alt="18 week ready to lay Lohmann brown and black birds in Mansehra"><h3 data-i18n="p4Title">18 weeks old</h3><div class="pill-row"><span class="pill" data-i18n="p4Age">Age: 18 weeks</span><span class="pill" data-i18n="p4Price">Price: Rs. 2,000</span><span class="pill" data-i18n="p4Stock">Stock: Out of stock</span></div><p class="muted" data-i18n="p4Text">Well suited for customers looking for near-ready birds with stronger value.</p><div class="urgency oos" data-i18n="waitlist4">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="18 weeks old ready-to-lay birds" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#" data-i18n="askBtn4">Ask on WhatsApp</a></article>
+        <article class="card fade-up delay-3"><img class="card-img" src="chicks-24week.png" alt="24 week mature Lohmann brown and black layers in Mansehra"><h3 data-i18n="p5Title">24 weeks old</h3><div class="pill-row"><span class="pill" data-i18n="p5Age">Age: 24 weeks</span><span class="pill" data-i18n="p5Price">Price: Rs. 2,850</span><span class="pill" data-i18n="p5Stock">Stock: Out of stock</span></div><p class="muted" data-i18n="p5Text">A premium mature option for buyers wanting stronger birds with less waiting time.</p><div class="urgency oos" data-i18n="waitlist5">Join waitlist on WhatsApp.</div><a class="btn btn-secondary order-link" data-product="24 weeks old mature layers" data-type="Poultry Inquiry" target="_blank" rel="noopener" href="#" data-i18n="askBtn5">Ask on WhatsApp</a></article>
       </div>
     </div>
   </section>
@@ -314,61 +330,61 @@ DISCOUNT SWITCH
     <div class="container grid-2">
       <div class="highlight fade-up">
         <img src="chicken-meat.png" alt="Farm fresh organic chicken whole bird and cuts">
-        <h2 style="margin-top:0">Fresh chicken meat</h2>
-        <p>Fresh chicken meat offerings will be added soon as part of the growing Siran Valley Organic Farm range. This section is already ready for future whole chicken and cuts pricing.</p>
-        <div class="pill-row"><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Whole chicken</span><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Fresh cuts</span><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Coming soon</span></div>
+        <h2 style="margin-top:0" data-i18n="meatTitle">Fresh chicken meat</h2>
+        <p data-i18n="meatText">Fresh chicken meat offerings will be added soon as part of the growing Siran Valley Organic Farm range. This section is already ready for future whole chicken and cuts pricing.</p>
+        <div class="pill-row"><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatPill1">Whole chicken</span><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatPill2">Fresh cuts</span><span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatPill3">Coming soon</span></div>
       </div>
 
       <div class="card fade-up delay-1" id="why-us">
-        <h2 style="margin-top:0">Why choose Siran Valley Organic Farm</h2>
-        <div class="feature"><div class="icon">1</div><div><strong>Fresh farm collection</strong><br><span class="muted small">Eggs and poultry positioned around freshness, purity, and trusted supply.</span></div></div>
-        <div class="feature" style="margin-top:14px"><div class="icon">2</div><div><strong>Pure and ethical supply</strong><br><span class="muted small">Built around a clean, natural, and values-driven farm brand.</span></div></div>
-        <div class="feature" style="margin-top:14px"><div class="icon">3</div><div><strong>Reliable weekly subscriptions</strong><br><span class="muted small">Designed for households that want consistent egg supply every week.</span></div></div>
-        <div class="feature" style="margin-top:14px"><div class="icon">4</div><div><strong>Direct WhatsApp ordering</strong><br><span class="muted small">Quick ordering, simple communication, and easy customer support.</span></div></div>
+        <h2 style="margin-top:0" data-i18n="whyTitle">Why choose Siran Valley Organic Farm</h2>
+        <div class="feature"><div class="icon">1</div><div><strong data-i18n="why1Title">Fresh farm collection</strong><br><span class="muted small" data-i18n="why1Text">Eggs and poultry positioned around freshness, purity, and trusted supply.</span></div></div>
+        <div class="feature" style="margin-top:14px"><div class="icon">2</div><div><strong data-i18n="why2Title">Pure and ethical supply</strong><br><span class="muted small" data-i18n="why2Text">Built around a clean, natural, and values-driven farm brand.</span></div></div>
+        <div class="feature" style="margin-top:14px"><div class="icon">3</div><div><strong data-i18n="why3Title">Reliable weekly subscriptions</strong><br><span class="muted small" data-i18n="why3Text">Designed for households that want consistent egg supply every week.</span></div></div>
+        <div class="feature" style="margin-top:14px"><div class="icon">4</div><div><strong data-i18n="why4Title">Direct WhatsApp ordering</strong><br><span class="muted small" data-i18n="why4Text">Quick ordering, simple communication, and easy customer support.</span></div></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-head fade-up"><div><h2>FAQs — buying on WhatsApp</h2><p>Simple answers for first-time buyers and subscription customers.</p></div><span class="tag">WhatsApp-first ordering</span></div>
+      <div class="section-head fade-up"><div><h2 data-i18n="faqTitle">FAQs — buying on WhatsApp</h2><p data-i18n="faqText">Simple answers for first-time buyers and subscription customers.</p></div><span class="tag" data-i18n="faqTag">WhatsApp-first ordering</span></div>
       <div class="faq-wrap fade-up delay-1">
-        <details open><summary>How do I place an order on WhatsApp?</summary><p class="muted">Click any WhatsApp button on the website. Your message will open with the product name already filled in. Send your name, address, city, and preferred delivery day.</p></details>
-        <details><summary>Do you deliver only in Mansehra?</summary><p class="muted">Current website messaging is focused on Mansehra. If you are outside Mansehra, message on WhatsApp to enquire about delivery options for your city.</p></details>
-        <details><summary>How do subscriptions work?</summary><p class="muted">Subscriptions are recurring supply plans based on weekly egg quantities. You confirm your plan on WhatsApp, and delivery timing is agreed directly with you before dispatch.</p></details>
-        <details><summary>Can I order one-time packs first and subscribe later?</summary><p class="muted">Yes. Many buyers start with one-time packs before moving to a weekly or monthly plan.</p></details>
-        <details><summary>What if poultry is out of stock?</summary><p class="muted">You can still message on WhatsApp to register interest. Siran Valley can update you when the next batch becomes available.</p></details>
-        <details><summary>Will online payment be added later?</summary><p class="muted">Yes. The website structure is ready for future payment integration when you decide to move beyond WhatsApp-first ordering.</p></details>
-        <details><summary>Do prices stay fixed?</summary><p class="muted">Prices shown on the website are current display prices and may be updated over time based on supply, feed, packaging, delivery, or promotional offers.</p></details>
+        <details open><summary data-i18n="faq1q">How do I place an order on WhatsApp?</summary><p class="muted" data-i18n="faq1a">Click any WhatsApp button on the website. Your message will open with the product name already filled in. Send your name, address, city, and preferred delivery day.</p></details>
+        <details><summary data-i18n="faq2q">Do you deliver only in Mansehra?</summary><p class="muted" data-i18n="faq2a">Current website messaging is focused on Mansehra. If you are outside Mansehra, message on WhatsApp to enquire about delivery options for your city.</p></details>
+        <details><summary data-i18n="faq3q">How do subscriptions work?</summary><p class="muted" data-i18n="faq3a">Subscriptions are recurring supply plans based on weekly egg quantities. You confirm your plan on WhatsApp, and delivery timing is agreed directly with you before dispatch.</p></details>
+        <details><summary data-i18n="faq4q">Can I order one-time packs first and subscribe later?</summary><p class="muted" data-i18n="faq4a">Yes. Many buyers start with one-time packs before moving to a weekly or monthly plan.</p></details>
+        <details><summary data-i18n="faq5q">What if poultry is out of stock?</summary><p class="muted" data-i18n="faq5a">You can still message on WhatsApp to register interest. Siran Valley can update you when the next batch becomes available.</p></details>
+        <details><summary data-i18n="faq6q">Will online payment be added later?</summary><p class="muted" data-i18n="faq6a">Yes. The website structure is ready for future payment integration when you decide to move beyond WhatsApp-first ordering.</p></details>
+        <details><summary data-i18n="faq7q">Do prices stay fixed?</summary><p class="muted" data-i18n="faq7a">Prices shown on the website are current display prices and may be updated over time based on supply, feed, packaging, delivery, or promotional offers.</p></details>
       </div>
     </div>
   </section>
 
   <section class="section alt-bg" id="terms">
     <div class="container">
-      <div class="section-head fade-up"><div><h2>Terms & conditions</h2><p>Simple customer-facing terms designed for WhatsApp orders, subscriptions, and future scale-up.</p></div><span class="tag">For website & WhatsApp sales</span></div>
+      <div class="section-head fade-up"><div><h2 data-i18n="termsTitle">Terms & conditions</h2><p data-i18n="termsText">Simple customer-facing terms designed for WhatsApp orders, subscriptions, and future scale-up.</p></div><span class="tag" data-i18n="termsTag">For website & WhatsApp sales</span></div>
       <div class="terms-wrap fade-up delay-1">
-        <div class="ready-box" style="margin-bottom:16px;">These terms are written for your current operation: WhatsApp-first ordering, manual confirmation, displayed website prices, out-of-stock poultry, and future payment integration.</div>
-        <div><strong>1. Orders</strong><div class="muted">All orders placed through the website are completed through WhatsApp confirmation. An order is considered confirmed only after Siran Valley Organic Farm acknowledges it directly.</div></div><br>
-        <div><strong>2. Product availability</strong><div class="muted">Egg packs, subscriptions, poultry, and meat offerings are subject to availability. Poultry listings marked out of stock are for inquiry and future reservation interest only.</div></div><br>
-        <div><strong>3. Pricing</strong><div class="muted">Prices displayed on the website are current selling prices and may change without prior notice. Promotional discounts may be introduced later and will apply only when clearly displayed.</div></div><br>
-        <div><strong>4. Subscriptions</strong><div class="muted">Subscription plans are recurring supply arrangements agreed directly on WhatsApp. Frequency, quantity, and delivery arrangements are confirmed with each customer. Changes or pauses should be communicated in advance.</div></div><br>
-        <div><strong>5. Delivery</strong><div class="muted">Orders are handled from Mansehra. Customers outside Mansehra can enquire on WhatsApp about possible delivery options before placing an order.</div></div><br>
-        <div><strong>6. Cancellations and changes</strong><div class="muted">For one-time orders, customers should notify Siran Valley as early as possible if they wish to cancel or change an order. For subscriptions, notice should be given before the next dispatch cycle.</div></div><br>
-        <div><strong>7. Product handling</strong><div class="muted">Eggs and poultry should be checked upon receipt. Eggs should be stored appropriately after delivery. Poultry buyers are responsible for proper handling, housing, feeding, and care after collection or delivery.</div></div><br>
-        <div><strong>8. Website information</strong><div class="muted">Product images are used to represent style, packaging, and product category. Actual appearance may vary slightly by batch, season, age, or packaging updates.</div></div><br>
-        <div><strong>9. Future payments</strong><div class="muted">Online payment methods may be added later. Until then, payment arrangements are handled directly during order confirmation.</div></div><br>
-        <div><strong>10. Contact</strong><div class="muted">For any order, subscription, stock, or delivery query, customers should contact Siran Valley Organic Farm on WhatsApp using the buttons provided on this website.</div></div>
+        <div class="ready-box" style="margin-bottom:16px" data-i18n="termsIntro">These terms are written for your current operation: WhatsApp-first ordering, manual confirmation, displayed website prices, out-of-stock poultry, and future payment integration.</div>
+        <div><strong data-i18n="t1h">1. Orders</strong><div class="muted" data-i18n="t1b">All orders placed through the website are completed through WhatsApp confirmation. An order is considered confirmed only after Siran Valley Organic Farm acknowledges it directly.</div></div><br>
+        <div><strong data-i18n="t2h">2. Product availability</strong><div class="muted" data-i18n="t2b">Egg packs, subscriptions, poultry, and meat offerings are subject to availability. Poultry listings marked out of stock are for inquiry and future reservation interest only.</div></div><br>
+        <div><strong data-i18n="t3h">3. Pricing</strong><div class="muted" data-i18n="t3b">Prices displayed on the website are current selling prices and may change without prior notice. Promotional discounts may be introduced later and will apply only when clearly displayed.</div></div><br>
+        <div><strong data-i18n="t4h">4. Subscriptions</strong><div class="muted" data-i18n="t4b">Subscription plans are recurring supply arrangements agreed directly on WhatsApp. Frequency, quantity, and delivery arrangements are confirmed with each customer. Changes or pauses should be communicated in advance.</div></div><br>
+        <div><strong data-i18n="t5h">5. Delivery</strong><div class="muted" data-i18n="t5b">Orders are handled from Mansehra. Customers outside Mansehra can enquire on WhatsApp about possible delivery options before placing an order.</div></div><br>
+        <div><strong data-i18n="t6h">6. Cancellations and changes</strong><div class="muted" data-i18n="t6b">For one-time orders, customers should notify Siran Valley as early as possible if they wish to cancel or change an order. For subscriptions, notice should be given before the next dispatch cycle.</div></div><br>
+        <div><strong data-i18n="t7h">7. Product handling</strong><div class="muted" data-i18n="t7b">Eggs and poultry should be checked upon receipt. Eggs should be stored appropriately after delivery. Poultry buyers are responsible for proper handling, housing, feeding, and care after collection or delivery.</div></div><br>
+        <div><strong data-i18n="t8h">8. Website information</strong><div class="muted" data-i18n="t8b">Product images are used to represent style, packaging, and product category. Actual appearance may vary slightly by batch, season, age, or packaging updates.</div></div><br>
+        <div><strong data-i18n="t9h">9. Future payments</strong><div class="muted" data-i18n="t9b">Online payment methods may be added later. Until then, payment arrangements are handled directly during order confirmation.</div></div><br>
+        <div><strong data-i18n="t10h">10. Contact</strong><div class="muted" data-i18n="t10b">For any order, subscription, stock, or delivery query, customers should contact Siran Valley Organic Farm on WhatsApp using the buttons provided on this website.</div></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-head fade-up"><div><h2>Contact & order</h2><p>Place your egg, poultry, and farm product inquiries directly on WhatsApp.</p></div></div>
+      <div class="section-head fade-up"><div><h2 data-i18n="contactTitle">Contact & order</h2><p data-i18n="contactText">Place your egg, poultry, and farm product inquiries directly on WhatsApp.</p></div></div>
       <div class="grid-2">
-        <div class="card fade-up"><h3 style="margin-top:0">Order directly on WhatsApp</h3><p class="muted">Click below to send a general order or inquiry.</p><a class="btn btn-whatsapp order-link" data-product="General Order" data-type="General" target="_blank" rel="noopener" href="#">Open WhatsApp</a></div>
-        <div class="card contact-card fade-up delay-1"><h3 style="margin-top:0">Business details</h3><p class="muted small"><strong>Website:</strong> siran.pk</p><p class="muted small"><strong>Phone / WhatsApp:</strong> +92 300 9111424</p><p class="muted small"><strong>Email:</strong> hello@siran.pk</p><p class="muted small"><strong>Location:</strong> Siran Valley, Mansehra, KPK, Pakistan</p></div>
+        <div class="card fade-up"><h3 style="margin-top:0" data-i18n="contactCardTitle">Order directly on WhatsApp</h3><p class="muted" data-i18n="contactCardText">Click below to send a general order or inquiry.</p><a class="btn btn-whatsapp order-link" data-product="General Order" data-type="General" target="_blank" rel="noopener" href="#" data-i18n="openWhatsApp">Open WhatsApp</a></div>
+        <div class="card contact-card fade-up delay-1"><h3 style="margin-top:0" data-i18n="bizTitle">Business details</h3><p class="muted small"><strong data-i18n="bizWebLabel">Website:</strong> siran.pk</p><p class="muted small"><strong data-i18n="bizPhoneLabel">Phone / WhatsApp:</strong> +92 300 9111424</p><p class="muted small"><strong data-i18n="bizEmailLabel">Email:</strong> hello@siran.pk</p><p class="muted small"><strong data-i18n="bizLocLabel">Location:</strong> <span data-i18n="bizLocText">Siran Valley, Mansehra, KPK, Pakistan</span></p></div>
       </div>
     </div>
   </section>
@@ -379,20 +395,444 @@ DISCOUNT SWITCH
         <img src="logo.png" alt="Siran Valley Organic Farm Logo">
         <div>
           <div class="brand-title">Siran Valley Organic Farm</div>
-          <div class="brand-sub">Fresh eggs, pure and ethical natural farm supply</div>
+          <div class="brand-sub" data-i18n="brandSub2">Fresh eggs, pure and ethical natural farm supply</div>
         </div>
       </a>
-      <div class="small">Serving households with fresh eggs, poultry, and natural farm products from Siran Valley.</div>
+      <div class="small" data-i18n="footerText">Serving households with fresh eggs, poultry, and natural farm products from Siran Valley.</div>
     </div>
   </footer>
 
-  <a class="floating-label" href="#contact">Need help? Chat now</a>
+  <a class="floating-label" href="#contact" data-i18n="floatingLabel">Need help? Chat now</a>
   <a class="floating-wa order-link" data-product="Quick WhatsApp Chat" data-type="General" target="_blank" rel="noopener" href="#" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.24c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.42-.84-.75-1.4-1.69-1.57-1.98-.17-.29-.02-.44.12-.58.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3 .14.19 2.03 3.09 5.01 4.33.71.31 1.26.49 1.69.62.71.22 1.35.19 1.86.12.57-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.13 3.2C9.1 3.2 3.4 8.9 3.4 15.93c0 2.25.59 4.45 1.71 6.39L3.3 28.8l6.66-1.75c1.84 1 3.91 1.53 6.01 1.53 7.03 0 12.73-5.7 12.73-12.73S23.16 3.2 16.13 3.2zm0 23.24c-1.9 0-3.75-.51-5.36-1.47l-.38-.22-3.95 1.04 1.05-3.85-.25-.4a10.55 10.55 0 0 1-1.63-5.61c0-5.82 4.73-10.55 10.55-10.55 2.82 0 5.47 1.1 7.46 3.09a10.48 10.48 0 0 1 3.09 7.46c0 5.82-4.73 10.55-10.58 10.51z"/></svg>
   </a>
 
   <script>
     const PHONE = "923009111424";
+
+    const translations = {
+      en: {
+        brandSub: "Fresh eggs, pure and ethical natural farm supply",
+        brandSub2: "Fresh eggs, pure and ethical natural farm supply",
+        navSubscriptions: "Subscriptions",
+        navShop: "Shop Eggs",
+        navPoultry: "Poultry",
+        navMeat: "Meat",
+        navFaq: "FAQs",
+        navTerms: "Terms",
+        navContact: "Contact",
+        orderWhatsApp: "Order on WhatsApp",
+        heroEyebrow: "Organic Eggs • Poultry • Pure & Ethical Farm Supply",
+        heroTitle: "Farm Fresh Eggs & Poultry from the Heart of Siran Valley",
+        heroText: "Farm fresh eggs, poultry, and ethical natural supply from Siran Valley. Order on WhatsApp in minutes and choose from simple weekly plans or one-time family packs.",
+        heroPrimaryBtn: "Order on WhatsApp",
+        heroSecondaryBtn: "View Subscription Plans",
+        trust1Title: "Mansehra based",
+        trust1Text: "Fresh local supply from Siran Valley.",
+        trust2Title: "Weekly slots",
+        trust2Text: "Easy recurring plans for regular households.",
+        trust3Title: "WhatsApp first",
+        trust3Text: "Simple order confirmation before dispatch.",
+        trust4Title: "Other cities",
+        trust4Text: "Message us to enquire about delivery options.",
+        heroPill1: "Farm fresh eggs",
+        heroPill2: "Lohmann brown eggs",
+        heroPill3: "Poultry & meat",
+        stat1Title: "12 to 60 eggs",
+        stat1Text: "Flexible weekly and monthly plans",
+        stat2Title: "Pure & ethical",
+        stat2Text: "Natural farm supply with trusted service",
+        stat3Title: "Batch fresh supply",
+        stat3Text: "Limited weekly slots for careful fulfillment",
+        howTitle: "How ordering works",
+        howText: "Simple, clear, and fast — designed for a small agri farm launch.",
+        howTag: "3 easy steps",
+        flow1Title: "Choose your product",
+        flow1Text: "Pick a one-time egg pack, a subscription plan, or send a poultry inquiry based on the age group you want.",
+        flow2Title: "Message on WhatsApp",
+        flow2Text: "Click any WhatsApp button and your message opens with product details already filled in for quicker ordering.",
+        flow3Title: "Confirm and receive",
+        flow3Text: "Share your address and preferred timing. Orders are confirmed directly before dispatch or delivery.",
+        subTitle: "Egg subscription plans",
+        subText: "Choose the plan that suits your household and enjoy fresh egg supply from Siran Valley Organic Farm with direct WhatsApp ordering.",
+        subTag: "Aligned with current pack pricing",
+        plan1Tag: "Starter Plan",
+        plan1Title: "12 eggs per week",
+        perMonth: "month",
+        plan1Compare: "Same as 4 weekly 12-egg deliveries",
+        plan1Discount: "Discount active: Save 5% this month",
+        plan1b1: "48 eggs per month",
+        plan1b2: "Aligned with 12-egg pack pricing",
+        plan1b3: "Fresh and convenient weekly supply",
+        plan1b4: "Ideal for light to moderate household use",
+        plan1Urgency: "Limited weekly household slots available.",
+        subscribeBtn: "Subscribe on WhatsApp",
+        plan2Tag: "Most Popular",
+        plan2Title: "30 eggs per week",
+        perMonth2: "month",
+        plan2Compare: "Best fit for regular family use",
+        plan2Discount: "Discount active: Save 10% on family plan",
+        plan2b1: "120 eggs per month",
+        plan2b2: "Aligned with 30-egg crate pricing",
+        plan2b3: "Best for growing families",
+        plan2b4: "Reliable weekly household supply",
+        plan2Urgency: "Popular choice for repeat weekly buyers.",
+        subscribeBtn2: "Subscribe on WhatsApp",
+        plan3Tag: "Premium Plan",
+        plan3Title: "60 eggs per week",
+        perMonth3: "month",
+        plan3Compare: "Strongest value for high egg usage",
+        plan3Discount: "Discount active: Premium family saver offer",
+        plan3b1: "240 eggs per month",
+        plan3b2: "Aligned with 60-egg pack pricing",
+        plan3b3: "Ideal for large households or shared use",
+        plan3b4: "Convenient recurring supply every week",
+        plan3Urgency: "Best suited for larger weekly demand.",
+        subscribeBtn3: "Subscribe on WhatsApp",
+        discountNote: 'Discount rows are switched off by default. To switch them on, add class="show-discounts" to the opening <body> tag near the top of this file.',
+        shopTitle: "Shop eggs one-time",
+        shopText: "Try one-time packs before subscribing, or order exactly what your household needs.",
+        shopTag: "Fresh one-time orders",
+        pack1Title: "6 Egg Pack",
+        pack1Sub: "Trial Pack",
+        pack1Tag: "Entry",
+        pack1Text: "Based on Rs. 40 per egg. A simple first order for new customers.",
+        orderBtn: "Order on WhatsApp",
+        pack2Title: "12 Egg Pack",
+        pack2Sub: "Family Pack",
+        pack2Tag: "Popular",
+        pack2Text: "Based on Rs. 36 per egg. Good for regular weekly household use.",
+        orderBtn2: "Order on WhatsApp",
+        pack3Title: "30 Egg Crate",
+        pack3Sub: "Value Crate",
+        pack3Tag: "Value",
+        pack3Text: "Based on Rs. 32 per egg. Better value for stronger weekly consumption.",
+        orderBtn3: "Order on WhatsApp",
+        pack4Title: "60 Egg Pack",
+        pack4Sub: "Bulk Pack",
+        pack4Tag: "Bulk",
+        pack4Text: "Based on Rs. 30 per egg. Ideal for large households or combined family orders.",
+        orderBtn4: "Order on WhatsApp",
+        poultryTitle: "Poultry listings",
+        poultryText: "Browse poultry at different ages and inquire directly on WhatsApp for current stock, pictures, and future availability.",
+        poultryTag: "Currently out of stock",
+        p1Title: "Day-old chicken",
+        p1Age: "Age: 1 day",
+        p1Price: "Price: Rs. 350",
+        p1Stock: "Stock: Out of stock",
+        p1Text: "Suitable for buyers who want to rear birds from the very beginning.",
+        waitlist: "Join waitlist on WhatsApp.",
+        askBtn: "Ask on WhatsApp",
+        p2Title: "8 weeks old",
+        p2Age: "Age: 8 weeks",
+        p2Price: "Price: Rs. 900",
+        p2Stock: "Stock: Out of stock",
+        p2Text: "A stronger early-stage option for customers looking for growing birds.",
+        waitlist2: "Join waitlist on WhatsApp.",
+        askBtn2: "Ask on WhatsApp",
+        p3Title: "12 weeks old",
+        p3Age: "Age: 12 weeks",
+        p3Price: "Price: Rs. 1,300",
+        p3Stock: "Stock: Out of stock",
+        p3Text: "Ideal for customers who want a more advanced bird with less early-stage care.",
+        waitlist3: "Join waitlist on WhatsApp.",
+        askBtn3: "Ask on WhatsApp",
+        p4Title: "18 weeks old",
+        p4Age: "Age: 18 weeks",
+        p4Price: "Price: Rs. 2,000",
+        p4Stock: "Stock: Out of stock",
+        p4Text: "Well suited for customers looking for near-ready birds with stronger value.",
+        waitlist4: "Join waitlist on WhatsApp.",
+        askBtn4: "Ask on WhatsApp",
+        p5Title: "24 weeks old",
+        p5Age: "Age: 24 weeks",
+        p5Price: "Price: Rs. 2,850",
+        p5Stock: "Stock: Out of stock",
+        p5Text: "A premium mature option for buyers wanting stronger birds with less waiting time.",
+        waitlist5: "Join waitlist on WhatsApp.",
+        askBtn5: "Ask on WhatsApp",
+        meatTitle: "Fresh chicken meat",
+        meatText: "Fresh chicken meat offerings will be added soon as part of the growing Siran Valley Organic Farm range. This section is already ready for future whole chicken and cuts pricing.",
+        meatPill1: "Whole chicken",
+        meatPill2: "Fresh cuts",
+        meatPill3: "Coming soon",
+        whyTitle: "Why choose Siran Valley Organic Farm",
+        why1Title: "Fresh farm collection",
+        why1Text: "Eggs and poultry positioned around freshness, purity, and trusted supply.",
+        why2Title: "Pure and ethical supply",
+        why2Text: "Built around a clean, natural, and values-driven farm brand.",
+        why3Title: "Reliable weekly subscriptions",
+        why3Text: "Designed for households that want consistent egg supply every week.",
+        why4Title: "Direct WhatsApp ordering",
+        why4Text: "Quick ordering, simple communication, and easy customer support.",
+        faqTitle: "FAQs — buying on WhatsApp",
+        faqText: "Simple answers for first-time buyers and subscription customers.",
+        faqTag: "WhatsApp-first ordering",
+        faq1q: "How do I place an order on WhatsApp?",
+        faq1a: "Click any WhatsApp button on the website. Your message will open with the product name already filled in. Send your name, address, city, and preferred delivery day.",
+        faq2q: "Do you deliver only in Mansehra?",
+        faq2a: "Current website messaging is focused on Mansehra. If you are outside Mansehra, message on WhatsApp to enquire about delivery options for your city.",
+        faq3q: "How do subscriptions work?",
+        faq3a: "Subscriptions are recurring supply plans based on weekly egg quantities. You confirm your plan on WhatsApp, and delivery timing is agreed directly with you before dispatch.",
+        faq4q: "Can I order one-time packs first and subscribe later?",
+        faq4a: "Yes. Many buyers start with one-time packs before moving to a weekly or monthly plan.",
+        faq5q: "What if poultry is out of stock?",
+        faq5a: "You can still message on WhatsApp to register interest. Siran Valley can update you when the next batch becomes available.",
+        faq6q: "Will online payment be added later?",
+        faq6a: "Yes. The website structure is ready for future payment integration when you decide to move beyond WhatsApp-first ordering.",
+        faq7q: "Do prices stay fixed?",
+        faq7a: "Prices shown on the website are current display prices and may be updated over time based on supply, feed, packaging, delivery, or promotional offers.",
+        termsTitle: "Terms & conditions",
+        termsText: "Simple customer-facing terms designed for WhatsApp orders, subscriptions, and future scale-up.",
+        termsTag: "For website & WhatsApp sales",
+        termsIntro: "These terms are written for your current operation: WhatsApp-first ordering, manual confirmation, displayed website prices, out-of-stock poultry, and future payment integration.",
+        t1h: "1. Orders",
+        t1b: "All orders placed through the website are completed through WhatsApp confirmation. An order is considered confirmed only after Siran Valley Organic Farm acknowledges it directly.",
+        t2h: "2. Product availability",
+        t2b: "Egg packs, subscriptions, poultry, and meat offerings are subject to availability. Poultry listings marked out of stock are for inquiry and future reservation interest only.",
+        t3h: "3. Pricing",
+        t3b: "Prices displayed on the website are current selling prices and may change without prior notice. Promotional discounts may be introduced later and will apply only when clearly displayed.",
+        t4h: "4. Subscriptions",
+        t4b: "Subscription plans are recurring supply arrangements agreed directly on WhatsApp. Frequency, quantity, and delivery arrangements are confirmed with each customer. Changes or pauses should be communicated in advance.",
+        t5h: "5. Delivery",
+        t5b: "Orders are handled from Mansehra. Customers outside Mansehra can enquire on WhatsApp about possible delivery options before placing an order.",
+        t6h: "6. Cancellations and changes",
+        t6b: "For one-time orders, customers should notify Siran Valley as early as possible if they wish to cancel or change an order. For subscriptions, notice should be given before the next dispatch cycle.",
+        t7h: "7. Product handling",
+        t7b: "Eggs and poultry should be checked upon receipt. Eggs should be stored appropriately after delivery. Poultry buyers are responsible for proper handling, housing, feeding, and care after collection or delivery.",
+        t8h: "8. Website information",
+        t8b: "Product images are used to represent style, packaging, and product category. Actual appearance may vary slightly by batch, season, age, or packaging updates.",
+        t9h: "9. Future payments",
+        t9b: "Online payment methods may be added later. Until then, payment arrangements are handled directly during order confirmation.",
+        t10h: "10. Contact",
+        t10b: "For any order, subscription, stock, or delivery query, customers should contact Siran Valley Organic Farm on WhatsApp using the buttons provided on this website.",
+        contactTitle: "Contact & order",
+        contactText: "Place your egg, poultry, and farm product inquiries directly on WhatsApp.",
+        contactCardTitle: "Order directly on WhatsApp",
+        contactCardText: "Click below to send a general order or inquiry.",
+        openWhatsApp: "Open WhatsApp",
+        bizTitle: "Business details",
+        bizWebLabel: "Website:",
+        bizPhoneLabel: "Phone / WhatsApp:",
+        bizEmailLabel: "Email:",
+        bizLocLabel: "Location:",
+        bizLocText: "Siran Valley, Mansehra, KPK, Pakistan",
+        footerText: "Serving households with fresh eggs, poultry, and natural farm products from Siran Valley.",
+        floatingLabel: "Need help? Chat now"
+      },
+      ur: {
+        brandSub: "تازہ انڈے، خالص اور ذمہ دارانہ قدرتی فارم سپلائی",
+        brandSub2: "تازہ انڈے، خالص اور ذمہ دارانہ قدرتی فارم سپلائی",
+        navSubscriptions: "سبسکرپشن",
+        navShop: "انڈے خریدیں",
+        navPoultry: "پولٹری",
+        navMeat: "گوشت",
+        navFaq: "اکثر پوچھے گئے سوالات",
+        navTerms: "شرائط",
+        navContact: "رابطہ",
+        orderWhatsApp: "واٹس ایپ پر آرڈر کریں",
+        heroEyebrow: "آرگینک انڈے • پولٹری • خالص اور ذمہ دارانہ فارم سپلائی",
+        heroTitle: "سیرن ویلی کے دل سے تازہ انڈے اور پولٹری",
+        heroText: "سیرن ویلی سے تازہ انڈے، پولٹری اور خالص قدرتی فارم سپلائی حاصل کریں۔ چند منٹ میں واٹس ایپ پر آرڈر کریں اور سادہ ہفتہ وار پلان یا ایک مرتبہ کے خاندانی پیک میں سے انتخاب کریں۔",
+        heroPrimaryBtn: "واٹس ایپ پر آرڈر کریں",
+        heroSecondaryBtn: "سبسکرپشن پلان دیکھیں",
+        trust1Title: "منسہرہ سے",
+        trust1Text: "سیرن ویلی سے تازہ مقامی سپلائی۔",
+        trust2Title: "ہفتہ وار سلاٹس",
+        trust2Text: "گھریلو استعمال کے لیے آسان مسلسل پلان۔",
+        trust3Title: "واٹس ایپ پہلے",
+        trust3Text: "ڈسپیچ سے پہلے آسان آرڈر تصدیق۔",
+        trust4Title: "دیگر شہر",
+        trust4Text: "ڈیلیوری آپشن کے لیے واٹس ایپ پر رابطہ کریں۔",
+        heroPill1: "تازہ فارم انڈے",
+        heroPill2: "لوہمین براؤن انڈے",
+        heroPill3: "پولٹری اور گوشت",
+        stat1Title: "12 سے 60 انڈے",
+        stat1Text: "لچکدار ہفتہ وار اور ماہانہ پلان",
+        stat2Title: "خالص اور ذمہ دارانہ",
+        stat2Text: "قدرتی فارم سپلائی اور قابل اعتماد سروس",
+        stat3Title: "تازہ بیچ سپلائی",
+        stat3Text: "محدود ہفتہ وار سلاٹس کے ساتھ محتاط فراہمی",
+        howTitle: "آرڈر کیسے کریں",
+        howText: "سادہ، واضح اور تیز — ایک چھوٹے زرعی فارم لانچ کے لیے تیار۔",
+        howTag: "3 آسان مراحل",
+        flow1Title: "اپنی پروڈکٹ منتخب کریں",
+        flow1Text: "ایک مرتبہ کا انڈہ پیک، سبسکرپشن پلان، یا مطلوبہ عمر کے مطابق پولٹری انکوائری منتخب کریں۔",
+        flow2Title: "واٹس ایپ پر پیغام بھیجیں",
+        flow2Text: "ویب سائٹ کے کسی بھی واٹس ایپ بٹن پر کلک کریں، آپ کا پیغام پروڈکٹ تفصیل کے ساتھ خود بخود کھل جائے گا۔",
+        flow3Title: "تصدیق کریں اور وصول کریں",
+        flow3Text: "اپنا پتہ اور پسندیدہ وقت شیئر کریں۔ ڈسپیچ یا فراہمی سے پہلے آرڈر براہ راست تصدیق کیا جائے گا۔",
+        subTitle: "انڈوں کے سبسکرپشن پلان",
+        subText: "اپنے گھرانے کے لیے موزوں پلان منتخب کریں اور سیرن ویلی آرگینک فارم سے تازہ انڈوں کی سپلائی حاصل کریں۔",
+        subTag: "موجودہ پیک قیمتوں کے مطابق",
+        plan1Tag: "اسٹارٹر پلان",
+        plan1Title: "12 انڈے فی ہفتہ",
+        perMonth: "ماہ",
+        plan1Compare: "4 ہفتہ وار 12 انڈوں کی ڈیلیوری کے برابر",
+        plan1Discount: "رعایت فعال: اس ماہ 5% بچت",
+        plan1b1: "48 انڈے فی ماہ",
+        plan1b2: "12 انڈوں والے پیک کی قیمت کے مطابق",
+        plan1b3: "تازہ اور آسان ہفتہ وار سپلائی",
+        plan1b4: "کم یا درمیانے استعمال والے گھرانوں کے لیے موزوں",
+        plan1Urgency: "محدود ہفتہ وار گھریلو سلاٹس دستیاب ہیں۔",
+        subscribeBtn: "واٹس ایپ پر سبسکرائب کریں",
+        plan2Tag: "سب سے مقبول",
+        plan2Title: "30 انڈے فی ہفتہ",
+        perMonth2: "ماہ",
+        plan2Compare: "باقاعدہ خاندان کے لیے بہترین انتخاب",
+        plan2Discount: "رعایت فعال: فیملی پلان پر 10% بچت",
+        plan2b1: "120 انڈے فی ماہ",
+        plan2b2: "30 انڈوں والی کریٹ کی قیمت کے مطابق",
+        plan2b3: "بڑھتے ہوئے خاندانوں کے لیے بہترین",
+        plan2b4: "قابل اعتماد ہفتہ وار گھریلو سپلائی",
+        plan2Urgency: "مسلسل ہفتہ وار خریداروں کی پسندیدہ چوائس۔",
+        subscribeBtn2: "واٹس ایپ پر سبسکرائب کریں",
+        plan3Tag: "پریمیم پلان",
+        plan3Title: "60 انڈے فی ہفتہ",
+        perMonth3: "ماہ",
+        plan3Compare: "زیادہ استعمال کے لیے بہترین قدر",
+        plan3Discount: "رعایت فعال: پریمیم فیملی سیور آفر",
+        plan3b1: "240 انڈے فی ماہ",
+        plan3b2: "60 انڈوں والے پیک کی قیمت کے مطابق",
+        plan3b3: "بڑے گھرانوں یا مشترکہ استعمال کے لیے موزوں",
+        plan3b4: "ہر ہفتے آسان مسلسل سپلائی",
+        plan3Urgency: "زیادہ ہفتہ وار طلب کے لیے بہترین۔",
+        subscribeBtn3: "واٹس ایپ پر سبسکرائب کریں",
+        discountNote: 'رعایت کی قطاریں ڈیفالٹ طور پر بند ہیں۔ انہیں آن کرنے کے لیے فائل کے اوپر باڈی ٹیگ میں class="show-discounts" شامل کریں۔',
+        shopTitle: "ایک مرتبہ انڈے خریدیں",
+        shopText: "سبسکرپشن سے پہلے ایک مرتبہ کے پیک آزمائیں یا اپنے گھرانے کی ضرورت کے مطابق آرڈر کریں۔",
+        shopTag: "تازہ ایک مرتبہ آرڈر",
+        pack1Title: "6 انڈوں کا پیک",
+        pack1Sub: "ٹرائل پیک",
+        pack1Tag: "ابتدائی",
+        pack1Text: "فی انڈہ 40 روپے کے حساب سے۔ نئے گاہکوں کے لیے آسان پہلا آرڈر۔",
+        orderBtn: "واٹس ایپ پر آرڈر کریں",
+        pack2Title: "12 انڈوں کا پیک",
+        pack2Sub: "فیملی پیک",
+        pack2Tag: "مقبول",
+        pack2Text: "فی انڈہ 36 روپے کے حساب سے۔ باقاعدہ ہفتہ وار گھریلو استعمال کے لیے مناسب۔",
+        orderBtn2: "واٹس ایپ پر آرڈر کریں",
+        pack3Title: "30 انڈوں کی کریٹ",
+        pack3Sub: "ویلیو کریٹ",
+        pack3Tag: "قدر",
+        pack3Text: "فی انڈہ 32 روپے کے حساب سے۔ زیادہ ہفتہ وار استعمال کے لیے بہتر ویلیو۔",
+        orderBtn3: "واٹس ایپ پر آرڈر کریں",
+        pack4Title: "60 انڈوں کا پیک",
+        pack4Sub: "بلک پیک",
+        pack4Tag: "بلک",
+        pack4Text: "فی انڈہ 30 روپے کے حساب سے۔ بڑے گھرانوں یا مشترکہ آرڈر کے لیے بہترین۔",
+        orderBtn4: "واٹس ایپ پر آرڈر کریں",
+        poultryTitle: "پولٹری کی فہرست",
+        poultryText: "مختلف عمر کی پولٹری دیکھیں اور موجودہ اسٹاک، تصاویر اور دستیابی کے لیے واٹس ایپ پر رابطہ کریں۔",
+        poultryTag: "فی الحال اسٹاک میں نہیں",
+        p1Title: "ایک دن کی چوزہ",
+        p1Age: "عمر: 1 دن",
+        p1Price: "قیمت: 350 روپے",
+        p1Stock: "اسٹاک: دستیاب نہیں",
+        p1Text: "ان خریداروں کے لیے مناسب جو آغاز سے پرورش کرنا چاہتے ہیں۔",
+        waitlist: "واٹس ایپ پر ویٹ لسٹ میں شامل ہوں۔",
+        askBtn: "واٹس ایپ پر پوچھیں",
+        p2Title: "8 ہفتے عمر",
+        p2Age: "عمر: 8 ہفتے",
+        p2Price: "قیمت: 900 روپے",
+        p2Stock: "اسٹاک: دستیاب نہیں",
+        p2Text: "بڑھتی ہوئی مرغیوں کے لیے زیادہ مضبوط ابتدائی مرحلہ۔",
+        waitlist2: "واٹس ایپ پر ویٹ لسٹ میں شامل ہوں۔",
+        askBtn2: "واٹس ایپ پر پوچھیں",
+        p3Title: "12 ہفتے عمر",
+        p3Age: "عمر: 12 ہفتے",
+        p3Price: "قیمت: 1300 روپے",
+        p3Stock: "اسٹاک: دستیاب نہیں",
+        p3Text: "ان خریداروں کے لیے مناسب جو زیادہ آگے بڑھی ہوئی پرندہ چاہتے ہیں۔",
+        waitlist3: "واٹس ایپ پر ویٹ لسٹ میں شامل ہوں۔",
+        askBtn3: "واٹس ایپ پر پوچھیں",
+        p4Title: "18 ہفتے عمر",
+        p4Age: "عمر: 18 ہفتے",
+        p4Price: "قیمت: 2000 روپے",
+        p4Stock: "اسٹاک: دستیاب نہیں",
+        p4Text: "قریباً تیار پرندوں کے لیے بہترین انتخاب۔",
+        waitlist4: "واٹس ایپ پر ویٹ لسٹ میں شامل ہوں۔",
+        askBtn4: "واٹس ایپ پر پوچھیں",
+        p5Title: "24 ہفتے عمر",
+        p5Age: "عمر: 24 ہفتے",
+        p5Price: "قیمت: 2850 روپے",
+        p5Stock: "اسٹاک: دستیاب نہیں",
+        p5Text: "زیادہ مضبوط اور پختہ پرت والے پرندے کے خواہاں خریداروں کے لیے مناسب۔",
+        waitlist5: "واٹس ایپ پر ویٹ لسٹ میں شامل ہوں۔",
+        askBtn5: "واٹس ایپ پر پوچھیں",
+        meatTitle: "تازہ چکن گوشت",
+        meatText: "تازہ چکن گوشت کی پیشکش جلد ہی سیرن ویلی آرگینک فارم کی بڑھتی ہوئی رینج میں شامل کی جائے گی۔ یہ سیکشن مستقبل میں پورا چکن اور مختلف کٹس کی قیمتوں کے لیے تیار ہے۔",
+        meatPill1: "پورا چکن",
+        meatPill2: "تازہ کٹس",
+        meatPill3: "جلد آرہا ہے",
+        whyTitle: "سیرن ویلی آرگینک فارم کیوں منتخب کریں",
+        why1Title: "تازہ فارم کلیکشن",
+        why1Text: "انڈے اور پولٹری تازگی، خالص پن اور قابل اعتماد سپلائی کے ساتھ پیش کیے جاتے ہیں۔",
+        why2Title: "خالص اور ذمہ دارانہ سپلائی",
+        why2Text: "صاف، قدرتی اور اقدار پر مبنی فارم برانڈ کے طور پر تیار کیا گیا ہے۔",
+        why3Title: "قابل اعتماد ہفتہ وار سبسکرپشن",
+        why3Text: "ان گھرانوں کے لیے جو ہر ہفتے مسلسل انڈوں کی سپلائی چاہتے ہیں۔",
+        why4Title: "براہ راست واٹس ایپ آرڈرنگ",
+        why4Text: "تیز آرڈرنگ، آسان رابطہ اور بہتر کسٹمر سپورٹ۔",
+        faqTitle: "اکثر پوچھے گئے سوالات — واٹس ایپ پر خریداری",
+        faqText: "پہلی بار خریدنے والوں اور سبسکرپشن صارفین کے لیے سادہ جوابات۔",
+        faqTag: "واٹس ایپ کے ذریعے آرڈرنگ",
+        faq1q: "میں واٹس ایپ پر آرڈر کیسے دوں؟",
+        faq1a: "ویب سائٹ پر موجود کسی بھی واٹس ایپ بٹن پر کلک کریں۔ آپ کا پیغام پروڈکٹ نام کے ساتھ کھل جائے گا۔ اپنا نام، پتہ، شہر اور پسندیدہ ڈیلیوری دن بھیجیں۔",
+        faq2q: "کیا صرف منسہرہ میں ڈیلیوری ہوتی ہے؟",
+        faq2a: "ویب سائٹ کی موجودہ معلومات منسہرہ پر مرکوز ہیں۔ اگر آپ منسہرہ سے باہر ہیں تو اپنے شہر کے لیے ڈیلیوری آپشن جاننے کے لیے واٹس ایپ پر رابطہ کریں۔",
+        faq3q: "سبسکرپشن کیسے کام کرتی ہے؟",
+        faq3a: "سبسکرپشن ہفتہ وار انڈوں کی مقدار پر مبنی مسلسل سپلائی پلان ہیں۔ آپ واٹس ایپ پر اپنا پلان کنفرم کرتے ہیں اور پھر ڈیلیوری ٹائمنگ طے کی جاتی ہے۔",
+        faq4q: "کیا میں پہلے ایک مرتبہ کا پیک لے کر بعد میں سبسکرائب کر سکتا ہوں؟",
+        faq4a: "جی ہاں، بہت سے خریدار پہلے ایک مرتبہ کا پیک لیتے ہیں اور بعد میں ہفتہ وار یا ماہانہ پلان منتخب کرتے ہیں۔",
+        faq5q: "اگر پولٹری اسٹاک میں نہ ہو تو کیا ہوگا؟",
+        faq5a: "آپ پھر بھی واٹس ایپ پر دلچسپی درج کرا سکتے ہیں۔ اگلا بیچ دستیاب ہونے پر سیرن ویلی آپ کو آگاہ کر سکتا ہے۔",
+        faq6q: "کیا آن لائن ادائیگی بعد میں شامل کی جائے گی؟",
+        faq6a: "جی ہاں، ویب سائٹ کی ساخت مستقبل میں ادائیگی کے نظام کے لیے تیار ہے۔",
+        faq7q: "کیا قیمتیں مستقل رہتی ہیں؟",
+        faq7a: "ویب سائٹ پر دکھائی گئی قیمتیں موجودہ قیمتیں ہیں اور سپلائی، فیڈ، پیکجنگ، ڈیلیوری یا پروموشن کے مطابق بدل سکتی ہیں۔",
+        termsTitle: "شرائط و ضوابط",
+        termsText: "واٹس ایپ آرڈرز، سبسکرپشن اور آئندہ توسیع کے لیے سادہ صارف دوست شرائط۔",
+        termsTag: "ویب سائٹ اور واٹس ایپ فروخت کے لیے",
+        termsIntro: "یہ شرائط آپ کے موجودہ آپریشن کے مطابق لکھی گئی ہیں: واٹس ایپ کے ذریعے آرڈر، دستی تصدیق، ویب سائٹ کی قیمتیں، پولٹری کا آؤٹ آف اسٹاک ہونا، اور مستقبل کی ادائیگی کی سہولت۔",
+        t1h: "1. آرڈرز",
+        t1b: "ویب سائٹ کے ذریعے کیے گئے تمام آرڈرز واٹس ایپ تصدیق کے ذریعے مکمل ہوں گے۔ آرڈر اسی وقت کنفرم سمجھا جائے گا جب سیرن ویلی آرگینک فارم براہ راست تصدیق کرے۔",
+        t2h: "2. مصنوعات کی دستیابی",
+        t2b: "انڈوں کے پیک، سبسکرپشن، پولٹری اور گوشت دستیابی سے مشروط ہیں۔ جو پولٹری آؤٹ آف اسٹاک دکھائی گئی ہے وہ صرف انکوائری اور مستقبل کی دلچسپی کے لیے ہے۔",
+        t3h: "3. قیمتیں",
+        t3b: "ویب سائٹ پر درج قیمتیں موجودہ فروختی قیمتیں ہیں اور بغیر پیشگی اطلاع کے تبدیل ہو سکتی ہیں۔ رعایتی آفرز بعد میں شامل کی جا سکتی ہیں اور صرف واضح طور پر دکھائی جانے پر ہی لاگو ہوں گی۔",
+        t4h: "4. سبسکرپشن",
+        t4b: "سبسکرپشن پلان واٹس ایپ کے ذریعے طے کیے گئے مسلسل سپلائی انتظامات ہیں۔ مقدار، وقفہ اور ڈیلیوری کی تفصیلات ہر گاہک کے ساتھ علیحدہ طے کی جاتی ہیں۔",
+        t5h: "5. ڈیلیوری",
+        t5b: "آرڈرز منسہرہ سے ہینڈل کیے جاتے ہیں۔ منسہرہ سے باہر کے صارفین آرڈر سے پہلے واٹس ایپ پر ممکنہ ڈیلیوری آپشن معلوم کر سکتے ہیں۔",
+        t6h: "6. منسوخی اور تبدیلی",
+        t6b: "ایک مرتبہ کے آرڈرز کے لیے گاہکوں کو جلد از جلد اطلاع دینی چاہیے اگر وہ آرڈر منسوخ یا تبدیل کرنا چاہتے ہوں۔ سبسکرپشن کے لیے اگلے ڈسپیچ سے پہلے اطلاع ضروری ہے۔",
+        t7h: "7. مصنوعات کی ہینڈلنگ",
+        t7b: "انڈوں اور پولٹری کو وصول کرتے وقت چیک کیا جائے۔ انڈوں کو مناسب طریقے سے محفوظ رکھا جائے۔ پولٹری خریدار وصولی یا ڈیلیوری کے بعد مناسب نگہداشت، رہائش اور خوراک کے ذمہ دار ہیں۔",
+        t8h: "8. ویب سائٹ کی معلومات",
+        t8b: "پروڈکٹ تصاویر انداز، پیکیجنگ اور زمرہ ظاہر کرنے کے لیے استعمال ہوتی ہیں۔ اصل شکل بیچ، موسم، عمر یا پیکیجنگ اپڈیٹس کے مطابق مختلف ہو سکتی ہے۔",
+        t9h: "9. مستقبل کی ادائیگیاں",
+        t9b: "آن لائن ادائیگی کے طریقے بعد میں شامل کیے جا سکتے ہیں۔ اس وقت تک ادائیگی کی تمام تفصیلات آرڈر کنفرمیشن کے دوران طے ہوں گی۔",
+        t10h: "10. رابطہ",
+        t10b: "کسی بھی آرڈر، سبسکرپشن، اسٹاک یا ڈیلیوری کے سوال کے لیے صارفین واٹس ایپ کے ذریعے سیرن ویلی آرگینک فارم سے رابطہ کریں۔",
+        contactTitle: "رابطہ اور آرڈر",
+        contactText: "اپنے انڈوں، پولٹری اور فارم مصنوعات کے بارے میں واٹس ایپ پر براہ راست رابطہ کریں۔",
+        contactCardTitle: "براہ راست واٹس ایپ پر آرڈر کریں",
+        contactCardText: "نیچے کلک کریں اور عمومی آرڈر یا انکوائری بھیجیں۔",
+        openWhatsApp: "واٹس ایپ کھولیں",
+        bizTitle: "کاروباری معلومات",
+        bizWebLabel: "ویب سائٹ:",
+        bizPhoneLabel: "فون / واٹس ایپ:",
+        bizEmailLabel: "ای میل:",
+        bizLocLabel: "مقام:",
+        bizLocText: "سیرن ویلی، منسہرہ، کے پی کے، پاکستان",
+        footerText: "سیرن ویلی سے تازہ انڈے، پولٹری اور قدرتی فارم مصنوعات کے ساتھ گھرانوں کی خدمت۔",
+        floatingLabel: "مدد چاہیے؟ ابھی چیٹ کریں"
+      }
+    };
+
+    const PHONE = "923009111424";
+
     function makeRef(prefix){
       const now=new Date();
       const y=now.getFullYear().toString().slice(-2);
@@ -402,13 +842,61 @@ DISCOUNT SWITCH
       const min=String(now.getMinutes()).padStart(2,"0");
       return `${prefix}-${y}${m}${d}-${h}${min}`;
     }
-    document.querySelectorAll(".order-link").forEach((el)=>{
-      const product=el.dataset.product||"General Inquiry";
-      const type=el.dataset.type||"General";
-      const ref=makeRef("SV");
-      const message=`Assalamualaikum\nI want to place an order / inquiry with Siran Valley Organic Farm.\n\nOrder Ref: ${ref}\nType: ${type}\nProduct: ${product}\n\nName:\nPhone:\nCity:\nAddress:\nPreferred delivery day:\nQuantity:\nNotes:`;
-      el.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
-    });
+
+    function updateWhatsAppLinks(lang){
+      const productMap = {
+        en: {
+          "General Inquiry":"General Inquiry","Hero Order":"Hero Order","General Order":"General Order","Quick WhatsApp Chat":"Quick WhatsApp Chat",
+          "Starter Plan":"Starter Plan","Family Plan":"Family Plan","Premium Plan":"Premium Plan",
+          "6 Egg Pack":"6 Egg Pack","12 Egg Pack":"12 Egg Pack","30 Egg Crate":"30 Egg Crate","60 Egg Pack":"60 Egg Pack",
+          "Day-old chicken":"Day-old chicken","8 weeks old pullets":"8 weeks old pullets","12 weeks old pullets":"12 weeks old pullets",
+          "18 weeks old ready-to-lay birds":"18 weeks old ready-to-lay birds","24 weeks old mature layers":"24 weeks old mature layers",
+          "General":"General","Subscription":"Subscription","One-Time Pack":"One-Time Pack","Poultry Inquiry":"Poultry Inquiry"
+        },
+        ur: {
+          "General Inquiry":"عمومی معلومات","Hero Order":"ہیرو آرڈر","General Order":"عمومی آرڈر","Quick WhatsApp Chat":"فوری واٹس ایپ چیٹ",
+          "Starter Plan":"اسٹارٹر پلان","Family Plan":"فیملی پلان","Premium Plan":"پریمیم پلان",
+          "6 Egg Pack":"6 انڈوں کا پیک","12 Egg Pack":"12 انڈوں کا پیک","30 Egg Crate":"30 انڈوں کی کریٹ","60 Egg Pack":"60 انڈوں کا پیک",
+          "Day-old chicken":"ایک دن کی چوزہ","8 weeks old pullets":"8 ہفتے عمر پلٹ","12 weeks old pullets":"12 ہفتے عمر پلٹ",
+          "18 weeks old ready-to-lay birds":"18 ہفتے عمر تیار پرندے","24 weeks old mature layers":"24 ہفتے عمر مکمل پرت",
+          "General":"عمومی","Subscription":"سبسکرپشن","One-Time Pack":"ایک مرتبہ پیک","Poultry Inquiry":"پولٹری انکوائری"
+        }
+      };
+      document.querySelectorAll(".order-link").forEach((el)=>{
+        const baseProduct = el.dataset.product || "General Inquiry";
+        const baseType = el.dataset.type || "General";
+        const ref = makeRef("SV");
+        if(lang === "ur"){
+          const message = `السلام علیکم\nمیں سیرن ویلی آرگینک فارم کے ساتھ آرڈر / انکوائری کرنا چاہتا ہوں۔\n\nآرڈر ریفرنس: ${ref}\nقسم: ${productMap.ur[baseType] || baseType}\nپروڈکٹ: ${productMap.ur[baseProduct] || baseProduct}\n\nنام:\nفون:\nشہر:\nپتہ:\nپسندیدہ ڈیلیوری دن:\nمقدار:\nنوٹس:`;
+          el.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+        } else {
+          const message = `Assalamualaikum\nI want to place an order / inquiry with Siran Valley Organic Farm.\n\nOrder Ref: ${ref}\nType: ${productMap.en[baseType] || baseType}\nProduct: ${productMap.en[baseProduct] || baseProduct}\n\nName:\nPhone:\nCity:\nAddress:\nPreferred delivery day:\nQuantity:\nNotes:`;
+          el.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+        }
+      });
+    }
+
+    function setLanguage(lang){
+      const dict = translations[lang];
+      document.documentElement.lang = lang === "ur" ? "ur" : "en";
+      document.body.classList.toggle("rtl", lang === "ur");
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(dict[key] !== undefined){
+          el.innerHTML = dict[key];
+        }
+      });
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.getElementById("btn-ur").classList.toggle("active", lang === "ur");
+      updateWhatsAppLinks(lang);
+      localStorage.setItem("siran_lang", lang);
+    }
+
+    document.getElementById("btn-en").addEventListener("click", ()=>setLanguage("en"));
+    document.getElementById("btn-ur").addEventListener("click", ()=>setLanguage("ur"));
+
+    const savedLang = localStorage.getItem("siran_lang") || "en";
+    setLanguage(savedLang);
   </script>
 </body>
 </html>
