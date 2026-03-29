@@ -3,130 +3,429 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siran Valley Organic Farm | Farm Fresh Eggs & Poultry in Mansehra</title>
-  <meta name="description" content="Farm fresh eggs, subscriptions, poultry, and WhatsApp ordering from Siran Valley Organic Farm in Mansehra, Pakistan." />
-  <meta name="theme-color" content="#f7c64b" />
+  <title>Siran Valley Organic Farm</title>
+  <meta name="description" content="Fresh eggs, poultry, subscriptions, and WhatsApp ordering from Siran Valley Organic Farm." />
+  <meta name="theme-color" content="#47653e" />
   <style>
     :root{
-      --bg:#fffdf8; --text:#213126; --muted:#657166; --brand:#1fa855; --brand-dark:#148543;
-      --yellow:#f7c64b; --yellow-soft:#fff2c7; --line:#eee4d0; --card:#ffffff; --brown:#805b2d;
-      --shadow:0 12px 30px rgba(28,40,31,.08); --shadow-lg:0 24px 55px rgba(28,40,31,.13);
-      --radius:24px; --max:1180px;
+      --brand:#47653e;
+      --brand-2:#1fa855;
+      --bg:#f8f5ef;
+      --text:#1f2a1f;
+      --muted:#6b7567;
+      --line:#e7ded0;
+      --card:#ffffff;
+      --accent:#f3c96a;
+      --shadow:0 14px 34px rgba(26,31,24,.08);
+      --shadow-lg:0 20px 48px rgba(26,31,24,.12);
+      --radius:24px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(247,198,75,.18), transparent 24%),
-        radial-gradient(circle at top left, rgba(31,168,85,.08), transparent 22%),
-        linear-gradient(180deg,#fffdf8 0%, #fffaf0 100%);
-      line-height:1.6;
+        radial-gradient(circle at top right, rgba(243,201,106,.16), transparent 24%),
+        radial-gradient(circle at top left, rgba(71,101,62,.10), transparent 22%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.58;
     }
+    body.rtl{
+      direction:rtl;
+      font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;
+      line-height:1.85;
+    }
+    body.rtl h1, body.rtl h2, body.rtl h3{letter-spacing:0}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    .container{width:min(var(--max), calc(100% - 28px));margin:0 auto}
-    .section{padding:70px 0}
-    .section.alt{background:linear-gradient(180deg,rgba(255,248,234,.76),rgba(255,255,255,.36))}
-    .nav{position:sticky;top:0;z-index:100;background:rgba(255,253,248,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(238,228,208,.92)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brand img{height:56px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(20,133,67,.12))}
+    .container{width:min(1180px, calc(100% - 28px));margin:0 auto}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(12px);
+      background:rgba(248,245,239,.88);
+      border-bottom:1px solid rgba(231,222,208,.92);
+    }
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;min-width:0}
+    .brand img{height:54px;width:auto}
+    .brand-copy{min-width:0}
     .brand-title{font-weight:900;line-height:1.1}
     .brand-sub{font-size:.92rem;color:var(--muted)}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-weight:700}
+    .nav-links{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-weight:700}
     .nav-links a{position:relative}
-    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--brand);transition:.2s ease}
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:2px;
+      background:var(--brand);
+      transition:.22s ease;
+    }
     .nav-links a:hover{color:var(--text)}
     .nav-links a:hover::after{width:100%}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:14px 20px;border-radius:999px;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.22s ease;text-align:center}
-    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-    .btn-primary{background:linear-gradient(180deg,var(--brand),var(--brand-dark));color:#fff}
-    .btn-secondary{background:#fff;border-color:var(--line);color:var(--text)}
-    .btn-yellow{background:linear-gradient(180deg,#ffd767,#f7c64b);color:#50350b}
 
-    .hero{padding:80px 0 38px}
-    .hero-grid{display:grid;grid-template-columns:.94fr 1.06fr;gap:48px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--brown);font-weight:800;font-size:13px;box-shadow:var(--shadow)}
-    h1{margin:18px 0 14px;font-size:clamp(2.45rem,4.8vw,5.2rem);line-height:1.02;letter-spacing:-.045em}
-    .hero p{color:var(--muted);font-size:1.08rem;max-width:54ch;margin:0 0 24px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-    .trust-inline{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
-    .trust-inline span{font-size:.92rem;font-weight:700;color:#3d4a3f;background:#fff;border:1px solid var(--line);padding:9px 12px;border-radius:999px}
-    .hero-card{background:linear-gradient(180deg,#fff,#fff6df);border:1px solid var(--line);border-radius:32px;padding:20px;box-shadow:var(--shadow-lg);overflow:hidden}
-    .hero-card img{width:100%;border-radius:24px;aspect-ratio:1.15 / 1;object-fit:cover}
-    .hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .pill{padding:8px 11px;border-radius:999px;background:#fff9e6;border:1px solid #f1dfab;color:#745016;font-size:12px;font-weight:800}
-    .quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
-    .stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
-    .stat strong{display:block;font-size:1.12rem}
+    .lang-switch{
+      display:flex;
+      gap:6px;
+      align-items:center;
+      background:#fff;
+      padding:5px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .lang-btn{
+      padding:10px 15px;
+      border:none;
+      background:none;
+      font-weight:900;
+      cursor:pointer;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:.96rem;
+      min-width:68px;
+      transition:.2s ease;
+    }
+    .lang-btn:hover{background:#fff6df;color:var(--text)}
+    .lang-btn.active{
+      background:linear-gradient(180deg,var(--brand),#32492c);
+      color:#fff;
+      box-shadow:0 8px 18px rgba(50,73,44,.18);
+    }
 
-    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:24px}
-    .section-head h2{margin:0;font-size:clamp(1.8rem,2.6vw,2.9rem);letter-spacing:-.03em}
+    .hero{
+      position:relative;
+      height:min(82vh, 880px);
+      overflow:hidden;
+      background:#efe7d2;
+    }
+    .hero-slider{
+      position:relative;
+      width:100%;
+      height:100%;
+    }
+    .slide{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity 1s ease;
+    }
+    .slide.active{opacity:1}
+    .hero-overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      height:130px;
+      background:linear-gradient(180deg, rgba(248,245,239,0) 0%, rgba(248,245,239,.84) 68%, rgba(248,245,239,1) 100%);
+      pointer-events:none;
+      z-index:2;
+    }
+    .hero-dots{
+      position:absolute;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      display:flex;
+      gap:8px;
+      z-index:5;
+    }
+    .hero-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:rgba(255,255,255,.7);
+      border:1px solid rgba(0,0,0,.08);
+      transition:.2s ease;
+    }
+    .hero-dot.active{
+      background:var(--brand);
+      transform:scale(1.18);
+    }
+
+    .section{padding:44px 0}
+    .section.alt{
+      background:linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,248,234,.55));
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:20px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.7rem,2.3vw,2.5rem);
+      letter-spacing:-.03em;
+    }
     .section-head p{margin:0;color:var(--muted);max-width:62ch}
+
     .grid-2,.grid-3,.grid-4,.grid-6{display:grid;gap:18px}
     .grid-2{grid-template-columns:repeat(2,1fr)}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-4{grid-template-columns:repeat(4,1fr)}
     .grid-6{grid-template-columns:repeat(3,1fr)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:.24s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-    .card-img{width:100%;aspect-ratio:1 / 1;object-fit:cover;border-radius:18px;margin-bottom:14px}
-    .product-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-    .price{font-size:2rem;font-weight:900;letter-spacing:-.04em;margin:8px 0 4px}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
+      transition:.22s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-lg);
+    }
+    .card-img{
+      width:100%;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:14px;
+    }
+    .bulk-card-image{object-position:center 46%}
+    .product-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .price{
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:-.035em;
+      margin:8px 0 4px;
+    }
     .muted{color:var(--muted)}
     .small{font-size:.94rem}
+    .hero-pills{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .pill{
+      padding:8px 11px;
+      border-radius:999px;
+      background:#fff9e6;
+      border:1px solid #f1dfab;
+      color:#745016;
+      font-size:12px;
+      font-weight:800;
+    }
     ul.clean{padding:0;margin:14px 0 18px;list-style:none}
     ul.clean li{padding:8px 0;border-bottom:1px dashed var(--line)}
-    .per-egg{font-size:.9rem;color:var(--brown);font-weight:800}
-    .discount-row{display:none;margin-top:10px;padding:10px 12px;border-radius:14px;background:#ecf8ef;border:1px solid #cfe9d6;color:#27633c;font-size:.92rem;font-weight:900}
+    .per-egg{font-size:.9rem;color:#805b2d;font-weight:800}
+    .discount-row{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#ecf8ef;
+      border:1px solid #cfe9d6;
+      color:#27633c;
+      font-size:.92rem;
+      font-weight:900;
+    }
     body.show-discounts .discount-row.has-discount{display:block}
-    .sub-card.featured{border:2px solid rgba(247,198,75,.65);background:linear-gradient(180deg,#fffdf5,#fff8e8);position:relative}
-    .sub-card.featured::before{content:"Best Value";position:absolute;top:16px;right:16px;background:linear-gradient(180deg,#ffd767,#f7c64b);color:#5f3f08;font-weight:900;font-size:12px;padding:8px 11px;border-radius:999px;box-shadow:var(--shadow)}
-    .availability{margin-top:12px;padding:10px 12px;border-radius:14px;background:#fff8ea;border:1px solid #efd8a2;color:#72531a;font-size:.9rem;font-weight:800}
-    .landscape-banner img{width:100%;border-radius:28px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
-    .feature{display:flex;gap:12px;align-items:flex-start}
-    .feature .icon{min-width:42px;height:42px;border-radius:14px;background:#fff5d7;border:1px solid #f0dd9a;display:grid;place-items:center;font-weight:900;color:#7b5a23}
-    .highlight{background:linear-gradient(135deg,#1f8b4c,#2ca85e);color:#fff;border-radius:32px;padding:28px;box-shadow:var(--shadow-lg)}
-    .highlight img{width:100%;border-radius:22px;margin-bottom:16px}
-    .highlight p{color:rgba(255,255,255,.9)}
-    .footer{padding:42px 0 56px;color:var(--muted)}
-    .footer-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:22px;border:1px solid var(--line);background:#fff;border-radius:26px;box-shadow:var(--shadow)}
-    .footer-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .footer-link-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:#fff8ea;border:1px solid #efd8a2;color:#6f4b12;font-weight:800}
-    .footer-link-btn svg{width:18px;height:18px;fill:currentColor}
-    .floating-wa{position:fixed;right:18px;bottom:18px;z-index:99;width:62px;height:62px;border-radius:50%;background:#1fa855;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 28px rgba(31,168,85,.35)}
-    .floating-wa svg{width:30px;height:30px;fill:currentColor}
-    .mobile-bar{display:none}
+    .sub-card.featured{
+      border:2px solid rgba(243,201,106,.8);
+      background:linear-gradient(180deg,#fffdf5,#fff8e8);
+      position:relative;
+    }
+    .sub-card.featured::before{
+      content:"Best Value";
+      position:absolute;
+      top:16px;
+      right:16px;
+      background:linear-gradient(180deg,#ffd767,#f7c64b);
+      color:#5f3f08;
+      font-weight:900;
+      font-size:12px;
+      padding:8px 11px;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+    }
+    body.rtl .sub-card.featured::before{
+      right:auto;
+      left:16px;
+    }
+    .availability{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#fff8ea;
+      border:1px solid #efd8a2;
+      color:#72531a;
+      font-size:.9rem;
+      font-weight:800;
+    }
+    .landscape-banner img{
+      width:100%;
+      border-radius:24px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-lg);
+    }
 
-    body.rtl{direction:rtl;font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85}
-    body.rtl h1,body.rtl h2,body.rtl h3{letter-spacing:0}
-    body.rtl .nav-inner,body.rtl .section-head,body.rtl .footer-top{direction:rtl}
-    body.rtl .brand,body.rtl .hero-actions,body.rtl .trust-inline,body.rtl .hero-pills,body.rtl .feature{flex-direction:row-reverse}
-    body.rtl .nav-links{flex-direction:row-reverse}
-    body.rtl .brand-sub,body.rtl p,body.rtl li,body.rtl .small,body.rtl .muted{text-align:right}
-    .lang-btn.active{background:var(--brand);color:#fff !important}
+    .highlight{
+      background:linear-gradient(135deg,#1f8b4c,#2ca85e);
+      color:#fff;
+      border-radius:30px;
+      padding:28px;
+      box-shadow:var(--shadow-lg);
+    }
+    .highlight img{
+      width:100%;
+      border-radius:20px;
+      margin-bottom:16px;
+    }
+    .highlight p{color:rgba(255,255,255,.9)}
+    .feature{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .feature .icon{
+      min-width:42px;
+      height:42px;
+      border-radius:14px;
+      background:#fff5d7;
+      border:1px solid #f0dd9a;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:#7b5a23;
+    }
+
+    .footer{
+      padding:42px 0 56px;
+      color:var(--muted);
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      padding:22px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:26px;
+      box-shadow:var(--shadow);
+    }
+    .footer-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .footer-link-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:#fff8ea;
+      border:1px solid #efd8a2;
+      color:#6f4b12;
+      font-weight:800;
+    }
+    .footer-link-btn svg{width:18px;height:18px;fill:currentColor}
+
+    .wa{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:66px;
+      height:66px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 14px 28px rgba(0,0,0,.22);
+      animation:pulse 2s infinite;
+      z-index:200;
+      transition:transform .2s ease;
+    }
+    .wa:hover{transform:translateY(-2px) scale(1.03)}
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.48), 0 14px 28px rgba(0,0,0,.22)}
+      70%{box-shadow:0 0 0 18px rgba(37,211,102,0), 0 14px 28px rgba(0,0,0,.22)}
+      100%{box-shadow:0 0 0 0 rgba(37,211,102,0), 0 14px 28px rgba(0,0,0,.22)}
+    }
+    .wa-icon{
+      width:32px;
+      height:32px;
+      fill:#fff;
+      display:block;
+    }
+
+    .mobile-bar{display:none}
+    .btn-mobile{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:800;
+    }
+    .btn-mobile-primary{background:linear-gradient(180deg,var(--brand-2),#148543);color:#fff}
+    .btn-mobile-secondary{background:linear-gradient(180deg,#ffd767,#f7c64b);color:#50350b}
 
     @media (max-width:980px){
-      .hero-grid,.grid-3,.grid-4,.grid-2,.grid-6,.quick-stats{grid-template-columns:1fr}
+      .hero{height:58vh}
       .nav-inner,.section-head,.footer-top{flex-direction:column;align-items:flex-start}
-      .hero{padding-top:36px}
-      .floating-wa{display:none}
-      .mobile-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:120;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;gap:10px;box-shadow:var(--shadow-lg)}
+      .grid-3,.grid-4,.grid-2,.grid-6{grid-template-columns:1fr}
+      .nav-links{gap:12px}
+      .hero-dots{bottom:12px}
+      .lang-switch{align-self:flex-start}
+      .wa{display:none}
+      .mobile-bar{
+        display:flex;
+        position:fixed;
+        left:12px;
+        right:12px;
+        bottom:12px;
+        z-index:120;
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:10px;
+        gap:10px;
+        box-shadow:var(--shadow-lg);
+      }
       .mobile-bar .btn{flex:1}
       body{padding-bottom:86px}
     }
   </style>
 </head>
-<!-- To show discount rows later, change <body> to <body class="show-discounts"> -->
 <body>
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#" class="brand">
         <img src="logo.png" alt="Siran Valley Organic Farm logo">
-        <div>
-          <div class="brand-title">Siran Valley Organic Farm</div>
-          <div class="brand-sub"><span data-i18n="brandSub">Fresh eggs, pure and ethical natural farm supply</span></div>
+        <div class="brand-copy">
+          <div class="brand-title" data-i18n="brandTitle">Siran Valley Organic Farm</div>
+          <div class="brand-sub" data-i18n="brandSub">Fresh eggs, pure and ethical natural farm supply</div>
         </div>
       </a>
 
@@ -138,122 +437,89 @@
         <a href="#contact" data-i18n="navContact">Contact</a>
       </div>
 
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <div class="lang-switch" style="display:flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);padding:4px;border-radius:999px">
-          <button class="lang-btn active" id="btn-en" type="button" style="border:none;background:transparent;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800;color:var(--muted)">EN</button>
-          <button class="lang-btn" id="btn-ur" type="button" style="border:none;background:transparent;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800;color:var(--muted)">اردو</button>
-        </div>
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm." data-i18n="navOrder">Order on WhatsApp</a>
+      <div class="lang-switch" aria-label="Language selector">
+        <button class="lang-btn active" id="btn-en" type="button">EN</button>
+        <button class="lang-btn" id="btn-ur" type="button">اردو</button>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow"><span data-i18n="heroEyebrow">Farm Fresh Eggs • Subscriptions • WhatsApp Ordering</span></div>
-        <h1><span data-i18n="heroTitle">Pure farm eggs and poultry from the clean air of Siran Valley.</span></h1>
-        <p>
-          <span data-i18n="heroText">Fresh eggs for families, simple weekly subscriptions, and poultry enquiries direct from the farm. Built for customers who value quality, freshness, trust, and a cleaner source away from city pollution.</span>
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#subscriptions"><span data-i18n="heroBtn1">View Subscription Plans</span></a>
-          <a class="btn btn-yellow" href="#shop"><span data-i18n="heroBtn2">Shop Egg Packs</span></a>
-        </div>
-
-        <div class="trust-inline">
-          <span><span data-i18n="trust1">WhatsApp-first ordering</span></span>
-          <span><span data-i18n="trust2">Fresh weekly supply</span></span>
-          <span><span data-i18n="trust3">Mansehra based</span></span>
-        </div>
-
-        <div class="quick-stats">
-          <div class="stat">
-            <strong>12 to 60 eggs</strong>
-            <span class="muted small"><span data-i18n="stat1">Flexible weekly and monthly plans</span></span>
-          </div>
-          <div class="stat">
-            <strong>Clean valley air</strong>
-            <span class="muted small"><span data-i18n="stat2">Away from the pollution and congestion of big cities</span></span>
-          </div>
-          <div class="stat">
-            <strong>Direct farm ordering</strong>
-            <span class="muted small"><span data-i18n="stat3">Simple WhatsApp support with quick confirmation</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <img src="hero.png" alt="Farm fresh eggs from Siran Valley Organic Farm">
-        <div class="hero-pills">
-          <span class="pill">Premium egg packs</span>
-          <span class="pill">Household subscriptions</span>
-          <span class="pill">Poultry enquiries</span>
-        </div>
+  <section class="hero">
+    <div class="hero-slider">
+      <img src="hero-1.png" class="slide active" alt="Siran Valley Hero Slide 1">
+      <img src="hero-2.png" class="slide" alt="Siran Valley Hero Slide 2">
+      <img src="hero-3.png" class="slide" alt="Siran Valley Hero Slide 3">
+      <img src="hero-4.png" class="slide" alt="Siran Valley Hero Slide 4">
+      <img src="hero-5.png" class="slide" alt="Siran Valley Hero Slide 5">
+      <img src="hero-6.png" class="slide" alt="Siran Valley Hero Slide 6">
+      <div class="hero-overlay"></div>
+      <div class="hero-dots">
+        <span class="hero-dot active"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
       </div>
     </div>
-  </header>
+  </section>
 
   <section class="section alt" id="subscriptions">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2><span data-i18n="subTitle">Egg subscription plans</span></h2>
-          <p><span data-i18n="subText">Choose the plan that fits your household and receive fresh eggs with a simple WhatsApp-first ordering flow.</span></p>
+          <h2 data-i18n="subTitle">Egg subscription plans</h2>
+          <p data-i18n="subText">Choose the plan that fits your household and receive fresh eggs with a simple WhatsApp-first ordering flow.</p>
         </div>
       </div>
 
       <div class="grid-3">
         <article class="card sub-card">
           <img class="card-img" src="eggs-12.png" alt="12 egg subscription plan">
-          <span class="pill">Starter Plan</span>
-          <h3>12 eggs per week</h3>
+          <span class="pill" data-i18n="starterTag">Starter Plan</span>
+          <h3 data-i18n="starterName">12 eggs per week</h3>
           <div class="price">Rs. 1,728<span class="small muted"> / month</span></div>
-          <div class="per-egg">Equivalent to Rs. 36 per egg</div>
-          <div class="discount-row">Save 5% this month</div>
+          <div class="per-egg" data-i18n="starterPerEgg">Equivalent to Rs. 36 per egg</div>
+          <div class="discount-row" data-i18n="starterDiscount">Save 5% this month</div>
           <ul class="clean">
-            <li>48 eggs per month</li>
-            <li>Aligned with 12-egg pack pricing</li>
-            <li>Fresh and convenient weekly supply</li>
-            <li>Ideal for light to moderate household use</li>
+            <li data-i18n="starterL1">48 eggs per month</li>
+            <li data-i18n="starterL2">Aligned with 12-egg pack pricing</li>
+            <li data-i18n="starterL3">Fresh and convenient weekly supply</li>
+            <li data-i18n="starterL4">Ideal for light to moderate household use</li>
           </ul>
-          <div class="availability">Limited daily and weekly supply slots available.</div>
-          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Starter%20Plan%20(12%20eggs%20per%20week).%0AName%3A%0AAddress%3A%0APreferred%20delivery%20day%3A">Subscribe on WhatsApp</a>
+          <div class="availability" data-i18n="starterAvail">Limited daily and weekly supply slots available.</div>
         </article>
 
         <article class="card sub-card featured">
           <img class="card-img" src="eggs-30.png" alt="30 egg subscription plan">
-          <span class="pill">Most Popular</span>
-          <h3>30 eggs per week</h3>
+          <span class="pill" data-i18n="popularTag">Most Popular</span>
+          <h3 data-i18n="popularName">30 eggs per week</h3>
           <div class="price">Rs. 3,840<span class="small muted"> / month</span></div>
-          <div class="per-egg">Equivalent to Rs. 32 per egg</div>
-          <div class="discount-row has-discount">Save 10% on family plan</div>
+          <div class="per-egg" data-i18n="popularPerEgg">Equivalent to Rs. 32 per egg</div>
+          <div class="discount-row has-discount" data-i18n="popularDiscount">Save 10% on family plan</div>
           <ul class="clean">
-            <li>120 eggs per month</li>
-            <li>Aligned with 30-egg crate pricing</li>
-            <li>Best for growing families</li>
-            <li>Reliable weekly household supply</li>
+            <li data-i18n="popularL1">120 eggs per month</li>
+            <li data-i18n="popularL2">Aligned with 30-egg crate pricing</li>
+            <li data-i18n="popularL3">Best for growing families</li>
+            <li data-i18n="popularL4">Reliable weekly household supply</li>
           </ul>
-          <div class="availability">Popular choice for repeat weekly buyers and family homes.</div>
-          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Family%20Plan%20(30%20eggs%20per%20week).%0AName%3A%0AAddress%3A%0APreferred%20delivery%20day%3A">Subscribe on WhatsApp</a>
+          <div class="availability" data-i18n="popularAvail">Popular choice for repeat weekly buyers and family homes.</div>
         </article>
 
         <article class="card sub-card">
           <img class="card-img" src="eggs-60.png" alt="60 egg subscription plan">
-          <span class="pill">Premium Plan</span>
-          <h3>60 eggs per week</h3>
+          <span class="pill" data-i18n="premiumTag">Premium Plan</span>
+          <h3 data-i18n="premiumName">60 eggs per week</h3>
           <div class="price">Rs. 7,200<span class="small muted"> / month</span></div>
-          <div class="per-egg">Equivalent to Rs. 30 per egg</div>
-          <div class="discount-row">Save 12% this month</div>
+          <div class="per-egg" data-i18n="premiumPerEgg">Equivalent to Rs. 30 per egg</div>
+          <div class="discount-row" data-i18n="premiumDiscount">Save 12% this month</div>
           <ul class="clean">
-            <li>240 eggs per month</li>
-            <li>Aligned with 60-egg pack pricing</li>
-            <li>Ideal for large households or shared use</li>
-            <li>Convenient recurring supply every week</li>
+            <li data-i18n="premiumL1">240 eggs per month</li>
+            <li data-i18n="premiumL2">Aligned with 60-egg pack pricing</li>
+            <li data-i18n="premiumL3">Ideal for large households or shared use</li>
+            <li data-i18n="premiumL4">Convenient recurring supply every week</li>
           </ul>
-          <div class="availability">Best suited for larger households and shared use.</div>
-          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Premium%20Plan%20(60%20eggs%20per%20week).%0AName%3A%0AAddress%3A%0APreferred%20delivery%20day%3A">Subscribe on WhatsApp</a>
+          <div class="availability" data-i18n="premiumAvail">Best suited for larger households and shared use.</div>
         </article>
       </div>
     </div>
@@ -263,8 +529,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2><span data-i18n="shopTitle">Shop eggs one-time</span></h2>
-          <p><span data-i18n="shopText">Perfect for first-time buyers, trial orders, or households who want flexibility before subscribing.</span></p>
+          <h2 data-i18n="shopTitle">Shop eggs one-time</h2>
+          <p data-i18n="shopText">Perfect for first-time buyers, trial orders, or households who want flexibility before subscribing.</p>
         </div>
       </div>
 
@@ -272,45 +538,41 @@
         <article class="card">
           <img class="card-img" src="eggs-6.png" alt="6 egg pack">
           <div class="product-head">
-            <div><h3>6 Egg Pack</h3><div class="muted small">Trial Pack</div></div>
-            <div class="pill">Entry</div>
+            <div><h3 data-i18n="pack6Title">6 Egg Pack</h3><div class="muted small" data-i18n="pack6Sub">Trial Pack</div></div>
+            <div class="pill" data-i18n="pack6Tag">Entry</div>
           </div>
           <div class="price">Rs. 240</div>
-          <p class="muted">Based on Rs. 40 per egg. A simple first order for new customers.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%206%20Egg%20Pack.">Order on WhatsApp</a>
+          <p class="muted" data-i18n="pack6Text">Based on Rs. 40 per egg. A simple first order for new customers.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="eggs-12.png" alt="12 egg pack">
           <div class="product-head">
-            <div><h3>12 Egg Pack</h3><div class="muted small">Family Pack</div></div>
-            <div class="pill">Popular</div>
+            <div><h3 data-i18n="pack12Title">12 Egg Pack</h3><div class="muted small" data-i18n="pack12Sub">Family Pack</div></div>
+            <div class="pill" data-i18n="pack12Tag">Popular</div>
           </div>
           <div class="price">Rs. 432</div>
-          <p class="muted">Based on Rs. 36 per egg. Good for regular weekly household use.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2012%20Egg%20Pack.">Order on WhatsApp</a>
+          <p class="muted" data-i18n="pack12Text">Based on Rs. 36 per egg. Good for regular weekly household use.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="eggs-30.png" alt="30 egg crate">
           <div class="product-head">
-            <div><h3>30 Egg Crate</h3><div class="muted small">Value Crate</div></div>
-            <div class="pill">Value</div>
+            <div><h3 data-i18n="pack30Title">30 Egg Crate</h3><div class="muted small" data-i18n="pack30Sub">Value Crate</div></div>
+            <div class="pill" data-i18n="pack30Tag">Value</div>
           </div>
           <div class="price">Rs. 960</div>
-          <p class="muted">Based on Rs. 32 per egg. Better value for stronger weekly consumption.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2030%20Egg%20Crate.">Order on WhatsApp</a>
+          <p class="muted" data-i18n="pack30Text">Based on Rs. 32 per egg. Better value for stronger weekly consumption.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="eggs-60.png" alt="60 egg bulk pack">
           <div class="product-head">
-            <div><h3>60 Egg Pack</h3><div class="muted small">Bulk Pack</div></div>
-            <div class="pill">Bulk</div>
+            <div><h3 data-i18n="pack60Title">60 Egg Pack</h3><div class="muted small" data-i18n="pack60Sub">Bulk Pack</div></div>
+            <div class="pill" data-i18n="pack60Tag">Bulk</div>
           </div>
           <div class="price">Rs. 1,800</div>
-          <p class="muted">Based on Rs. 30 per egg. Ideal for large households or combined family orders.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2060%20Egg%20Pack.">Order on WhatsApp</a>
+          <p class="muted" data-i18n="pack60Text">Based on Rs. 30 per egg. Ideal for large households or combined family orders.</p>
         </article>
       </div>
     </div>
@@ -320,58 +582,52 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2><span data-i18n="poultryTitle">Poultry listings</span></h2>
-          <p><span data-i18n="poultryText">Browse key poultry offers and enquire directly on WhatsApp for current availability, age, and batch details.</span></p>
+          <h2 data-i18n="poultryTitle">Poultry listings</h2>
+          <p data-i18n="poultryText">Browse key poultry offers and enquire directly on WhatsApp for current availability, age, and batch details.</p>
         </div>
       </div>
 
       <div class="grid-6">
         <article class="card">
           <img class="card-img" src="chicks-day-old.png" alt="Day Old Chicks">
-          <h3>Day-old chicken</h3>
-          <div class="hero-pills"><span class="pill">Age: 1 day</span><span class="pill">Price: Rs. 350</span><span class="pill">Out of stock</span></div>
-          <p class="muted">Suitable for buyers who want to rear birds from the very beginning.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%20Day-old%20chicken.%20Please%20share%20availability%20and%20details.">Ask on WhatsApp</a>
+          <h3 data-i18n="p1Title">Day-old chicken</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p1Age">Age: 1 day</span><span class="pill" data-i18n="p1Price">Price: Rs. 350</span><span class="pill" data-i18n="outStock">Out of stock</span></div>
+          <p class="muted" data-i18n="p1Text">Suitable for buyers who want to rear birds from the very beginning.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="chicks-8week.png" alt="8 Weeks Pullets">
-          <h3>8 weeks old</h3>
-          <div class="hero-pills"><span class="pill">Age: 8 weeks</span><span class="pill">Price: Rs. 900</span><span class="pill">Out of stock</span></div>
-          <p class="muted">A stronger early-stage option for customers looking for growing birds.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%208%20weeks%20old%20pullets.%20Please%20share%20availability%20and%20details.">Ask on WhatsApp</a>
+          <h3 data-i18n="p2Title">8 weeks old</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p2Age">Age: 8 weeks</span><span class="pill" data-i18n="p2Price">Price: Rs. 900</span><span class="pill" data-i18n="outStock2">Out of stock</span></div>
+          <p class="muted" data-i18n="p2Text">A stronger early-stage option for customers looking for growing birds.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="chicks-12week.png" alt="12 Weeks Pullets">
-          <h3>12 weeks old</h3>
-          <div class="hero-pills"><span class="pill">Age: 12 weeks</span><span class="pill">Price: Rs. 1,300</span><span class="pill">Out of stock</span></div>
-          <p class="muted">Ideal for customers who want a more advanced bird with less early-stage care.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2012%20weeks%20old%20pullets.%20Please%20share%20availability%20and%20details.">Ask on WhatsApp</a>
+          <h3 data-i18n="p3Title">12 weeks old</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p3Age">Age: 12 weeks</span><span class="pill" data-i18n="p3Price">Price: Rs. 1,300</span><span class="pill" data-i18n="outStock3">Out of stock</span></div>
+          <p class="muted" data-i18n="p3Text">Ideal for customers who want a more advanced bird with less early-stage care.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="chicks-18week.png" alt="18 Weeks Ready to Lay">
-          <h3>18 weeks old</h3>
-          <div class="hero-pills"><span class="pill">Age: 18 weeks</span><span class="pill">Price: Rs. 2,000</span><span class="pill">Out of stock</span></div>
-          <p class="muted">Well suited for customers looking for near-ready birds with stronger value.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2018%20weeks%20old%20ready-to-lay%20birds.%20Please%20share%20availability%20and%20details.">Ask on WhatsApp</a>
+          <h3 data-i18n="p4Title">18 weeks old</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p4Age">Age: 18 weeks</span><span class="pill" data-i18n="p4Price">Price: Rs. 2,000</span><span class="pill" data-i18n="outStock4">Out of stock</span></div>
+          <p class="muted" data-i18n="p4Text">Well suited for customers looking for near-ready birds with stronger value.</p>
         </article>
 
         <article class="card">
           <img class="card-img" src="chicks-24week.png" alt="24 Week Mature Layer">
-          <h3>24 weeks old</h3>
-          <div class="hero-pills"><span class="pill">Age: 24 weeks</span><span class="pill">Price: Rs. 2,850</span><span class="pill">Out of stock</span></div>
-          <p class="muted">A premium mature option for buyers wanting stronger birds with less waiting time.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2024%20weeks%20old%20mature%20layers.%20Please%20share%20availability%20and%20details.">Ask on WhatsApp</a>
+          <h3 data-i18n="p5Title">24 weeks old</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p5Age">Age: 24 weeks</span><span class="pill" data-i18n="p5Price">Price: Rs. 2,850</span><span class="pill" data-i18n="outStock5">Out of stock</span></div>
+          <p class="muted" data-i18n="p5Text">A premium mature option for buyers wanting stronger birds with less waiting time.</p>
         </article>
 
         <article class="card">
-          <img class="card-img" src="bulkpullets.png" alt="WhatsApp for Bulk Enquiry">
-          <h3>Bulk poultry enquiry</h3>
-          <div class="hero-pills"><span class="pill">Bulk orders</span><span class="pill">Custom quantities</span><span class="pill">WhatsApp only</span></div>
-          <p class="muted">For larger buyers, batch enquiries, and customers looking for custom poultry quantities or future booking.</p>
-          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20ask%20about%20bulk%20poultry%20orders.%20Please%20guide%20me.">Ask on WhatsApp</a>
+          <img class="card-img bulk-card-image" src="bulkpullets.png" alt="WhatsApp for Bulk Enquiry">
+          <h3 data-i18n="p6Title">Bulk poultry enquiry</h3>
+          <div class="hero-pills"><span class="pill" data-i18n="p6Tag1">Bulk orders</span><span class="pill" data-i18n="p6Tag2">Custom quantities</span><span class="pill" data-i18n="p6Tag3">WhatsApp only</span></div>
+          <p class="muted" data-i18n="p6Text">For larger buyers, batch enquiries, and customers looking for custom poultry quantities or future booking.</p>
         </article>
       </div>
     </div>
@@ -387,34 +643,32 @@
     <div class="container grid-2">
       <div class="highlight">
         <img src="chicken-meat.png" alt="Fresh chicken meat from Siran Valley">
-        <h2 style="margin-top:0"><span data-i18n="meatTitle">Fresh chicken meat section</span></h2>
-        <p>
-          <span data-i18n="meatText">This section keeps the wider Siran Valley vision visible while you lead with eggs first. It is ready for future whole chicken and fresh cuts offers whenever you want to activate it.</span>
-        </p>
+        <h2 style="margin-top:0" data-i18n="meatTitle">Fresh chicken meat section</h2>
+        <p data-i18n="meatText">This section keeps the wider Siran Valley vision visible while you lead with eggs first. It is ready for future whole chicken and fresh cuts offers whenever you want to activate it.</p>
         <div class="hero-pills">
-          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Whole chicken</span>
-          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Fresh cuts</span>
-          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff">Coming soon</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatTag1">Whole chicken</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatTag2">Fresh cuts</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff" data-i18n="meatTag3">Coming soon</span>
         </div>
       </div>
 
       <div class="card">
-        <h2 style="margin-top:0"><span data-i18n="whyTitle">Why customers should trust Siran Valley</span></h2>
+        <h2 style="margin-top:0" data-i18n="whyTitle">Why customers should trust Siran Valley</h2>
         <div class="feature">
           <div class="icon">1</div>
-          <div><strong>Clean valley rearing environment</strong><br><span class="muted small">Our chicks are reared in the fresh weather, clean air, and natural surroundings of Siran Valley, away from the pollution and congestion of big cities.</span></div>
+          <div><strong data-i18n="why1T">Clean valley rearing environment</strong><br><span class="muted small" data-i18n="why1D">Our chicks are reared in the fresh weather, clean air, and natural surroundings of Siran Valley, away from the pollution and congestion of big cities.</span></div>
         </div>
         <div class="feature" style="margin-top:14px">
           <div class="icon">2</div>
-          <div><strong>Fresh farm-based supply</strong><br><span class="muted small">We focus on freshness, consistency, and real farm-based sourcing for families who care about quality.</span></div>
+          <div><strong data-i18n="why2T">Fresh farm-based supply</strong><br><span class="muted small" data-i18n="why2D">We focus on freshness, consistency, and real farm-based sourcing for families who care about quality.</span></div>
         </div>
         <div class="feature" style="margin-top:14px">
           <div class="icon">3</div>
-          <div><strong>Simple WhatsApp ordering</strong><br><span class="muted small">Quick ordering, easy communication, and direct support without complicated checkout steps.</span></div>
+          <div><strong data-i18n="why3T">Simple WhatsApp ordering</strong><br><span class="muted small" data-i18n="why3D">Quick ordering, easy communication, and direct support without complicated checkout steps.</span></div>
         </div>
         <div class="feature" style="margin-top:14px">
           <div class="icon">4</div>
-          <div><strong>Built for repeat family buying</strong><br><span class="muted small">From trial packs to weekly subscriptions, the structure is designed to make repeat buying easy and reliable.</span></div>
+          <div><strong data-i18n="why4T">Built for repeat family buying</strong><br><span class="muted small" data-i18n="why4D">From trial packs to weekly subscriptions, the structure is designed to make repeat buying easy and reliable.</span></div>
         </div>
       </div>
     </div>
@@ -424,24 +678,23 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2><span data-i18n="contactTitle">Contact & order</span></h2>
-          <p><span data-i18n="contactText">Keep ordering simple. WhatsApp is the main conversion path.</span></p>
+          <h2 data-i18n="contactTitle">Contact & order</h2>
+          <p data-i18n="contactText">Keep ordering simple. WhatsApp is the main conversion path.</p>
         </div>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3 style="margin-top:0"><span data-i18n="contactCard1">Order directly on WhatsApp</span></h3>
-          <p class="muted"><span data-i18n="contactCard2">Click below to start a general order or enquiry with a pre-filled message.</span></p>
-          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm.%20Please%20guide%20me.">Open WhatsApp</a>
+          <h3 style="margin-top:0" data-i18n="contactCardTitle">Order directly on WhatsApp</h3>
+          <p class="muted" data-i18n="contactCardText">Click the floating WhatsApp button to start a general order or enquiry.</p>
         </div>
 
         <div class="card">
-          <h3 style="margin-top:0"><span data-i18n="bizTitle">Business details</span></h3>
-          <p class="muted small"><strong>Website:</strong> siran.pk</p>
-          <p class="muted small"><strong>Phone / WhatsApp:</strong> +92 300 9111424</p>
-          <p class="muted small"><strong>Email:</strong> hello@siran.pk</p>
-          <p class="muted small"><strong>Location:</strong> Siran Valley, Mansehra, KPK, Pakistan</p>
+          <h3 style="margin-top:0" data-i18n="bizTitle">Business details</h3>
+          <p class="muted small"><strong data-i18n="bizWebsite">Website:</strong> siran.pk</p>
+          <p class="muted small"><strong data-i18n="bizPhone">Phone / WhatsApp:</strong> +92 300 9111424</p>
+          <p class="muted small"><strong data-i18n="bizEmail">Email:</strong> hello@siran.pk</p>
+          <p class="muted small"><strong data-i18n="bizLocation">Location:</strong> Siran Valley, Mansehra, KPK, Pakistan</p>
         </div>
       </div>
     </div>
@@ -453,131 +706,306 @@
         <a href="#" class="brand">
           <img src="logo.png" alt="Siran Valley Organic Farm logo">
           <div>
-            <div class="brand-title">Siran Valley Organic Farm</div>
-            <div class="brand-sub">Fresh eggs, pure and ethical natural farm supply</div>
+            <div class="brand-title" data-i18n="brandTitle2">Siran Valley Organic Farm</div>
+            <div class="small muted" data-i18n="brandSub2">Fresh eggs, pure and ethical natural farm supply</div>
           </div>
         </a>
         <div class="footer-links">
           <a class="footer-link-btn" href="faq.html" aria-label="Frequently asked questions">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm.04 15.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM13.2 11.6c-.68.47-.91.74-.91 1.4v.25h-1.8V13c0-1.29.63-2.03 1.55-2.66.71-.49 1.15-.78 1.15-1.45 0-.77-.61-1.29-1.56-1.29-.96 0-1.63.53-1.71 1.47H8.17c.08-1.98 1.66-3.1 3.52-3.1 2.02 0 3.43 1.16 3.43 2.94 0 1.28-.71 2.03-1.92 2.69z"/></svg>
-            FAQs
+            <span data-i18n="faqBtn">FAQs</span>
           </a>
           <a class="footer-link-btn" href="terms.html" aria-label="Terms and conditions">
             <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 11h8v1.8H8V11zm0 3.5h8v1.8H8v-1.8zm0 3.5h6v1.8H8V18z"/></svg>
-            Terms
+            <span data-i18n="termsBtn">Terms</span>
           </a>
         </div>
       </div>
-      <div class="small"><span data-i18n="footerText">Serving households with fresh eggs, poultry, and natural farm products from the heart of Siran Valley.</span></div>
+      <div class="small" data-i18n="footerText">Serving households with fresh eggs, poultry, and natural farm products from the heart of Siran Valley.</div>
     </div>
   </footer>
 
-  <a class="floating-wa" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm." aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.24c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.42-.84-.75-1.4-1.69-1.57-1.98-.17-.29-.02-.44.12-.58.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3 .14.19 2.03 3.09 5.01 4.33.71.31 1.26.49 1.69.62.71.22 1.35.19 1.86.12.57-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.13 3.2C9.1 3.2 3.4 8.9 3.4 15.93c0 2.25.59 4.45 1.71 6.39L3.3 28.8l6.66-1.75c1.84 1 3.91 1.53 6.01 1.53 7.03 0 12.73-5.7 12.73-12.73S23.16 3.2 16.13 3.2zm0 23.24c-1.9 0-3.75-.51-5.36-1.47l-.38-.22-3.95 1.04 1.05-3.85-.25-.4a10.55 10.55 0 0 1-1.63-5.61c0-5.82 4.73-10.55 10.55-10.55 2.82 0 5.47 1.1 7.46 3.09a10.48 10.48 0 0 1 3.09 7.46c0 5.82-4.73 10.55-10.58 10.51z"/></svg>
+  <a href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm." class="wa" aria-label="Order on WhatsApp">
+    <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.24c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.42-.84-.75-1.4-1.69-1.57-1.98-.17-.29-.02-.44.12-.58.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3 .14.19 2.03 3.09 5.01 4.33.71.31 1.26.49 1.69.62.71.22 1.35.19 1.86.12.57-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.13 3.2C9.1 3.2 3.4 8.9 3.4 15.93c0 2.25.59 4.45 1.71 6.39L3.3 28.8l6.66-1.75c1.84 1 3.91 1.53 6.01 1.53 7.03 0 12.73-5.7 12.73-12.73S23.16 3.2 16.13 3.2zm0 23.24c-1.9 0-3.75-.51-5.36-1.47l-.38-.22-3.95 1.04 1.05-3.85-.25-.4a10.55 10.55 0 0 1-1.63-5.61c0-5.82 4.73-10.55 10.55-10.55 2.82 0 5.47 1.1 7.46 3.09a10.48 10.48 0 0 1 3.09 7.46c0 5.82-4.73 10.55-10.58 10.51z"/></svg>
   </a>
 
   <div class="mobile-bar">
-    <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm.">WhatsApp Order</a>
-    <a class="btn btn-yellow" href="#subscriptions">View Plans</a>
+    <a href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20place%20an%20order%20with%20Siran%20Valley%20Organic%20Farm." class="btn-mobile btn-mobile-primary" data-i18n="mobileOrder">WhatsApp Order</a>
+    <a href="#subscriptions" class="btn-mobile btn-mobile-secondary" data-i18n="mobilePlans">View Plans</a>
   </div>
 
-<script>
-const translations = {
-  en: {
-    navSubscriptions: "Subscriptions",
-    navShop: "Shop Eggs",
-    navPoultry: "Poultry",
-    navWhy: "Why Us",
-    navContact: "Contact",
-    navOrder: "Order on WhatsApp",
-    brandSub: "Fresh eggs, pure and ethical natural farm supply",
-    heroEyebrow: "Farm Fresh Eggs • Subscriptions • WhatsApp Ordering",
-    heroTitle: "Pure farm eggs and poultry from the clean air of Siran Valley.",
-    heroText: "Fresh eggs for families, simple weekly subscriptions, and poultry enquiries direct from the farm. Built for customers who value quality, freshness, trust, and a cleaner source away from city pollution.",
-    heroBtn1: "View Subscription Plans",
-    heroBtn2: "Shop Egg Packs",
-    trust1: "WhatsApp-first ordering",
-    trust2: "Fresh weekly supply",
-    trust3: "Mansehra based",
-    stat1: "Flexible weekly and monthly plans",
-    stat2: "Away from the pollution and congestion of big cities",
-    stat3: "Simple WhatsApp support with quick confirmation",
-    subTitle: "Egg subscription plans",
-    subText: "Choose the plan that fits your household and receive fresh eggs with a simple WhatsApp-first ordering flow.",
-    shopTitle: "Shop eggs one-time",
-    shopText: "Perfect for first-time buyers, trial orders, or households who want flexibility before subscribing.",
-    poultryTitle: "Poultry listings",
-    poultryText: "Browse key poultry offers and enquire directly on WhatsApp for current availability, age, and batch details.",
-    meatTitle: "Fresh chicken meat section",
-    meatText: "This section keeps the wider Siran Valley vision visible while you lead with eggs first. It is ready for future whole chicken and fresh cuts offers whenever you want to activate it.",
-    whyTitle: "Why customers should trust Siran Valley",
-    contactTitle: "Contact & order",
-    contactText: "Keep ordering simple. WhatsApp is the main conversion path.",
-    contactCard1: "Order directly on WhatsApp",
-    contactCard2: "Click below to start a general order or enquiry with a pre-filled message.",
-    bizTitle: "Business details",
-    faqBtn: "FAQs",
-    termsBtn: "Terms",
-    footerText: "Serving households with fresh eggs, poultry, and natural farm products from the heart of Siran Valley."
-  },
-  ur: {
-    navSubscriptions: "سبسکرپشن",
-    navShop: "انڈے خریدیں",
-    navPoultry: "پولٹری",
-    navWhy: "ہم کیوں",
-    navContact: "رابطہ",
-    navOrder: "واٹس ایپ پر آرڈر کریں",
-    brandSub: "تازہ انڈے، خالص اور ذمہ دارانہ قدرتی فارم سپلائی",
-    heroEyebrow: "تازہ فارم انڈے • سبسکرپشن • واٹس ایپ آرڈرنگ",
-    heroTitle: "سیرن ویلی کی صاف فضا سے خالص فارم انڈے اور پولٹری۔",
-    heroText: "گھرانوں کے لیے تازہ انڈے، آسان ہفتہ وار سبسکرپشن، اور فارم سے براہ راست پولٹری انکوائری۔ یہ ان لوگوں کے لیے بنایا گیا ہے جو معیار، تازگی، اعتماد اور شہری آلودگی سے دور صاف ماحول کو اہمیت دیتے ہیں۔",
-    heroBtn1: "سبسکرپشن پلان دیکھیں",
-    heroBtn2: "انڈوں کے پیک دیکھیں",
-    trust1: "واٹس ایپ کے ذریعے آسان آرڈرنگ",
-    trust2: "تازہ ہفتہ وار سپلائی",
-    trust3: "منسہرہ میں قائم",
-    stat1: "لچکدار ہفتہ وار اور ماہانہ پلان",
-    stat2: "بڑے شہروں کی آلودگی اور بھیڑ سے دور",
-    stat3: "تیز تصدیق کے ساتھ آسان واٹس ایپ سپورٹ",
-    subTitle: "انڈوں کے سبسکرپشن پلان",
-    subText: "اپنے گھر کے مطابق پلان منتخب کریں اور واٹس ایپ کے ذریعے تازہ انڈے حاصل کریں۔",
-    shopTitle: "ایک بار انڈے خریدیں",
-    shopText: "پہلی بار خریدنے والوں، ٹرائل آرڈر، یا لچکدار خریداری کے لیے بہترین۔",
-    poultryTitle: "پولٹری کی فہرست",
-    poultryText: "موجودہ دستیابی، عمر اور بیچ تفصیل کے لیے واٹس ایپ پر براہ راست رابطہ کریں۔",
-    meatTitle: "تازہ چکن گوشت سیکشن",
-    meatText: "جب آپ انڈوں سے شروعات کر رہے ہوں تب بھی یہ سیکشن سیرن ویلی کے وسیع وژن کو ظاہر کرتا ہے۔ جب چاہیں پورا چکن اور تازہ کٹس فعال کی جا سکتی ہیں۔",
-    whyTitle: "گاہک سیرن ویلی پر کیوں اعتماد کریں",
-    contactTitle: "رابطہ اور آرڈر",
-    contactText: "آرڈرنگ کو آسان رکھیں۔ واٹس ایپ ہمارا بنیادی طریقہ ہے۔",
-    contactCard1: "براہ راست واٹس ایپ پر آرڈر کریں",
-    contactCard2: "نیچے کلک کریں اور پہلے سے بھرا ہوا پیغام بھیج کر عمومی آرڈر یا انکوائری شروع کریں۔",
-    bizTitle: "کاروباری معلومات",
-    faqBtn: "سوالات",
-    termsBtn: "شرائط",
-    footerText: "سیرن ویلی کے دل سے گھرانوں کو تازہ انڈے، پولٹری اور قدرتی فارم مصنوعات فراہم کی جاتی ہیں۔"
-  }
-};
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".hero-dot");
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove("active");
+      dots[i].classList.remove("active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+      dots[i].classList.add("active");
+    }, 4000);
 
-function setLang(lang){
-  document.documentElement.lang = lang === 'ur' ? 'ur' : 'en';
-  document.body.classList.toggle('rtl', lang === 'ur');
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) el.textContent = translations[lang][key];
-  });
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-ur').classList.toggle('active', lang === 'ur');
-  try { localStorage.setItem('siran_lang', lang); } catch(e){}
-}
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
-  document.getElementById('btn-ur').addEventListener('click', () => setLang('ur'));
-  let lang = 'en';
-  try { lang = localStorage.getItem('siran_lang') || 'en'; } catch(e){}
-  setLang(lang);
-});
-</script>
+    const translations = {
+      en: {
+        brandTitle: "Siran Valley Organic Farm",
+        brandSub: "Fresh eggs, pure and ethical natural farm supply",
+        navSubscriptions: "Subscriptions",
+        navShop: "Shop Eggs",
+        navPoultry: "Poultry",
+        navWhy: "Why Us",
+        navContact: "Contact",
+        subTitle: "Egg subscription plans",
+        subText: "Choose the plan that fits your household and receive fresh eggs with a simple WhatsApp-first ordering flow.",
+        starterTag: "Starter Plan",
+        starterName: "12 eggs per week",
+        starterPerEgg: "Equivalent to Rs. 36 per egg",
+        starterDiscount: "Save 5% this month",
+        starterL1: "48 eggs per month",
+        starterL2: "Aligned with 12-egg pack pricing",
+        starterL3: "Fresh and convenient weekly supply",
+        starterL4: "Ideal for light to moderate household use",
+        starterAvail: "Limited daily and weekly supply slots available.",
+        popularTag: "Most Popular",
+        popularName: "30 eggs per week",
+        popularPerEgg: "Equivalent to Rs. 32 per egg",
+        popularDiscount: "Save 10% on family plan",
+        popularL1: "120 eggs per month",
+        popularL2: "Aligned with 30-egg crate pricing",
+        popularL3: "Best for growing families",
+        popularL4: "Reliable weekly household supply",
+        popularAvail: "Popular choice for repeat weekly buyers and family homes.",
+        premiumTag: "Premium Plan",
+        premiumName: "60 eggs per week",
+        premiumPerEgg: "Equivalent to Rs. 30 per egg",
+        premiumDiscount: "Save 12% this month",
+        premiumL1: "240 eggs per month",
+        premiumL2: "Aligned with 60-egg pack pricing",
+        premiumL3: "Ideal for large households or shared use",
+        premiumL4: "Convenient recurring supply every week",
+        premiumAvail: "Best suited for larger households and shared use.",
+        shopTitle: "Shop eggs one-time",
+        shopText: "Perfect for first-time buyers, trial orders, or households who want flexibility before subscribing.",
+        pack6Title: "6 Egg Pack",
+        pack6Sub: "Trial Pack",
+        pack6Tag: "Entry",
+        pack6Text: "Based on Rs. 40 per egg. A simple first order for new customers.",
+        pack12Title: "12 Egg Pack",
+        pack12Sub: "Family Pack",
+        pack12Tag: "Popular",
+        pack12Text: "Based on Rs. 36 per egg. Good for regular weekly household use.",
+        pack30Title: "30 Egg Crate",
+        pack30Sub: "Value Crate",
+        pack30Tag: "Value",
+        pack30Text: "Based on Rs. 32 per egg. Better value for stronger weekly consumption.",
+        pack60Title: "60 Egg Pack",
+        pack60Sub: "Bulk Pack",
+        pack60Tag: "Bulk",
+        pack60Text: "Based on Rs. 30 per egg. Ideal for large households or combined family orders.",
+        poultryTitle: "Poultry listings",
+        poultryText: "Browse key poultry offers and enquire directly on WhatsApp for current availability, age, and batch details.",
+        p1Title: "Day-old chicken",
+        p1Age: "Age: 1 day",
+        p1Price: "Price: Rs. 350",
+        outStock: "Out of stock",
+        p1Text: "Suitable for buyers who want to rear birds from the very beginning.",
+        p2Title: "8 weeks old",
+        p2Age: "Age: 8 weeks",
+        p2Price: "Price: Rs. 900",
+        outStock2: "Out of stock",
+        p2Text: "A stronger early-stage option for customers looking for growing birds.",
+        p3Title: "12 weeks old",
+        p3Age: "Age: 12 weeks",
+        p3Price: "Price: Rs. 1,300",
+        outStock3: "Out of stock",
+        p3Text: "Ideal for customers who want a more advanced bird with less early-stage care.",
+        p4Title: "18 weeks old",
+        p4Age: "Age: 18 weeks",
+        p4Price: "Price: Rs. 2,000",
+        outStock4: "Out of stock",
+        p4Text: "Well suited for customers looking for near-ready birds with stronger value.",
+        p5Title: "24 weeks old",
+        p5Age: "Age: 24 weeks",
+        p5Price: "Price: Rs. 2,850",
+        outStock5: "Out of stock",
+        p5Text: "A premium mature option for buyers wanting stronger birds with less waiting time.",
+        p6Title: "Bulk poultry enquiry",
+        p6Tag1: "Bulk orders",
+        p6Tag2: "Custom quantities",
+        p6Tag3: "WhatsApp only",
+        p6Text: "For larger buyers, batch enquiries, and customers looking for custom poultry quantities or future booking.",
+        meatTitle: "Fresh chicken meat section",
+        meatText: "This section keeps the wider Siran Valley vision visible while you lead with eggs first. It is ready for future whole chicken and fresh cuts offers whenever you want to activate it.",
+        meatTag1: "Whole chicken",
+        meatTag2: "Fresh cuts",
+        meatTag3: "Coming soon",
+        whyTitle: "Why customers should trust Siran Valley",
+        why1T: "Clean valley rearing environment",
+        why1D: "Our chicks are reared in the fresh weather, clean air, and natural surroundings of Siran Valley, away from the pollution and congestion of big cities.",
+        why2T: "Fresh farm-based supply",
+        why2D: "We focus on freshness, consistency, and real farm-based sourcing for families who care about quality.",
+        why3T: "Simple WhatsApp ordering",
+        why3D: "Quick ordering, easy communication, and direct support without complicated checkout steps.",
+        why4T: "Built for repeat family buying",
+        why4D: "From trial packs to weekly subscriptions, the structure is designed to make repeat buying easy and reliable.",
+        contactTitle: "Contact & order",
+        contactText: "Keep ordering simple. WhatsApp is the main conversion path.",
+        contactCardTitle: "Order directly on WhatsApp",
+        contactCardText: "Click the floating WhatsApp button to start a general order or enquiry.",
+        bizTitle: "Business details",
+        bizWebsite: "Website:",
+        bizPhone: "Phone / WhatsApp:",
+        bizEmail: "Email:",
+        bizLocation: "Location:",
+        brandTitle2: "Siran Valley Organic Farm",
+        brandSub2: "Fresh eggs, pure and ethical natural farm supply",
+        faqBtn: "FAQs",
+        termsBtn: "Terms",
+        footerText: "Serving households with fresh eggs, poultry, and natural farm products from the heart of Siran Valley.",
+        mobileOrder: "WhatsApp Order",
+        mobilePlans: "View Plans"
+      },
+      ur: {
+        brandTitle: "سیرن ویلی آرگینک فارم",
+        brandSub: "تازہ انڈے، خالص اور ذمہ دارانہ قدرتی فارم سپلائی",
+        navSubscriptions: "سبسکرپشن",
+        navShop: "انڈے خریدیں",
+        navPoultry: "پولٹری",
+        navWhy: "ہم کیوں",
+        navContact: "رابطہ",
+        subTitle: "انڈوں کے سبسکرپشن پلان",
+        subText: "اپنے گھر کے مطابق پلان منتخب کریں اور واٹس ایپ کے ذریعے تازہ انڈے حاصل کریں۔",
+        starterTag: "اسٹارٹر پلان",
+        starterName: "12 انڈے فی ہفتہ",
+        starterPerEgg: "تقریباً 36 روپے فی انڈہ",
+        starterDiscount: "اس ماہ 5٪ بچت",
+        starterL1: "48 انڈے فی ماہ",
+        starterL2: "12 انڈوں کے پیک کی قیمت کے مطابق",
+        starterL3: "تازہ اور آسان ہفتہ وار سپلائی",
+        starterL4: "کم سے درمیانی گھریلو استعمال کے لیے موزوں",
+        starterAvail: "روزانہ اور ہفتہ وار سپلائی کے محدود سلاٹس دستیاب ہیں۔",
+        popularTag: "سب سے مقبول",
+        popularName: "30 انڈے فی ہفتہ",
+        popularPerEgg: "تقریباً 32 روپے فی انڈہ",
+        popularDiscount: "فیملی پلان پر 10٪ بچت",
+        popularL1: "120 انڈے فی ماہ",
+        popularL2: "30 انڈوں کے کریٹ کی قیمت کے مطابق",
+        popularL3: "بڑھتے ہوئے خاندانوں کے لیے بہترین",
+        popularL4: "قابلِ اعتماد ہفتہ وار گھریلو سپلائی",
+        popularAvail: "ہفتہ وار خریدنے والے خاندانوں کے لیے مقبول انتخاب۔",
+        premiumTag: "پریمیم پلان",
+        premiumName: "60 انڈے فی ہفتہ",
+        premiumPerEgg: "تقریباً 30 روپے فی انڈہ",
+        premiumDiscount: "اس ماہ 12٪ بچت",
+        premiumL1: "240 انڈے فی ماہ",
+        premiumL2: "60 انڈوں کے پیک کی قیمت کے مطابق",
+        premiumL3: "بڑے گھرانوں یا مشترکہ استعمال کے لیے موزوں",
+        premiumL4: "ہر ہفتے آسان مسلسل سپلائی",
+        premiumAvail: "بڑے گھرانوں اور مشترکہ استعمال کے لیے بہترین۔",
+        shopTitle: "ایک بار انڈے خریدیں",
+        shopText: "پہلی بار خریدنے والوں، ٹرائل آرڈر، یا لچکدار خریداری کے لیے بہترین۔",
+        pack6Title: "6 انڈوں کا پیک",
+        pack6Sub: "ٹرائل پیک",
+        pack6Tag: "ابتدائی",
+        pack6Text: "40 روپے فی انڈہ کے حساب سے۔ نئے گاہکوں کے لیے آسان پہلی خریداری۔",
+        pack12Title: "12 انڈوں کا پیک",
+        pack12Sub: "فیملی پیک",
+        pack12Tag: "مقبول",
+        pack12Text: "36 روپے فی انڈہ کے حساب سے۔ باقاعدہ گھریلو استعمال کے لیے موزوں۔",
+        pack30Title: "30 انڈوں کا کریٹ",
+        pack30Sub: "ویلیو کریٹ",
+        pack30Tag: "ویلیو",
+        pack30Text: "32 روپے فی انڈہ کے حساب سے۔ زیادہ استعمال کے لیے بہتر ویلیو۔",
+        pack60Title: "60 انڈوں کا پیک",
+        pack60Sub: "بلک پیک",
+        pack60Tag: "بلک",
+        pack60Text: "30 روپے فی انڈہ کے حساب سے۔ بڑے گھرانوں یا مشترکہ آرڈر کے لیے موزوں۔",
+        poultryTitle: "پولٹری فہرست",
+        poultryText: "موجودہ دستیابی، عمر اور بیچ تفصیل کے لیے واٹس ایپ پر براہ راست رابطہ کریں۔",
+        p1Title: "ایک دن کی چوزہ پولٹری",
+        p1Age: "عمر: 1 دن",
+        p1Price: "قیمت: 350 روپے",
+        outStock: "اس وقت دستیاب نہیں",
+        p1Text: "ان خریداروں کے لیے موزوں جو ابتدا سے پرورش کرنا چاہتے ہیں۔",
+        p2Title: "8 ہفتے عمر",
+        p2Age: "عمر: 8 ہفتے",
+        p2Price: "قیمت: 900 روپے",
+        outStock2: "اس وقت دستیاب نہیں",
+        p2Text: "بڑھتی عمر کے پرندوں کے خواہشمند خریداروں کے لیے مضبوط ابتدائی آپشن۔",
+        p3Title: "12 ہفتے عمر",
+        p3Age: "عمر: 12 ہفتے",
+        p3Price: "قیمت: 1300 روپے",
+        outStock3: "اس وقت دستیاب نہیں",
+        p3Text: "ان خریداروں کے لیے بہتر جو کم ابتدائی دیکھ بھال کے ساتھ زیادہ تیار پرندہ چاہتے ہیں۔",
+        p4Title: "18 ہفتے عمر",
+        p4Age: "عمر: 18 ہفتے",
+        p4Price: "قیمت: 2000 روپے",
+        outStock4: "اس وقت دستیاب نہیں",
+        p4Text: "تقریباً تیار پرندوں کے خواہشمند خریداروں کے لیے موزوں۔",
+        p5Title: "24 ہفتے عمر",
+        p5Age: "عمر: 24 ہفتے",
+        p5Price: "قیمت: 2850 روپے",
+        outStock5: "اس وقت دستیاب نہیں",
+        p5Text: "کم انتظار کے ساتھ مضبوط بالغ پرندہ چاہنے والوں کے لیے پریمیم آپشن۔",
+        p6Title: "بلک پولٹری انکوائری",
+        p6Tag1: "بلک آرڈر",
+        p6Tag2: "حسبِ ضرورت مقدار",
+        p6Tag3: "صرف واٹس ایپ",
+        p6Text: "بڑے خریداروں، بیچ انکوائری، اور حسبِ ضرورت مقدار یا مستقبل کی بکنگ کے لیے۔",
+        meatTitle: "تازہ چکن گوشت سیکشن",
+        meatText: "جب آپ انڈوں سے آغاز کر رہے ہوں تب بھی یہ سیکشن سیرن ویلی کے وسیع وژن کو ظاہر کرتا ہے۔ جب چاہیں مکمل چکن اور تازہ کٹس فعال کی جا سکتی ہیں۔",
+        meatTag1: "پورا چکن",
+        meatTag2: "تازہ کٹس",
+        meatTag3: "جلد آرہا ہے",
+        whyTitle: "گاہک سیرن ویلی پر کیوں اعتماد کریں",
+        why1T: "صاف وادی میں پرورش",
+        why1D: "ہمارے چوزے سیرن ویلی کی صاف ہوا، خوشگوار موسم اور قدرتی ماحول میں، بڑے شہروں کی آلودگی سے دور پرورش پاتے ہیں۔",
+        why2T: "تازہ فارم سپلائی",
+        why2D: "ہم ان خاندانوں کے لیے تازگی، مستقل مزاجی اور حقیقی فارم سپلائی پر توجہ دیتے ہیں جو معیار کو اہمیت دیتے ہیں۔",
+        why3T: "سادہ واٹس ایپ آرڈرنگ",
+        why3D: "تیز آرڈرنگ، آسان رابطہ، اور بغیر پیچیدہ چیک آؤٹ کے براہ راست سپورٹ۔",
+        why4T: "دوبارہ گھریلو خریداری کے لیے موزوں",
+        why4D: "ٹرائل پیک سے ہفتہ وار سبسکرپشن تک، یہ نظام آسان اور قابلِ اعتماد دوبارہ خریداری کے لیے بنایا گیا ہے۔",
+        contactTitle: "رابطہ اور آرڈر",
+        contactText: "آرڈرنگ کو آسان رکھیں۔ واٹس ایپ ہمارا بنیادی راستہ ہے۔",
+        contactCardTitle: "براہ راست واٹس ایپ پر آرڈر کریں",
+        contactCardText: "فلوٹنگ واٹس ایپ بٹن پر کلک کریں اور عمومی آرڈر یا انکوائری شروع کریں۔",
+        bizTitle: "کاروباری معلومات",
+        bizWebsite: "ویب سائٹ:",
+        bizPhone: "فون / واٹس ایپ:",
+        bizEmail: "ای میل:",
+        bizLocation: "مقام:",
+        brandTitle2: "سیرن ویلی آرگینک فارم",
+        brandSub2: "تازہ انڈے، خالص اور ذمہ دارانہ قدرتی فارم سپلائی",
+        faqBtn: "سوالات",
+        termsBtn: "شرائط",
+        footerText: "سیرن ویلی کے دل سے گھرانوں تک تازہ انڈے، پولٹری اور قدرتی فارم مصنوعات پہنچائی جاتی ہیں۔",
+        mobileOrder: "واٹس ایپ آرڈر",
+        mobilePlans: "پلان دیکھیں"
+      }
+    };
 
+    function setLang(lang){
+      document.documentElement.lang = lang === 'ur' ? 'ur' : 'en';
+      document.body.classList.toggle('rtl', lang === 'ur');
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ur').classList.toggle('active', lang === 'ur');
+      try { localStorage.setItem('siran_lang', lang); } catch(e) {}
+    }
+
+    document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
+    document.getElementById('btn-ur').addEventListener('click', () => setLang('ur'));
+
+    try {
+      const saved = localStorage.getItem('siran_lang') || 'en';
+      setLang(saved);
+    } catch(e) {
+      setLang('en');
+    }
+  </script>
 </body>
 </html>
