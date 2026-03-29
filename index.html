@@ -9,16 +9,19 @@
   <style>
     :root{
       --brand:#47653e;
-      --brand-2:#1fa855;
+      --brand-dark:#32492c;
+      --green:#1fa855;
       --bg:#f8f5ef;
+      --paper:#fffdf9;
       --text:#1f2a1f;
       --muted:#6b7567;
       --line:#e7ded0;
       --card:#ffffff;
       --accent:#f3c96a;
       --shadow:0 14px 34px rgba(26,31,24,.08);
-      --shadow-lg:0 20px 48px rgba(26,31,24,.12);
+      --shadow-lg:0 24px 54px rgba(26,31,24,.14);
       --radius:24px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
@@ -36,20 +39,20 @@
     body.rtl{
       direction:rtl;
       font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;
-      line-height:1.85;
+      line-height:1.9;
     }
     body.rtl h1, body.rtl h2, body.rtl h3{letter-spacing:0}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    .container{width:min(1180px, calc(100% - 28px));margin:0 auto}
+    .container{width:min(var(--max), calc(100% - 28px));margin:0 auto}
 
     .nav{
       position:sticky;
       top:0;
       z-index:100;
-      backdrop-filter:blur(12px);
-      background:rgba(248,245,239,.88);
-      border-bottom:1px solid rgba(231,222,208,.92);
+      backdrop-filter:blur(14px);
+      background:rgba(248,245,239,.9);
+      border-bottom:1px solid rgba(231,222,208,.95);
     }
     .nav-inner{
       display:flex;
@@ -58,13 +61,30 @@
       gap:16px;
       padding:14px 0;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;min-width:0}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      min-width:0;
+    }
     .brand img{height:54px;width:auto}
     .brand-copy{min-width:0}
-    .brand-title{font-weight:900;line-height:1.1}
+    .brand-title{font-weight:900;line-height:1.08}
     .brand-sub{font-size:.92rem;color:var(--muted)}
-    .nav-links{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-weight:700}
-    .nav-links a{position:relative}
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-weight:800;
+      align-items:center;
+    }
+    .nav-links a{
+      position:relative;
+      padding:4px 0;
+    }
     .nav-links a::after{
       content:"";
       position:absolute;
@@ -77,6 +97,19 @@
     }
     .nav-links a:hover{color:var(--text)}
     .nav-links a:hover::after{width:100%}
+    .nav-video-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--text);
+      box-shadow:var(--shadow);
+      font-weight:900;
+    }
+    .nav-video-btn svg{width:18px;height:18px;fill:#cc0000}
 
     .lang-switch{
       display:flex;
@@ -102,22 +135,33 @@
     }
     .lang-btn:hover{background:#fff6df;color:var(--text)}
     .lang-btn.active{
-      background:linear-gradient(180deg,var(--brand),#32492c);
+      background:linear-gradient(180deg,var(--brand),var(--brand-dark));
       color:#fff;
       box-shadow:0 8px 18px rgba(50,73,44,.18);
     }
 
+    .hero-shell{
+      padding:18px 0 8px;
+    }
+    .hero-frame{
+      width:min(calc(100% - 16px), 1400px);
+      margin:0 auto;
+      background:linear-gradient(180deg,#fff,#fff7e8);
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow-lg);
+      overflow:hidden;
+      padding:12px;
+    }
     .hero{
       position:relative;
-      height:min(82vh, 880px);
+      height:min(76vh, 780px);
       overflow:hidden;
       background:#efe7d2;
+      border-radius:24px;
+      border:1px solid rgba(231,222,208,.9);
     }
-    .hero-slider{
-      position:relative;
-      width:100%;
-      height:100%;
-    }
+    .hero-slider{position:relative;width:100%;height:100%}
     .slide{
       position:absolute;
       inset:0;
@@ -125,14 +169,14 @@
       height:100%;
       object-fit:cover;
       opacity:0;
-      transition:opacity 1s ease;
+      transition:opacity .9s ease;
     }
     .slide.active{opacity:1}
     .hero-overlay{
       position:absolute;
       inset:auto 0 0 0;
-      height:130px;
-      background:linear-gradient(180deg, rgba(248,245,239,0) 0%, rgba(248,245,239,.84) 68%, rgba(248,245,239,1) 100%);
+      height:120px;
+      background:linear-gradient(180deg, rgba(248,245,239,0) 0%, rgba(248,245,239,.88) 72%, rgba(248,245,239,1) 100%);
       pointer-events:none;
       z-index:2;
     }
@@ -144,13 +188,20 @@
       display:flex;
       gap:8px;
       z-index:5;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(231,222,208,.95);
+      padding:8px 10px;
+      border-radius:999px;
+      box-shadow:var(--shadow);
     }
     .hero-dot{
       width:10px;
       height:10px;
       border-radius:50%;
-      background:rgba(255,255,255,.7);
-      border:1px solid rgba(0,0,0,.08);
+      background:#d9d5cc;
+      border:none;
+      padding:0;
+      cursor:pointer;
       transition:.2s ease;
     }
     .hero-dot.active{
@@ -231,6 +282,13 @@
       font-size:12px;
       font-weight:800;
     }
+    .pill-row-inline{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:12px;
+    }
     ul.clean{padding:0;margin:14px 0 18px;list-style:none}
     ul.clean li{padding:8px 0;border-bottom:1px dashed var(--line)}
     .per-egg{font-size:.9rem;color:#805b2d;font-weight:800}
@@ -278,6 +336,32 @@
       font-size:.9rem;
       font-weight:800;
     }
+    .card-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:900;
+      border:none;
+      cursor:pointer;
+      text-align:center;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-green{
+      background:linear-gradient(180deg,var(--green),#148543);
+      color:#fff;
+      box-shadow:0 12px 24px rgba(31,168,85,.2);
+      width:100%;
+    }
     .landscape-banner img{
       width:100%;
       border-radius:24px;
@@ -314,6 +398,60 @@
       font-weight:900;
       color:#7b5a23;
     }
+
+    .video-section{
+      background:linear-gradient(180deg,#fff,#fff8ea);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:20px;
+      box-shadow:var(--shadow-lg);
+    }
+    .video-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .video-embed{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:#000;
+    }
+    .video-embed iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+    .video-side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .video-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .yt-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:#ff0000;
+      color:#fff;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:900;
+      width:max-content;
+    }
+    .yt-btn svg{width:18px;height:18px;fill:#fff}
 
     .footer{
       padding:42px 0 56px;
@@ -386,18 +524,23 @@
       min-height:48px;
       padding:12px 16px;
       border-radius:999px;
-      font-weight:800;
+      font-weight:900;
     }
-    .btn-mobile-primary{background:linear-gradient(180deg,var(--brand-2),#148543);color:#fff}
+    .btn-mobile-primary{background:linear-gradient(180deg,var(--green),#148543);color:#fff}
     .btn-mobile-secondary{background:linear-gradient(180deg,#ffd767,#f7c64b);color:#50350b}
 
+    @media (max-width:1100px){
+      .video-grid{grid-template-columns:1fr}
+    }
     @media (max-width:980px){
-      .hero{height:58vh}
+      .hero-shell{padding-top:12px}
+      .hero-frame{width:min(calc(100% - 14px), 100%);padding:10px;border-radius:22px}
+      .hero{height:54vh;border-radius:18px}
       .nav-inner,.section-head,.footer-top{flex-direction:column;align-items:flex-start}
-      .grid-3,.grid-4,.grid-2,.grid-6{grid-template-columns:1fr}
+      .grid-3,.grid-4,.grid-2,.grid-6,.video-grid{grid-template-columns:1fr}
       .nav-links{gap:12px}
-      .hero-dots{bottom:12px}
       .lang-switch{align-self:flex-start}
+      .hero-dots{bottom:12px}
       .wa{display:none}
       .mobile-bar{
         display:flex;
@@ -433,8 +576,13 @@
         <a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a>
         <a href="#shop" data-i18n="navShop">Shop Eggs</a>
         <a href="#poultry" data-i18n="navPoultry">Poultry</a>
+        <a href="#videos" data-i18n="navVideos">Videos</a>
         <a href="#why-us" data-i18n="navWhy">Why Us</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
+        <a class="nav-video-btn" href="https://www.youtube.com/@Siranvalleyfarm" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a2.96 2.96 0 0 0-2.08-2.09C19.57 3.6 12 3.6 12 3.6s-7.57 0-9.42.51A2.96 2.96 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 2.96 2.96 0 0 0 2.08 2.09c1.85.51 9.42.51 9.42.51s7.57 0 9.42-.51a2.96 2.96 0 0 0 2.08-2.09A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.6 15.62V8.38L15.85 12 9.6 15.62Z"/></svg>
+          <span data-i18n="ytButton">YouTube</span>
+        </a>
       </div>
 
       <div class="lang-switch" aria-label="Language selector">
@@ -444,23 +592,27 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-slider">
-      <img src="hero-1.png" class="slide active" alt="Siran Valley Hero Slide 1">
-      <img src="hero-2.png" class="slide" alt="Siran Valley Hero Slide 2">
-      <img src="hero-3.png" class="slide" alt="Siran Valley Hero Slide 3">
-      <img src="hero-4.png" class="slide" alt="Siran Valley Hero Slide 4">
-      <img src="hero-5.png" class="slide" alt="Siran Valley Hero Slide 5">
-      <img src="hero-6.png" class="slide" alt="Siran Valley Hero Slide 6">
-      <div class="hero-overlay"></div>
-      <div class="hero-dots">
-        <span class="hero-dot active"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
-      </div>
+  <section class="hero-shell">
+    <div class="hero-frame">
+      <section class="hero">
+        <div class="hero-slider">
+          <img src="hero-1.png" class="slide active" alt="Siran Valley Hero Slide 1">
+          <img src="hero-2.png" class="slide" alt="Siran Valley Hero Slide 2">
+          <img src="hero-3.png" class="slide" alt="Siran Valley Hero Slide 3">
+          <img src="hero-4.png" class="slide" alt="Siran Valley Hero Slide 4">
+          <img src="hero-5.png" class="slide" alt="Siran Valley Hero Slide 5">
+          <img src="hero-6.png" class="slide" alt="Siran Valley Hero Slide 6">
+          <div class="hero-overlay"></div>
+          <div class="hero-dots">
+            <button class="hero-dot active" type="button" aria-label="Go to hero slide 1"></button>
+            <button class="hero-dot" type="button" aria-label="Go to hero slide 2"></button>
+            <button class="hero-dot" type="button" aria-label="Go to hero slide 3"></button>
+            <button class="hero-dot" type="button" aria-label="Go to hero slide 4"></button>
+            <button class="hero-dot" type="button" aria-label="Go to hero slide 5"></button>
+            <button class="hero-dot" type="button" aria-label="Go to hero slide 6"></button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -488,6 +640,9 @@
             <li data-i18n="starterL4">Ideal for light to moderate household use</li>
           </ul>
           <div class="availability" data-i18n="starterAvail">Limited daily and weekly supply slots available.</div>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Starter%20Plan%20(12%20eggs%20per%20week)." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card sub-card featured">
@@ -504,6 +659,9 @@
             <li data-i18n="popularL4">Reliable weekly household supply</li>
           </ul>
           <div class="availability" data-i18n="popularAvail">Popular choice for repeat weekly buyers and family homes.</div>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Family%20Plan%20(30%20eggs%20per%20week)." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card sub-card">
@@ -520,6 +678,9 @@
             <li data-i18n="premiumL4">Convenient recurring supply every week</li>
           </ul>
           <div class="availability" data-i18n="premiumAvail">Best suited for larger households and shared use.</div>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20subscribe%20to%20the%20Premium%20Plan%20(60%20eggs%20per%20week)." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
       </div>
     </div>
@@ -543,6 +704,9 @@
           </div>
           <div class="price">Rs. 240</div>
           <p class="muted" data-i18n="pack6Text">Based on Rs. 40 per egg. A simple first order for new customers.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%206%20Egg%20Pack." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -553,6 +717,9 @@
           </div>
           <div class="price">Rs. 432</div>
           <p class="muted" data-i18n="pack12Text">Based on Rs. 36 per egg. Good for regular weekly household use.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2012%20Egg%20Pack." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -563,6 +730,9 @@
           </div>
           <div class="price">Rs. 960</div>
           <p class="muted" data-i18n="pack30Text">Based on Rs. 32 per egg. Better value for stronger weekly consumption.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2030%20Egg%20Crate." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -573,6 +743,9 @@
           </div>
           <div class="price">Rs. 1,800</div>
           <p class="muted" data-i18n="pack60Text">Based on Rs. 30 per egg. Ideal for large households or combined family orders.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20the%2060%20Egg%20Pack." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
       </div>
     </div>
@@ -593,6 +766,9 @@
           <h3 data-i18n="p1Title">Day-old chicken</h3>
           <div class="hero-pills"><span class="pill" data-i18n="p1Age">Age: 1 day</span><span class="pill" data-i18n="p1Price">Price: Rs. 350</span><span class="pill" data-i18n="outStock">Out of stock</span></div>
           <p class="muted" data-i18n="p1Text">Suitable for buyers who want to rear birds from the very beginning.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%20Day-old%20chicken.%20Please%20share%20availability%20and%20details." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -600,6 +776,9 @@
           <h3 data-i18n="p2Title">8 weeks old</h3>
           <div class="hero-pills"><span class="pill" data-i18n="p2Age">Age: 8 weeks</span><span class="pill" data-i18n="p2Price">Price: Rs. 900</span><span class="pill" data-i18n="outStock2">Out of stock</span></div>
           <p class="muted" data-i18n="p2Text">A stronger early-stage option for customers looking for growing birds.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%208%20weeks%20old%20pullets.%20Please%20share%20availability%20and%20details." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -607,6 +786,9 @@
           <h3 data-i18n="p3Title">12 weeks old</h3>
           <div class="hero-pills"><span class="pill" data-i18n="p3Age">Age: 12 weeks</span><span class="pill" data-i18n="p3Price">Price: Rs. 1,300</span><span class="pill" data-i18n="outStock3">Out of stock</span></div>
           <p class="muted" data-i18n="p3Text">Ideal for customers who want a more advanced bird with less early-stage care.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2012%20weeks%20old%20pullets.%20Please%20share%20availability%20and%20details." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -614,6 +796,9 @@
           <h3 data-i18n="p4Title">18 weeks old</h3>
           <div class="hero-pills"><span class="pill" data-i18n="p4Age">Age: 18 weeks</span><span class="pill" data-i18n="p4Price">Price: Rs. 2,000</span><span class="pill" data-i18n="outStock4">Out of stock</span></div>
           <p class="muted" data-i18n="p4Text">Well suited for customers looking for near-ready birds with stronger value.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2018%20weeks%20old%20ready-to-lay%20birds.%20Please%20share%20availability%20and%20details." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
@@ -621,13 +806,23 @@
           <h3 data-i18n="p5Title">24 weeks old</h3>
           <div class="hero-pills"><span class="pill" data-i18n="p5Age">Age: 24 weeks</span><span class="pill" data-i18n="p5Price">Price: Rs. 2,850</span><span class="pill" data-i18n="outStock5">Out of stock</span></div>
           <p class="muted" data-i18n="p5Text">A premium mature option for buyers wanting stronger birds with less waiting time.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%2024%20weeks%20old%20mature%20layers.%20Please%20share%20availability%20and%20details." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
 
         <article class="card">
           <img class="card-img bulk-card-image" src="bulkpullets.png" alt="WhatsApp for Bulk Enquiry">
           <h3 data-i18n="p6Title">Bulk poultry enquiry</h3>
-          <div class="hero-pills"><span class="pill" data-i18n="p6Tag1">Bulk orders</span><span class="pill" data-i18n="p6Tag2">Custom quantities</span><span class="pill" data-i18n="p6Tag3">WhatsApp only</span></div>
+          <div class="pill-row-inline">
+            <span class="pill" data-i18n="p6Tag1">Bulk orders</span>
+            <span class="pill" data-i18n="p6Tag2">Custom quantities</span>
+            <span class="pill" data-i18n="p6Tag3">WhatsApp only</span>
+          </div>
           <p class="muted" data-i18n="p6Text">For larger buyers, batch enquiries, and customers looking for custom poultry quantities or future booking.</p>
+          <div class="card-actions">
+            <a class="btn btn-green" target="_blank" rel="noopener" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20ask%20about%20bulk%20poultry%20orders.%20Please%20guide%20me." data-i18n="waOrder">WhatsApp to order</a>
+          </div>
         </article>
       </div>
     </div>
@@ -669,6 +864,45 @@
         <div class="feature" style="margin-top:14px">
           <div class="icon">4</div>
           <div><strong data-i18n="why4T">Built for repeat family buying</strong><br><span class="muted small" data-i18n="why4D">From trial packs to weekly subscriptions, the structure is designed to make repeat buying easy and reliable.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="videos">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="videosTitle">Latest videos from Siran Valley Farm</h2>
+          <p data-i18n="videosText">This section is connected to your YouTube channel and is set up to surface your latest uploads in the website’s video area.</p>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <div class="video-grid">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed?listType=user_uploads&list=Siranvalleyfarm"
+              title="Latest videos from Siran Valley Farm"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="video-side">
+            <div class="video-card">
+              <h3 style="margin-top:0" data-i18n="videosCardTitle">YouTube video section</h3>
+              <p class="muted" data-i18n="videosCardText">When you upload a new video to the channel, this embedded uploads section is intended to show the latest content here automatically.</p>
+            </div>
+            <div class="video-card">
+              <h3 style="margin-top:0" data-i18n="videosFollowTitle">Follow the channel</h3>
+              <p class="muted" data-i18n="videosFollowText">Open the Siran Valley Farm channel directly on YouTube for full playlists, shorts, and new uploads.</p>
+              <a class="yt-btn" href="https://www.youtube.com/@Siranvalleyfarm" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M23.5 6.2a2.96 2.96 0 0 0-2.08-2.09C19.57 3.6 12 3.6 12 3.6s-7.57 0-9.42.51A2.96 2.96 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 2.96 2.96 0 0 0 2.08 2.09c1.85.51 9.42.51 9.42.51s7.57 0 9.42-.51a2.96 2.96 0 0 0 2.08-2.09A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.6 15.62V8.38L15.85 12 9.6 15.62Z"/></svg>
+                <span data-i18n="visitYoutube">Visit YouTube Channel</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -737,14 +971,35 @@
   <script>
     const slides = document.querySelectorAll(".slide");
     const dots = document.querySelectorAll(".hero-dot");
-    let i = 0;
-    setInterval(() => {
-      slides[i].classList.remove("active");
-      dots[i].classList.remove("active");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-      dots[i].classList.add("active");
-    }, 4000);
+    let currentSlide = 0;
+    let sliderTimer = null;
+
+    function showSlide(index){
+      slides[currentSlide].classList.remove("active");
+      dots[currentSlide].classList.remove("active");
+      currentSlide = index;
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    }
+
+    function nextSlide(){
+      const next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function startSlider(){
+      if (sliderTimer) clearInterval(sliderTimer);
+      sliderTimer = setInterval(nextSlide, 4000);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        startSlider();
+      });
+    });
+
+    startSlider();
 
     const translations = {
       en: {
@@ -753,8 +1008,10 @@
         navSubscriptions: "Subscriptions",
         navShop: "Shop Eggs",
         navPoultry: "Poultry",
+        navVideos: "Videos",
         navWhy: "Why Us",
         navContact: "Contact",
+        ytButton: "YouTube",
         subTitle: "Egg subscription plans",
         subText: "Choose the plan that fits your household and receive fresh eggs with a simple WhatsApp-first ordering flow.",
         starterTag: "Starter Plan",
@@ -834,6 +1091,7 @@
         p6Tag2: "Custom quantities",
         p6Tag3: "WhatsApp only",
         p6Text: "For larger buyers, batch enquiries, and customers looking for custom poultry quantities or future booking.",
+        waOrder: "WhatsApp to order",
         meatTitle: "Fresh chicken meat section",
         meatText: "This section keeps the wider Siran Valley vision visible while you lead with eggs first. It is ready for future whole chicken and fresh cuts offers whenever you want to activate it.",
         meatTag1: "Whole chicken",
@@ -848,6 +1106,13 @@
         why3D: "Quick ordering, easy communication, and direct support without complicated checkout steps.",
         why4T: "Built for repeat family buying",
         why4D: "From trial packs to weekly subscriptions, the structure is designed to make repeat buying easy and reliable.",
+        videosTitle: "Latest videos from Siran Valley Farm",
+        videosText: "This section is connected to your YouTube channel and is set up to surface your latest uploads in the website’s video area.",
+        videosCardTitle: "YouTube video section",
+        videosCardText: "When you upload a new video to the channel, this embedded uploads section is intended to show the latest content here automatically.",
+        videosFollowTitle: "Follow the channel",
+        videosFollowText: "Open the Siran Valley Farm channel directly on YouTube for full playlists, shorts, and new uploads.",
+        visitYoutube: "Visit YouTube Channel",
         contactTitle: "Contact & order",
         contactText: "Keep ordering simple. WhatsApp is the main conversion path.",
         contactCardTitle: "Order directly on WhatsApp",
@@ -871,8 +1136,10 @@
         navSubscriptions: "سبسکرپشن",
         navShop: "انڈے خریدیں",
         navPoultry: "پولٹری",
+        navVideos: "ویڈیوز",
         navWhy: "ہم کیوں",
         navContact: "رابطہ",
+        ytButton: "یوٹیوب",
         subTitle: "انڈوں کے سبسکرپشن پلان",
         subText: "اپنے گھر کے مطابق پلان منتخب کریں اور واٹس ایپ کے ذریعے تازہ انڈے حاصل کریں۔",
         starterTag: "اسٹارٹر پلان",
@@ -952,6 +1219,7 @@
         p6Tag2: "حسبِ ضرورت مقدار",
         p6Tag3: "صرف واٹس ایپ",
         p6Text: "بڑے خریداروں، بیچ انکوائری، اور حسبِ ضرورت مقدار یا مستقبل کی بکنگ کے لیے۔",
+        waOrder: "واٹس ایپ پر آرڈر کریں",
         meatTitle: "تازہ چکن گوشت سیکشن",
         meatText: "جب آپ انڈوں سے آغاز کر رہے ہوں تب بھی یہ سیکشن سیرن ویلی کے وسیع وژن کو ظاہر کرتا ہے۔ جب چاہیں مکمل چکن اور تازہ کٹس فعال کی جا سکتی ہیں۔",
         meatTag1: "پورا چکن",
@@ -966,6 +1234,13 @@
         why3D: "تیز آرڈرنگ، آسان رابطہ، اور بغیر پیچیدہ چیک آؤٹ کے براہ راست سپورٹ۔",
         why4T: "دوبارہ گھریلو خریداری کے لیے موزوں",
         why4D: "ٹرائل پیک سے ہفتہ وار سبسکرپشن تک، یہ نظام آسان اور قابلِ اعتماد دوبارہ خریداری کے لیے بنایا گیا ہے۔",
+        videosTitle: "سیرن ویلی فارم کی تازہ ویڈیوز",
+        videosText: "یہ سیکشن آپ کے یوٹیوب چینل کے ساتھ جوڑا گیا ہے اور نئی اپ لوڈز کو ویب سائٹ کے ویڈیو حصے میں دکھانے کے لیے ترتیب دیا گیا ہے۔",
+        videosCardTitle: "یوٹیوب ویڈیو سیکشن",
+        videosCardText: "جب آپ چینل پر نئی ویڈیو اپ لوڈ کریں گے تو یہ ایمبیڈڈ اپ لوڈز سیکشن یہاں تازہ مواد دکھانے کے لیے بنایا گیا ہے۔",
+        videosFollowTitle: "چینل فالو کریں",
+        videosFollowText: "مکمل پلے لسٹس، شارٹس اور نئی اپ لوڈز کے لیے سیرن ویلی فارم چینل کو براہ راست یوٹیوب پر کھولیں۔",
+        visitYoutube: "یوٹیوب چینل دیکھیں",
         contactTitle: "رابطہ اور آرڈر",
         contactText: "آرڈرنگ کو آسان رکھیں۔ واٹس ایپ ہمارا بنیادی راستہ ہے۔",
         contactCardTitle: "براہ راست واٹس ایپ پر آرڈر کریں",
