@@ -84,12 +84,13 @@
       min-height:76px;
     }
     .brand{
-      display:flex;
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
       align-items:center;
       gap:12px;
       flex:0 0 auto;
-      min-width:250px;
-      max-width:330px;
+      min-width:290px;
+      max-width:380px;
     }
     .brand img{
       height:56px;
@@ -98,7 +99,7 @@
       object-fit:contain;
       flex:0 0 auto;
     }
-    .brand-copy{min-width:0}
+    .brand-copy{min-width:0;display:flex;flex-direction:column;justify-content:center}
     .brand-title{font-weight:950;line-height:1.05;font-size:1.05rem;letter-spacing:-.02em}
     .brand-sub{font-size:.84rem;color:var(--muted);line-height:1.24;margin-top:2px}
     .nav-links{
@@ -140,6 +141,27 @@
       opacity:0;transition:opacity .85s ease;
     }
     .slide.active{opacity:1}
+    .slide.clean-slide{
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 78% 22%,rgba(243,201,106,.28),transparent 28%),
+        radial-gradient(circle at 18% 18%,rgba(255,255,255,.45),transparent 26%),
+        linear-gradient(135deg,#45613c 0%,#263a22 58%,#fff3cf 160%);
+    }
+    .slide-clean-inner{
+      width:min(820px,84%);
+      margin-left:auto;
+      margin-right:5%;
+      padding:34px;
+      border-radius:30px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      box-shadow:var(--shadow-lg);
+    }
+    .slide-clean-inner strong{display:block;font-size:clamp(1.55rem,3vw,3rem);line-height:1.05;letter-spacing:-.04em}
+    .slide-clean-inner span{display:block;margin-top:10px;color:rgba(255,255,255,.88);font-weight:700}
     .hero-shade{
       position:absolute;inset:0;pointer-events:none;z-index:1;
       background:
@@ -222,8 +244,8 @@
       object-position:center center;
       padding:6px;
     }
-    .landscape-img{aspect-ratio:16/10}
-    .landscape-img img{padding:0;object-fit:contain}
+    .landscape-img{aspect-ratio:auto;display:block;padding:8px}
+    .landscape-img img{padding:0;object-fit:contain;width:100%;height:auto;max-height:none}
     .card-actions{margin-top:auto;padding-top:14px}
 
     .story{
@@ -249,6 +271,8 @@
     .social-row{display:flex;gap:10px;flex-wrap:wrap}
     .footer{padding:44px 0 58px;color:var(--muted)}
     .footer-box{display:flex;justify-content:space-between;gap:20px;padding:22px}
+    .footer-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .footer-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;border-radius:999px;background:var(--cream);border:1px solid #efd8a2;color:#6f4b12;font-weight:900}
     .mobile-bar{display:none}
 
     .wa{
@@ -296,7 +320,7 @@
     @media(max-width:700px){
       .container{width:min(var(--max),calc(100% - 18px))}
       .nav-inner{gap:10px;padding:9px 0}
-      .brand{flex:1 1 100%;min-width:0;max-width:none}
+      .brand{flex:1 1 100%;min-width:0;max-width:none;grid-template-columns:auto minmax(0,1fr)}
       .brand img{height:48px;max-width:118px}
       .brand-title{font-size:1rem}
       .brand-sub{font-size:.78rem}
@@ -339,6 +363,8 @@
         <a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a>
         <a href="#videos" data-i18n="navVideos">Videos</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
+        <a href="faq.html">FAQs</a>
+        <a href="terms.html">Terms</a>
       </div>
 
       <div class="nav-actions">
@@ -357,7 +383,13 @@
       <div class="hero-frame">
         <section class="hero" aria-label="Siran Valley hero">
           <div class="hero-slider">
-            <img src="hero-1.webp" data-fallback="hero-1.png" class="slide active" alt="Siran Valley fresh egg hero image 1" width="1440" height="810" loading="eager" decoding="async" fetchpriority="high" />
+            <div class="slide clean-slide active" role="img" aria-label="Clean Siran Valley journey message slide">
+              <div class="slide-clean-inner">
+                <strong>Freshness starts with a shorter journey.</strong>
+                <span>Direct farm clarity from Siran Valley, Mansehra — fewer unnecessary hands before your breakfast table.</span>
+              </div>
+            </div>
+            <img src="hero-1.webp" data-fallback="hero-1.png" class="slide" alt="Siran Valley fresh egg hero image 1" width="1440" height="810" loading="eager" decoding="async" fetchpriority="high" />
             <img src="hero-2.webp" data-fallback="hero-2.png" class="slide" alt="Siran Valley fresh egg hero image 2" width="1440" height="810" loading="lazy" decoding="async" />
             <img src="hero-3.webp" data-fallback="hero-3.png" class="slide" alt="Siran Valley fresh egg hero image 3" width="1440" height="810" loading="lazy" decoding="async" />
             <img src="hero-4.webp" data-fallback="hero-4.png" class="slide" alt="Siran Valley fresh egg hero image 4" width="1440" height="810" loading="lazy" decoding="async" />
@@ -377,7 +409,8 @@
             </div>
           </div>
           <div class="hero-dots" aria-label="Hero slides">
-            <button class="hero-dot active" type="button" aria-label="Hero slide 1"></button>
+            <button class="hero-dot active" type="button" aria-label="Clean hero slide"></button>
+            <button class="hero-dot" type="button" aria-label="Hero slide 1"></button>
             <button class="hero-dot" type="button" aria-label="Hero slide 2"></button>
             <button class="hero-dot" type="button" aria-label="Hero slide 3"></button>
             <button class="hero-dot" type="button" aria-label="Hero slide 4"></button>
@@ -562,6 +595,11 @@
         <strong data-i18n="brandTitle">Siran Valley Organic Farm</strong><br />
         <span class="small" data-i18n="footerText">Fresh eggs, pullets and future fresh chicken meat supply from Siran Valley, Mansehra, KPK.</span><br />
         <span class="small">WhatsApp: +92 300 9111424 · Email: hello@siran.pk</span>
+        <div class="footer-links">
+          <a class="footer-link" href="faq.html">FAQs</a>
+          <a class="footer-link" href="terms.html">Terms</a>
+          <a class="footer-link" href="blogs/farm-fresh-eggs-pakistan.html">Freshness Guide</a>
+        </div>
       </div>
       <div class="actions" style="margin-top:0">
         <a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20to%20order%20from%20Siran%20Valley%20Organic%20Farm." target="_blank" rel="noopener" data-i18n="whatsappOrder">WhatsApp Order</a>
