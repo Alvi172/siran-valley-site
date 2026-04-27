@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.siran.pk/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.siran.pk/fresh-eggs.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/egg-subscription.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/poultry-pullets.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/fresh-chicken.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/contact.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/brown-eggs-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/fresh-eggs-vs-market-eggs.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/egg-nutrition-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/how-to-buy-pullets-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/fresh-chicken-meat-trust-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.siran.pk/blog/egg-subscription-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/farm-fresh-eggs-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/egg-supply-chain-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/why-farm-fresh-eggs-taste-better.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/brown-eggs-vs-white-eggs-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/why-egg-subscriptions-save-money-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.siran.pk/blogs/future-of-farm-food-pakistan.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

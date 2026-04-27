@@ -1,18 +1,11 @@
 {
   "name": "Siran Valley Organic Farm",
   "short_name": "Siran Valley",
-  "description": "Fresh eggs, poultry and WhatsApp ordering from Siran Valley Organic Farm in Mansehra, KPK.",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#f8f5ef",
   "theme_color": "#47653e",
-  "categories": [
-    "food",
-    "shopping",
-    "business"
-  ],
+  "description": "Fresh brown eggs, egg subscriptions, pullets and farm supply from Siran Valley Organic Farm.",
   "icons": [
     {
       "src": "icon-192.webp",
@@ -27,7 +20,7 @@
       "purpose": "any"
     },
     {
-      "src": "icon-512.webp",
+      "src": "maskable-icon-512.webp",
       "sizes": "512x512",
       "type": "image/webp",
       "purpose": "maskable"
