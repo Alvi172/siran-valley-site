@@ -122,7 +122,7 @@
     .img-box img{width:100%;height:100%;object-fit:contain;object-position:center center;padding:6px}
     .wide-image{padding-top:0}
     .wide-image .img-box{aspect-ratio:16/9;box-shadow:var(--shadow-lg);border-radius:26px}
-    .wide-image .img-box img{padding:0;object-fit:contain}
+    .wide-image .img-box picture{width:100%;height:100%;display:block}.wide-image .img-box img{padding:0;object-fit:contain;width:100%;height:100%}
     .card-actions{margin-top:auto;padding-top:14px}
     .story{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;border-radius:30px;padding:clamp(28px,4vw,44px);box-shadow:var(--shadow-lg)}
     .story h2{font-size:clamp(1.85rem,2.7vw,3rem);line-height:1.06;margin:0 0 14px;letter-spacing:-.045em;color:#fff}
@@ -142,7 +142,7 @@
     .footer{padding:40px 0 0;color:#d9e2d5;background:linear-gradient(180deg,#18351f,#102415)}
     .footer-box{border:0;background:transparent;box-shadow:none;border-radius:0;display:grid;grid-template-columns:minmax(280px,1.45fr) repeat(3,minmax(145px,1fr));gap:28px;padding:24px 0;align-items:start}
     .footer strong{color:#fff;display:block;margin-bottom:7px}.footer a{display:block;color:#d9e2d5;margin:6px 0;font-size:.92rem;line-height:1.35}
-    .footer .brand-footer{display:flex;gap:14px;align-items:center}.footer .brand-footer img{height:64px;width:auto;flex:0 0 auto}.footer .brand-footer div{min-width:0}.footer-box > div{min-width:0}
+    .footer .brand-footer{display:flex;gap:14px;align-items:center}.footer .brand-footer img{height:64px;width:auto;flex:0 0 auto}.footer .brand-footer div{min-width:0}.footer-box > div{min-width:0}.footer-line{display:block;line-height:1.55;margin-top:2px}
     .copyright{border-top:1px solid rgba(255,255,255,.15);text-align:center;padding:12px 0;font-size:.86rem;color:#d9e2d5}
     .mobile-bar{display:none}
     .wa{position:fixed;right:20px;bottom:20px;width:66px;height:66px;border-radius:50%;background:#25D366;display:grid;place-items:center;z-index:220;box-shadow:0 14px 28px rgba(0,0,0,.22);animation:pulse 2s infinite;transition:transform .2s ease}
@@ -212,12 +212,12 @@
       <a class="brand" href="/" aria-label="Siran Valley Organic Farm home">
         <img src="logo.webp" alt="Siran Valley Organic Farm logo" width="180" height="72" decoding="async" onerror="this.onerror=null;this.src='logo.png';" />
         <div class="brand-copy">
-          <div class="brand-title">Siran Valley Organic Farm</div>
-          <div class="brand-sub">Fresh brown eggs, pullets and valley farm supply</div>
+          <div class="brand-title" data-i18n="brandTitle">Siran Valley Organic Farm</div>
+          <div class="brand-sub" data-i18n="brandSub">Fresh brown eggs, pullets and valley farm supply</div>
         </div>
       </a>
       <div class="nav-links">
-        <a href="/">Home</a><a href="#subscriptions">Subscriptions</a><a href="#eggs">Shop Eggs</a><a href="#poultry">Pullets</a><a href="#knowledge">Knowledge Centre</a><a href="#videos">Videos</a><a href="#contact">Contact</a>
+        <a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a><a href="#poultry" data-i18n="navPullets">Pullets</a><a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a><a href="#videos" data-i18n="navVideos">Videos</a><a href="#contact" data-i18n="navContact">Contact</a>
       </div>
       <div class="nav-tools">
         <div class="lang-switch" aria-label="Language switcher">
@@ -272,7 +272,7 @@
 
     <section class="section alt" id="subscriptions">
       <div class="container">
-        <div class="section-head"><div><h2>Egg subscription plans</h2><p>Built for families who buy eggs every week and want reliable supply, fewer market visits and a direct relationship with the farm.</p></div></div>
+        <div class="section-head"><div><h2 data-i18n="subsTitle">Egg subscription plans</h2><p data-i18n="subsText">Built for families who buy eggs every week and want reliable supply, fewer market visits and a direct relationship with the farm.</p></div></div>
         <div class="grid-3">
           <article class="card"><div class="img-box"><img src="eggs-12.webp" data-fallback="eggs-12.png" alt="12 egg weekly subscription plan"></div><span class="pill">Starter Plan</span><h3>12 eggs per week</h3><div class="price">Rs. 1,728 <span class="small muted">/ month</span></div><p class="muted">48 eggs per month, suitable for light to moderate household use.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20the%2012%20eggs%20weekly%20subscription." target="_blank" rel="noopener">Subscribe on WhatsApp</a></div></article>
           <article class="card"><div class="img-box"><img src="eggs-30.webp" data-fallback="eggs-30.png" alt="30 egg weekly subscription plan"></div><span class="pill">Most Popular</span><h3>30 eggs per week</h3><div class="price">Rs. 3,840 <span class="small muted">/ month</span></div><p class="muted">120 eggs per month, ideal for families who use eggs regularly.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20the%2030%20eggs%20weekly%20subscription." target="_blank" rel="noopener">Subscribe on WhatsApp</a></div></article>
@@ -283,7 +283,7 @@
 
     <section class="section" id="eggs">
       <div class="container">
-        <div class="section-head"><div><h2>Fresh egg packs</h2><p>Simple one-time ordering for customers who want to try Siran Valley eggs before moving to a weekly subscription.</p></div></div>
+        <div class="section-head"><div><h2 data-i18n="packsTitle">Fresh egg packs</h2><p data-i18n="packsText">Simple one-time ordering for customers who want to try Siran Valley eggs before moving to a weekly subscription.</p></div></div>
         <div class="grid-4">
           <article class="card"><div class="img-box"><img src="eggs-6.webp" data-fallback="eggs-6.png" alt="6 egg pack"></div><span class="pill">Trial</span><h3>6 Egg Pack</h3><div class="price">Rs. 240</div><p class="muted">First-time trial pack.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20the%206%20egg%20pack." target="_blank" rel="noopener">Order</a></div></article>
           <article class="card"><div class="img-box"><img src="eggs-12.webp" data-fallback="eggs-12.png" alt="12 egg pack"></div><span class="pill">Family</span><h3>12 Egg Pack</h3><div class="price">Rs. 432</div><p class="muted">Useful for weekly family breakfast.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20want%20the%2012%20egg%20pack." target="_blank" rel="noopener">Order</a></div></article>
@@ -295,7 +295,7 @@
 
     <section class="section alt" id="poultry">
       <div class="container">
-        <div class="section-head"><div><h2>Pullets for homes and small farmers</h2><p>Age-based poultry enquiries for customers who want to rear birds responsibly or buy more advanced pullets with less early-stage care.</p></div></div>
+        <div class="section-head"><div><h2 data-i18n="pulletsTitle">Pullets for homes and small farmers</h2><p data-i18n="pulletsText">Age-based poultry enquiries for customers who want to rear birds responsibly or buy more advanced pullets with less early-stage care.</p></div></div>
         <div class="grid-3">
           <article class="card"><div class="img-box"><img src="chicks-day-old.webp" data-fallback="chicks-day-old.png" alt="Day-old chicks"></div><span class="pill">Day-old</span><h3>Day-old chicks</h3><p class="muted">For experienced buyers with brooding setup.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%20day-old%20chicks." target="_blank" rel="noopener">Ask Availability</a></div></article>
           <article class="card"><div class="img-box"><img src="chicks-8week.webp" data-fallback="chicks-8week.png" alt="8 week pullets"></div><span class="pill">8 Weeks</span><h3>8-week pullets</h3><p class="muted">A stronger early-stage option for customers looking for growing birds.</p><div class="card-actions"><a class="btn primary" href="https://wa.me/923009111424?text=Assalamualaikum%20I%20am%20interested%20in%208-week%20pullets." target="_blank" rel="noopener">Ask Availability</a></div></article>
@@ -316,7 +316,7 @@
 
     <section class="section alt" id="knowledge">
       <div class="container">
-        <div class="section-head"><div><h2>Siran Knowledge Centre</h2><p>Deep customer education pages designed to answer real Pakistani search questions and build long-term trust before purchase.</p></div></div>
+        <div class="section-head"><div><h2 data-i18n="knowledgeTitle">Siran Knowledge Centre</h2><p data-i18n="knowledgeText">Deep customer education pages designed to answer real Pakistani search questions and build long-term trust before purchase.</p></div></div>
         <div class="grid-3">
           <a class="article-card" href="blogs/farm-fresh-eggs-pakistan.html"><span class="pill">Freshness</span><h3>Farm Fresh Eggs in Pakistan - What Fresh Really Means</h3><p>Why freshness is a process, not a slogan, and why fewer handling points matter.</p><span class="read">Read guide →</span></a>
           <a class="article-card" href="blogs/egg-supply-chain-pakistan.html"><span class="pill">Supply Chain</span><h3>Egg Supply Chain in Pakistan - From Farm to Consumer</h3><p>How eggs move through Pakistan's market and why the journey affects quality.</p><span class="read">Read guide →</span></a>
@@ -330,15 +330,23 @@
 
     <section class="section" id="videos">
       <div class="container">
-        <div class="section-head"><div><h2>Follow the farm journey</h2><p>Watch Siran Valley updates on YouTube and TikTok. Real farm content will become one of the strongest proof layers for trust and SEO.</p></div></div>
+        <div class="section-head"><div><h2 data-i18n="videosTitle">Follow the farm journey</h2><p>Watch Siran Valley updates on YouTube and TikTok. Real farm content will become one of the strongest proof layers for trust and SEO.</p></div></div>
         <div class="video-card"><div class="video-grid"><a class="video-poster" href="https://www.youtube.com/@Siranvalleyfarm" target="_blank" rel="noopener"><div><strong>Siran Valley Farm Videos</strong><span>Open the latest farm updates on YouTube without slowing this page down.</span></div></a><div><h3>Video proof matters</h3><p class="muted">Customers trust what they can see. Short farm videos, packing clips, bird management updates and delivery moments can support every product page and guide without loading a heavy third-party iframe on first paint.</p><div class="social-row"><a class="btn primary" href="https://www.youtube.com/@Siranvalleyfarm" target="_blank" rel="noopener">Open YouTube</a><a class="btn darkbtn" href="https://www.tiktok.com/@siranvalleyfarm?lang=en" target="_blank" rel="noopener">Open TikTok</a></div></div></div></div>
       </div>
     </section>
 
-    <section class="section wide-image" aria-label="Siran Valley farm full banner">
+    <section class="section wide-image" aria-label="Siran Valley farm landscape banner">
       <div class="container">
         <div class="img-box">
-          <img src="siranvalleyfarm.webp" data-fallback="siranvalleyfarm.png" alt="Siran Valley Organic Farm full banner">
+          <picture>
+            <source type="image/avif" media="(max-width: 700px)" srcset="farm-landscape-mobile.avif">
+            <source type="image/webp" media="(max-width: 700px)" srcset="farm-landscape-mobile.webp">
+            <source type="image/avif" media="(max-width: 1100px)" srcset="farm-landscape-tablet.avif">
+            <source type="image/webp" media="(max-width: 1100px)" srcset="farm-landscape-tablet.webp">
+            <source type="image/avif" srcset="farm-landscape-desktop.avif">
+            <source type="image/webp" srcset="farm-landscape-desktop.webp">
+            <img src="farm-landscape.webp" data-fallback="farm-landscape.png" alt="Siran Valley Organic Farm landscape in Mansehra KPK" width="1440" height="900" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
@@ -346,8 +354,18 @@
 
   <footer class="footer" id="contact">
     <div class="container footer-box">
-      <div><div class="brand-footer"><img src="logo.webp" data-fallback="logo.png" alt="Siran Valley Organic Farm logo" width="90" height="90"><div><strong>Siran Valley Organic Farm</strong><br><span class="small">Siran Valley, Mansehra, KPK, Pakistan</span><br><span class="small">WhatsApp: +92 300 9111424 | Email: hello@siran.pk</span></div></div></div>
-      <div><strong>Quick Links</strong><a href="/">Home</a><a href="#subscriptions">Subscriptions</a><a href="#eggs">Shop Eggs</a></div>
+      <div>
+        <div class="brand-footer">
+          <img src="logo.webp" data-fallback="logo.png" alt="Siran Valley Organic Farm logo" width="90" height="90">
+          <div>
+            <strong data-i18n="brandTitle">Siran Valley Organic Farm</strong>
+            <span class="small footer-line" data-i18n="footerLocation">Siran Valley, Mansehra, KPK, Pakistan</span>
+            <span class="small footer-line" data-i18n="footerPhone">WhatsApp: +92 300 9111424</span>
+            <span class="small footer-line" data-i18n="footerEmail">Email: hello@siran.pk</span>
+          </div>
+        </div>
+      </div>
+      <div><strong>Quick Links</strong><a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a></div>
       <div><strong>Information</strong><a href="faq.html">FAQs</a><a href="terms.html">Terms & Conditions</a><a href="blogs/future-of-farm-food-pakistan.html">Our Vision</a></div>
       <div><strong>Follow Us</strong><a href="https://www.youtube.com/@Siranvalleyfarm" target="_blank" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@siranvalleyfarm?lang=en" target="_blank" rel="noopener">TikTok</a></div>
     </div>
@@ -394,9 +412,44 @@
     dots.forEach((dot,index)=>dot.addEventListener("click",()=>{showSlide(index);startSlider()}));
     startSlider();
 
+    const translations = {
+      ur: {
+        brandTitle:"سیرن ویلی آرگینک فارم",
+        brandSub:"تازہ براؤن انڈے، پلٹس اور ویلی فارم سپلائی",
+        navHome:"ہوم",
+        navSubscriptions:"سبسکرپشنز",
+        navShop:"انڈے خریدیں",
+        navPullets:"پلٹس",
+        navKnowledge:"معلوماتی مرکز",
+        navVideos:"ویڈیوز",
+        navContact:"رابطہ",
+        subsTitle:"انڈوں کے سبسکرپشن پلانز",
+        subsText:"ان خاندانوں کے لیے جو ہر ہفتے انڈے خریدتے ہیں اور قابلِ اعتماد سپلائی، کم مارکیٹ وزٹ اور فارم سے براہ راست تعلق چاہتے ہیں۔",
+        packsTitle:"تازہ انڈوں کے پیک",
+        packsText:"ان صارفین کے لیے آسان ایک بار آرڈر جو سبسکرپشن سے پہلے سیرن ویلی کے انڈے آزمانا چاہتے ہیں۔",
+        pulletsTitle:"گھروں اور چھوٹے فارمرز کے لیے پلٹس",
+        pulletsText:"ان صارفین کے لیے عمر کے حساب سے پولٹری انکوائری جو ذمہ داری سے پرندے پالنا یا زیادہ تیار پلٹس خریدنا چاہتے ہیں۔",
+        knowledgeTitle:"سیرن معلوماتی مرکز",
+        knowledgeText:"تفصیلی تعلیمی صفحات جو پاکستانی صارفین کے اصل سوالات کا جواب دیتے ہیں اور خریداری سے پہلے اعتماد بناتے ہیں۔",
+        videosTitle:"فارم کا سفر فالو کریں",
+        footerLocation:"سیرن ویلی، مانسہرہ، کے پی کے، پاکستان",
+        footerPhone:"واٹس ایپ: +92 300 9111424",
+        footerEmail:"ای میل: hello@siran.pk"
+      }
+    };
+
     function setLang(lang){
       document.documentElement.lang = lang === "ur" ? "ur" : "en";
       document.body.classList.toggle("rtl", lang === "ur");
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (!el.dataset.en) el.dataset.en = el.textContent.trim();
+        if (lang === "ur" && translations.ur[key]) {
+          el.textContent = translations.ur[key];
+        } else {
+          el.textContent = el.dataset.en;
+        }
+      });
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-ur").classList.toggle("active", lang === "ur");
       try { localStorage.setItem("siran_lang", lang); } catch(e) {}
