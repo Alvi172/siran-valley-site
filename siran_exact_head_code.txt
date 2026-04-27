@@ -1,0 +1,26 @@
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Fresh Eggs in Mansehra | Siran Valley Organic Farm</title>
+  <meta name="description" content="Fresh eggs in Mansehra, brown egg packs, egg subscriptions, poultry and pullet enquiries from Siran Valley Organic Farm, KPK, Pakistan." />
+  <meta name="theme-color" content="#47653e" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://www.siran.pk/" />
+
+  <meta property="og:title" content="Siran Valley Organic Farm | Fresh Eggs in Mansehra" />
+  <meta property="og:description" content="Fresh eggs, egg subscriptions, poultry and WhatsApp ordering from Siran Valley Organic Farm." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.siran.pk/" />
+  <meta property="og:image" content="https://www.siran.pk/hero-1.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="hero-1-desktop.webp" imagesrcset="hero-1-mobile.webp 480w, hero-1-tablet.webp 960w, hero-1-desktop.webp 1440w" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" href="logo.webp" />
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
+
+  <link rel="icon" href="egg-favicon.ico" sizes="any" />
+  <link rel="icon" href="egg-favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/webp" sizes="32x32" href="egg-favicon-32.webp" />
+  <link rel="icon" type="image/webp" sizes="16x16" href="egg-favicon-16.webp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
