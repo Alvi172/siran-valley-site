@@ -40,6 +40,7 @@
       background:radial-gradient(circle at top right,rgba(243,201,106,.18),transparent 24%),
                  radial-gradient(circle at top left,rgba(71,101,62,.11),transparent 22%),var(--bg);
       color:var(--text);line-height:1.62;
+      padding-top:96px;
     }
     body.rtl{direction:rtl;font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}body.rtl .nav-inner,body.rtl .brand,body.rtl .trust-item,body.rtl .footer .brand-footer{direction:rtl}body.rtl .nav-links{direction:rtl}body.rtl .hero-dots{direction:ltr}body.rtl .footer-box{text-align:right}
     img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
@@ -47,27 +48,66 @@
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{left:12px;top:12px;width:auto;height:auto;background:#fff;padding:10px 14px;border-radius:999px;z-index:9999;box-shadow:var(--shadow)}
 
-    .nav{position:sticky;top:0;z-index:100;background:rgba(248,245,239,.96);border-bottom:1px solid rgba(231,222,208,.95)}
-    @supports(backdrop-filter:blur(14px)){.nav{backdrop-filter:blur(14px)}}
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      background:rgba(248,245,239,.92);
+      border-bottom:1px solid rgba(231,222,208,.86);
+      box-shadow:0 10px 34px rgba(24,53,31,.08);
+    }
+    @supports(backdrop-filter:blur(14px)){.nav{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
     .nav-inner{display:grid;grid-template-columns:minmax(300px,390px) minmax(0,1fr) auto;align-items:center;gap:22px;padding:10px 0;min-height:78px}
     .brand{display:flex;align-items:center;gap:12px;min-width:0;max-width:390px}
     .brand img{height:58px;width:auto;max-width:82px;object-fit:contain;flex:0 0 auto}
     .brand-copy{min-width:0;display:flex;flex-direction:column;justify-content:center}
     .brand-title{font-weight:950;line-height:1.05;font-size:1.08rem;letter-spacing:-.02em;color:#1d3422;white-space:nowrap}
     .brand-sub{font-size:.84rem;color:var(--muted);line-height:1.24;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:clamp(10px,1.15vw,18px);flex:1 1 auto;min-width:0;color:#566354;font-weight:900}
-    .nav-links a{font-size:clamp(.82rem,.82vw,.94rem);white-space:nowrap;padding:8px 0;position:relative;letter-spacing:-.015em}
-    .nav-links a:hover,.nav-links a:focus{color:var(--brand)}
-    .nav-links a:hover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--brand);border-radius:999px}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:clamp(8px,1vw,15px);
+      flex:1 1 auto;
+      min-width:0;
+      color:#334233;
+      font-weight:950;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:geometricPrecision;
+    }
+    .nav-links a{
+      font-size:clamp(.82rem,.82vw,.93rem);
+      white-space:nowrap;
+      padding:8px 8px;
+      position:relative;
+      letter-spacing:-.01em;
+      border-radius:999px;
+      line-height:1;
+      transition:background .18s ease,color .18s ease,transform .18s ease;
+    }
+    .nav-links a:hover,.nav-links a:focus{
+      color:#18351f;
+      background:rgba(71,101,62,.10);
+      transform:translateY(-1px);
+    }
+    .nav-links a:hover::after{display:none}
 
     .order-menu-link{
-      background:linear-gradient(180deg,var(--green),#148543);
+      background:linear-gradient(180deg,#4f9856,#2f7a3d);
       color:#fff !important;
-      padding:9px 15px !important;
+      padding:9px 18px !important;
       border-radius:999px;
-      box-shadow:var(--shadow);
+      box-shadow:0 10px 24px rgba(24,83,36,.22);
       line-height:1;
-      margin-left:2px;
+      margin-left:4px;
+      border:1px solid rgba(255,255,255,.45);
+    }
+    .order-menu-link:hover,.order-menu-link:focus{
+      background:linear-gradient(180deg,#58a760,#2d7339);
+      color:#fff !important;
+      transform:translateY(-1px);
     }
     .order-menu-link::after{display:none !important}
 
@@ -75,6 +115,9 @@
     .lang-switch{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow)}
     .lang-btn{border:0;background:transparent;border-radius:999px;padding:8px 11px;font-weight:950;color:var(--muted);cursor:pointer}
     .lang-btn.active{background:linear-gradient(180deg,var(--brand),var(--brand-dark));color:#fff}
+
+
+    section[id], footer[id]{scroll-margin-top:110px}
 
     .hero-shell{padding:18px 0 10px;background:#fffdf8}
     .hero-frame{width:min(calc(100% - 8px),1440px);margin:0 auto;background:linear-gradient(180deg,#fff,#fff7e8);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow-lg);overflow:hidden;padding:12px}
@@ -168,7 +211,7 @@
       .brand-title{font-size:1rem}
       .brand-sub{font-size:.78rem}
       .nav-links{gap:10px}
-      .nav-links a{font-size:.82rem}
+      .nav-links a{font-size:.82rem;padding-left:6px;padding-right:6px}
       .order-menu-link{padding:8px 12px !important}
       .lang-btn{padding:7px 9px}
     }
@@ -212,7 +255,8 @@
     .footer .brand-footer a{display:flex;gap:14px;align-items:center;margin:0;color:inherit}
     .mobile-menu-btn{display:none;border:0;background:linear-gradient(180deg,var(--brand),var(--brand-dark));color:#fff;border-radius:999px;padding:10px 14px;font-weight:950;box-shadow:var(--shadow);cursor:pointer}
     @media(max-width:700px){
-      .nav{position:sticky;top:0}
+      body{padding-top:126px}
+      .nav{position:fixed;top:0}
       .nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-height:auto}
       .brand{grid-column:1/2;max-width:100%;min-width:0}
       .brand img{height:48px;max-width:60px}
@@ -278,7 +322,7 @@
       </a>
       <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="main-nav-links">Menu</button>
       <div class="nav-links" id="main-nav-links">
-        <a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a><a href="#poultry" data-i18n="navPullets">Pullets</a><a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a><a href="#videos" data-i18n="navVideos">Videos</a><a href="#contact" data-i18n="navContact">Contact</a><a href="https://www.siran.pk/order" class="order-menu-link">Order Online</a>
+        <a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a><a href="#poultry" data-i18n="navPullets">Pullets</a><a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a><a href="#videos" data-i18n="navVideos">Videos</a><a href="#contact" data-i18n="navContact">Contact</a><a href="https://www.siran.pk/order" class="order-menu-link">Order</a>
       </div>
       <div class="nav-tools">
         <div class="lang-switch" aria-label="Language switcher">
@@ -625,7 +669,8 @@
       "© 2025 Siran Valley Organic Farm. All rights reserved.": "© 2025 سیرن ویلی آرگینک فارم۔ جملہ حقوق محفوظ ہیں۔",
       "WhatsApp": "واٹس ایپ",
       "Plans": "پلانز",
-      "Order Online": "آن لائن آرڈر کریں"
+      "Order Online": "آن لائن آرڈر کریں",
+      "Order": "آرڈر"
 };
 
     function translateTextNodes(root, lang){
