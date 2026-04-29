@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Siran Valley Organic Farm | Fresh Brown Eggs, Subscriptions & Pullets in Pakistan</title>
   <meta name="description" content="Siran Valley Organic Farm supplies fresh brown eggs, weekly egg subscriptions, pullets and farm food education from Siran Valley, Mansehra KPK. Order direct from farm on WhatsApp." />
   <meta name="keywords" content="fresh eggs Pakistan, brown eggs Pakistan, farm fresh eggs Mansehra, egg subscription Pakistan, pullets for sale Pakistan, farm eggs KPK, Siran Valley Organic Farm" />
@@ -173,40 +173,6 @@
       .hero{border-radius:18px;min-height:460px}
       .section{padding:42px 0}.card{padding:18px}.img-box{border-radius:16px}.footer-box{grid-template-columns:1fr}
     }
-
-    /* Final mobile stability fixes */
-    html,body{max-width:100%;overflow-x:hidden}
-    .nav{width:100%;left:0;right:0}
-    .nav-inner,.container,.footer-box,.mobile-bar{max-width:100%}
-    .brand,.brand-copy,.nav-links,.nav-tools{min-width:0}
-    .brand-title,.brand-sub{overflow-wrap:anywhere}
-    .footer a,.footer span,.footer strong{overflow-wrap:anywhere}
-    .mobile-bar{box-sizing:border-box}
-    .mobile-bar .btn{min-width:0;white-space:nowrap;font-size:.92rem}
-    .footer .brand-footer a{display:flex;gap:14px;align-items:center;margin:0;color:inherit}
-    .mobile-menu-btn{display:none;border:0;background:linear-gradient(180deg,var(--brand),var(--brand-dark));color:#fff;border-radius:999px;padding:10px 14px;font-weight:950;box-shadow:var(--shadow);cursor:pointer}
-    @media(max-width:700px){
-      .nav{position:sticky;top:0}
-      .nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:auto}
-      .brand{grid-column:1/2;max-width:100%;flex:unset}
-      .brand img{height:48px;max-width:60px}
-      .brand-title{font-size:.95rem}.brand-sub{font-size:.74rem;line-height:1.2}
-      .mobile-menu-btn{display:inline-flex;grid-column:2/3;grid-row:1;align-items:center;justify-content:center}
-      .nav-tools{grid-column:1/3;width:100%;justify-content:flex-end}
-      .nav-links{grid-column:1/3;order:5;display:none;flex-direction:column;align-items:stretch;width:100%;gap:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:var(--shadow);overflow:visible}
-      .nav-links.open{display:flex}
-      .nav-links a{padding:12px 14px;border-bottom:1px solid rgba(231,222,208,.65);font-size:.95rem}
-      .nav-links a:last-child{border-bottom:0}
-      .lang-switch{margin-left:auto}
-      .hero-shell{padding-top:10px}.hero{min-height:320px}.slide,picture.slide img{object-fit:contain}
-      .tile,.trust-item,.card,.article-card,.video-card{max-width:100%}
-      .btn{max-width:100%;white-space:normal}
-      .mobile-bar{left:8px;right:8px;bottom:8px;padding:8px;gap:8px}
-      .mobile-bar .btn{padding:10px 8px;font-size:.86rem;min-height:44px;flex:1 1 0}
-      body{padding-bottom:76px}
-      .footer .brand-footer a{align-items:flex-start}
-    }
-
   </style>
 
   <script type="application/ld+json">
@@ -250,8 +216,7 @@
           <div class="brand-sub" data-i18n="brandSub">Fresh brown eggs, pullets and valley farm supply</div>
         </div>
       </a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="main-nav-links">Menu</button>
-      <div class="nav-links" id="main-nav-links">
+      <div class="nav-links">
         <a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a><a href="#poultry" data-i18n="navPullets">Pullets</a><a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a><a href="#videos" data-i18n="navVideos">Videos</a><a href="#contact" data-i18n="navContact">Contact</a>
       </div>
       <div class="nav-tools">
@@ -417,28 +382,6 @@
   </div>
 
   <script>
-
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    const mainNavLinks = document.getElementById("main-nav-links");
-    function currentMenuLabel(isOpen){
-      const isUr = document.documentElement.lang === "ur";
-      return isOpen ? (isUr ? "بند کریں" : "Close") : (isUr ? "مینو" : "Menu");
-    }
-    if (mobileMenuBtn && mainNavLinks) {
-      mobileMenuBtn.addEventListener("click", () => {
-        const isOpen = mainNavLinks.classList.toggle("open");
-        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        mobileMenuBtn.textContent = currentMenuLabel(isOpen);
-      });
-      mainNavLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          mainNavLinks.classList.remove("open");
-          mobileMenuBtn.setAttribute("aria-expanded", "false");
-          mobileMenuBtn.textContent = currentMenuLabel(false);
-        });
-      });
-    }
-
     document.querySelectorAll("img[data-fallback]").forEach(img => {
       img.addEventListener("error", function(){
         const fallback = this.getAttribute("data-fallback");
@@ -632,7 +575,6 @@
       translateTextNodes(document.body, lang);
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-ur").classList.toggle("active", lang === "ur");
-      if (mobileMenuBtn) mobileMenuBtn.textContent = currentMenuLabel(false);
       try { localStorage.setItem("siran_lang", lang); } catch(e) {}
     }
 
