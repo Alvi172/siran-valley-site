@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <title>Siran Valley Organic Farm | Fresh Brown Eggs, Subscriptions & Pullets in Pakistan</title>
   <meta name="description" content="Siran Valley Organic Farm supplies fresh brown eggs, weekly egg subscriptions, pullets and farm food education from Siran Valley, Mansehra KPK. Order direct from farm on WhatsApp." />
   <meta name="keywords" content="fresh eggs Pakistan, brown eggs Pakistan, farm fresh eggs Mansehra, egg subscription Pakistan, pullets for sale Pakistan, farm eggs KPK, Siran Valley Organic Farm" />
@@ -41,7 +41,7 @@
                  radial-gradient(circle at top left,rgba(71,101,62,.11),transparent 22%),var(--bg);
       color:var(--text);line-height:1.62;
     }
-    body.rtl{direction:rtl;font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}
+    body.rtl{direction:rtl;font-family:"Noto Naskh Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.9}body.rtl .nav-inner,body.rtl .brand,body.rtl .trust-item,body.rtl .footer .brand-footer{direction:rtl}body.rtl .nav-links{direction:rtl}body.rtl .hero-dots{direction:ltr}body.rtl .footer-box{text-align:right}
     img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
     .container{width:min(var(--max),calc(100% - 24px));margin:0 auto}
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
@@ -173,6 +173,40 @@
       .hero{border-radius:18px;min-height:460px}
       .section{padding:42px 0}.card{padding:18px}.img-box{border-radius:16px}.footer-box{grid-template-columns:1fr}
     }
+
+    /* Final mobile stability fixes */
+    html,body{max-width:100%;overflow-x:hidden}
+    .nav{width:100%;left:0;right:0}
+    .nav-inner,.container,.footer-box,.mobile-bar{max-width:100%}
+    .brand,.brand-copy,.nav-links,.nav-tools{min-width:0}
+    .brand-title,.brand-sub{overflow-wrap:anywhere}
+    .footer a,.footer span,.footer strong{overflow-wrap:anywhere}
+    .mobile-bar{box-sizing:border-box}
+    .mobile-bar .btn{min-width:0;white-space:nowrap;font-size:.92rem}
+    .footer .brand-footer a{display:flex;gap:14px;align-items:center;margin:0;color:inherit}
+    .mobile-menu-btn{display:none;border:0;background:linear-gradient(180deg,var(--brand),var(--brand-dark));color:#fff;border-radius:999px;padding:10px 14px;font-weight:950;box-shadow:var(--shadow);cursor:pointer}
+    @media(max-width:700px){
+      .nav{position:sticky;top:0}
+      .nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:auto}
+      .brand{grid-column:1/2;max-width:100%;flex:unset}
+      .brand img{height:48px;max-width:60px}
+      .brand-title{font-size:.95rem}.brand-sub{font-size:.74rem;line-height:1.2}
+      .mobile-menu-btn{display:inline-flex;grid-column:2/3;grid-row:1;align-items:center;justify-content:center}
+      .nav-tools{grid-column:1/3;width:100%;justify-content:flex-end}
+      .nav-links{grid-column:1/3;order:5;display:none;flex-direction:column;align-items:stretch;width:100%;gap:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:var(--shadow);overflow:visible}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:12px 14px;border-bottom:1px solid rgba(231,222,208,.65);font-size:.95rem}
+      .nav-links a:last-child{border-bottom:0}
+      .lang-switch{margin-left:auto}
+      .hero-shell{padding-top:10px}.hero{min-height:320px}.slide,picture.slide img{object-fit:contain}
+      .tile,.trust-item,.card,.article-card,.video-card{max-width:100%}
+      .btn{max-width:100%;white-space:normal}
+      .mobile-bar{left:8px;right:8px;bottom:8px;padding:8px;gap:8px}
+      .mobile-bar .btn{padding:10px 8px;font-size:.86rem;min-height:44px;flex:1 1 0}
+      body{padding-bottom:76px}
+      .footer .brand-footer a{align-items:flex-start}
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -216,7 +250,8 @@
           <div class="brand-sub" data-i18n="brandSub">Fresh brown eggs, pullets and valley farm supply</div>
         </div>
       </a>
-      <div class="nav-links">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="main-nav-links">Menu</button>
+      <div class="nav-links" id="main-nav-links">
         <a href="/" data-i18n="navHome">Home</a><a href="#subscriptions" data-i18n="navSubscriptions">Subscriptions</a><a href="#eggs" data-i18n="navShop">Shop Eggs</a><a href="#poultry" data-i18n="navPullets">Pullets</a><a href="#knowledge" data-i18n="navKnowledge">Knowledge Centre</a><a href="#videos" data-i18n="navVideos">Videos</a><a href="#contact" data-i18n="navContact">Contact</a>
       </div>
       <div class="nav-tools">
@@ -382,6 +417,28 @@
   </div>
 
   <script>
+
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mainNavLinks = document.getElementById("main-nav-links");
+    function currentMenuLabel(isOpen){
+      const isUr = document.documentElement.lang === "ur";
+      return isOpen ? (isUr ? "بند کریں" : "Close") : (isUr ? "مینو" : "Menu");
+    }
+    if (mobileMenuBtn && mainNavLinks) {
+      mobileMenuBtn.addEventListener("click", () => {
+        const isOpen = mainNavLinks.classList.toggle("open");
+        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileMenuBtn.textContent = currentMenuLabel(isOpen);
+      });
+      mainNavLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mainNavLinks.classList.remove("open");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+          mobileMenuBtn.textContent = currentMenuLabel(false);
+        });
+      });
+    }
+
     document.querySelectorAll("img[data-fallback]").forEach(img => {
       img.addEventListener("error", function(){
         const fallback = this.getAttribute("data-fallback");
@@ -412,48 +469,173 @@
     dots.forEach((dot,index)=>dot.addEventListener("click",()=>{showSlide(index);startSlider()}));
     startSlider();
 
-    const translations = {
-      ur: {
-        brandTitle:"سیرن ویلی آرگینک فارم",
-        brandSub:"تازہ براؤن انڈے، پلٹس اور ویلی فارم سپلائی",
-        navHome:"ہوم",
-        navSubscriptions:"سبسکرپشنز",
-        navShop:"انڈے خریدیں",
-        navPullets:"پلٹس",
-        navKnowledge:"معلوماتی مرکز",
-        navVideos:"ویڈیوز",
-        navContact:"رابطہ",
-        subsTitle:"انڈوں کے سبسکرپشن پلانز",
-        subsText:"ان خاندانوں کے لیے جو ہر ہفتے انڈے خریدتے ہیں اور قابلِ اعتماد سپلائی، کم مارکیٹ وزٹ اور فارم سے براہ راست تعلق چاہتے ہیں۔",
-        packsTitle:"تازہ انڈوں کے پیک",
-        packsText:"ان صارفین کے لیے آسان ایک بار آرڈر جو سبسکرپشن سے پہلے سیرن ویلی کے انڈے آزمانا چاہتے ہیں۔",
-        pulletsTitle:"گھروں اور چھوٹے فارمرز کے لیے پلٹس",
-        pulletsText:"ان صارفین کے لیے عمر کے حساب سے پولٹری انکوائری جو ذمہ داری سے پرندے پالنا یا زیادہ تیار پلٹس خریدنا چاہتے ہیں۔",
-        knowledgeTitle:"سیرن معلوماتی مرکز",
-        knowledgeText:"تفصیلی تعلیمی صفحات جو پاکستانی صارفین کے اصل سوالات کا جواب دیتے ہیں اور خریداری سے پہلے اعتماد بناتے ہیں۔",
-        videosTitle:"فارم کا سفر فالو کریں",
-        footerLocation:"سیرن ویلی، مانسہرہ، کے پی کے، پاکستان",
-        footerPhone:"واٹس ایپ: +92 300 9111424",
-        footerEmail:"ای میل: hello@siran.pk"
-      }
-    };
+    const urduText = {
+      "Skip to content": "مواد پر جائیں",
+      "Siran Valley Organic Farm": "سیرن ویلی آرگینک فارم",
+      "Fresh brown eggs, pullets and valley farm supply": "تازہ براؤن انڈے، پلٹس اور ویلی فارم سپلائی",
+      "Home": "ہوم",
+      "Subscriptions": "سبسکرپشنز",
+      "Shop Eggs": "انڈے خریدیں",
+      "Pullets": "پلٹس",
+      "Knowledge Centre": "معلوماتی مرکز",
+      "Videos": "ویڈیوز",
+      "Contact": "رابطہ",
+      "Fresh & Natural": "تازہ اور قدرتی",
+      "Better environment, better eggs.": "بہتر ماحول، بہتر انڈے۔",
+      "Trusted Farm": "قابلِ اعتماد فارم",
+      "Transparency, honesty and responsibility.": "شفافیت، دیانت داری اور ذمہ داری۔",
+      "Local & Proud": "مقامی اور قابلِ فخر",
+      "From Siran Valley, Mansehra, KPK.": "سیرن ویلی، مانسہرہ، کے پی کے سے۔",
+      "Customer First": "گاہک پہلے",
+      "Long-term trust is our goal.": "طویل مدتی اعتماد ہمارا مقصد ہے۔",
+      "Egg Subscriptions": "انڈوں کی سبسکرپشنز",
+      "Weekly egg plans for families who value freshness and convenience.": "ان خاندانوں کے لیے ہفتہ وار انڈہ پلانز جو تازگی اور آسانی کو اہمیت دیتے ہیں۔",
+      "View Plans →": "پلان دیکھیں ←",
+      "One-time Egg Packs": "ایک بار خریدنے کے انڈہ پیک",
+      "6, 12, 30 and 60 egg packs for one-time orders.": "ایک بار آرڈر کے لیے 6، 12، 30 اور 60 انڈوں کے پیک۔",
+      "Shop Eggs →": "انڈے خریدیں ←",
+      "Pullets for Sale": "فروخت کے لیے پلٹس",
+      "Day-old to mature birds for homes and small farmers.": "گھروں اور چھوٹے فارمرز کے لیے ایک دن کے چوزوں سے بالغ پرندوں تک۔",
+      "Check Pullets →": "پلٹس دیکھیں ←",
+      "Future Meat Supply": "مستقبل کی گوشت سپلائی",
+      "Building towards fresh, clean and trustworthy chicken meat supply.": "تازہ، صاف اور قابلِ اعتماد چکن گوشت سپلائی کی طرف پیش رفت۔",
+      "Learn More →": "مزید جانیں ←",
+      "Egg subscription plans": "انڈوں کے سبسکرپشن پلانز",
+      "Built for families who buy eggs every week and want reliable supply, fewer market visits and a direct relationship with the farm.": "ان خاندانوں کے لیے جو ہر ہفتے انڈے خریدتے ہیں اور قابلِ اعتماد سپلائی، کم مارکیٹ چکر اور فارم سے براہ راست تعلق چاہتے ہیں۔",
+      "Starter Plan": "اسٹارٹر پلان",
+      "12 eggs per week": "ہفتہ وار 12 انڈے",
+      "/ month": "/ ماہ",
+      "48 eggs per month, suitable for light to moderate household use.": "ماہانہ 48 انڈے، ہلکے سے درمیانے گھریلو استعمال کے لیے موزوں۔",
+      "Subscribe on WhatsApp": "واٹس ایپ پر سبسکرائب کریں",
+      "Most Popular": "سب سے مقبول",
+      "30 eggs per week": "ہفتہ وار 30 انڈے",
+      "120 eggs per month, ideal for families who use eggs regularly.": "ماہانہ 120 انڈے، باقاعدہ انڈے استعمال کرنے والے خاندانوں کے لیے بہترین۔",
+      "Premium Household": "پریمیم گھریلو پلان",
+      "60 eggs per week": "ہفتہ وار 60 انڈے",
+      "240 eggs per month, best for large homes or shared family buying.": "ماہانہ 240 انڈے، بڑے گھروں یا مشترکہ فیملی خریداری کے لیے بہترین۔",
+      "Fresh egg packs": "تازہ انڈوں کے پیک",
+      "Simple one-time ordering for customers who want to try Siran Valley eggs before moving to a weekly subscription.": "ان صارفین کے لیے آسان ایک بار آرڈر جو سبسکرپشن سے پہلے سیرن ویلی کے انڈے آزمانا چاہتے ہیں۔",
+      "Trial": "ٹرائل",
+      "6 Egg Pack": "6 انڈوں کا پیک",
+      "First-time trial pack.": "پہلی بار آزمانے کے لیے پیک۔",
+      "Order": "آرڈر کریں",
+      "Family": "فیملی",
+      "12 Egg Pack": "12 انڈوں کا پیک",
+      "Useful for weekly family breakfast.": "ہفتہ وار فیملی ناشتے کے لیے مفید۔",
+      "Value": "ویلیو",
+      "30 Egg Crate": "30 انڈوں کا کریٹ",
+      "Best value for regular homes.": "باقاعدہ گھروں کے لیے بہترین ویلیو۔",
+      "Bulk": "بلک",
+      "60 Egg Pack": "60 انڈوں کا پیک",
+      "For larger homes and shared orders.": "بڑے گھروں اور مشترکہ آرڈرز کے لیے۔",
+      "Pullets for homes and small farmers": "گھروں اور چھوٹے فارمرز کے لیے پلٹس",
+      "Age-based poultry enquiries for customers who want to rear birds responsibly or buy more advanced pullets with less early-stage care.": "ان صارفین کے لیے عمر کے حساب سے پولٹری انکوائری جو ذمہ داری سے پرندے پالنا یا کم ابتدائی دیکھ بھال کے ساتھ زیادہ تیار پلٹس خریدنا چاہتے ہیں۔",
+      "Day-old": "ایک دن کے",
+      "Day-old chicks": "ایک دن کے چوزے",
+      "For experienced buyers with brooding setup.": "بروڈنگ سیٹ اپ رکھنے والے تجربہ کار خریداروں کے لیے۔",
+      "Ask Availability": "دستیابی پوچھیں",
+      "8 Weeks": "8 ہفتے",
+      "8-week pullets": "8 ہفتے کی پلٹس",
+      "A stronger early-stage option for customers looking for growing birds.": "بڑھتے ہوئے پرندے لینے والے گاہکوں کے لیے مضبوط ابتدائی آپشن۔",
+      "Growing": "بڑھتی عمر",
+      "12-week pullets": "12 ہفتے کی پلٹس",
+      "More advanced birds with less early-stage care.": "کم ابتدائی دیکھ بھال کے ساتھ زیادہ تیار پرندے۔",
+      "Near Lay": "انڈے دینے کے قریب",
+      "18-week pullets": "18 ہفتے کی پلٹس",
+      "Near-ready birds for serious buyers.": "سنجیدہ خریداروں کے لیے تقریباً تیار پرندے۔",
+      "24 Weeks": "24 ہفتے",
+      "24-week mature layers": "24 ہفتے کی بالغ لیئرز",
+      "A premium mature option for buyers wanting stronger birds with less waiting time.": "کم انتظار کے ساتھ مضبوط بالغ پرندے چاہنے والوں کے لیے پریمیم آپشن۔",
+      "Bulk Enquiry": "بلک انکوائری",
+      "Bulk poultry orders": "بلک پولٹری آرڈرز",
+      "For larger buyers, batch enquiries and future poultry booking.": "بڑے خریداروں، بیچ انکوائریز اور مستقبل کی پولٹری بکنگ کے لیے۔",
+      "Brand ethos": "برانڈ اصول",
+      "Less handling. More clarity. Better trust.": "کم ہینڈلنگ۔ زیادہ وضاحت۔ بہتر اعتماد۔",
+      "Siran Valley is built around a simple food principle: the shorter and clearer the journey from farm to home, the easier it is to protect freshness and build trust.": "سیرن ویلی ایک سادہ خوراکی اصول پر قائم ہے: فارم سے گھر تک سفر جتنا مختصر اور واضح ہو، تازگی محفوظ رکھنا اور اعتماد بنانا اتنا آسان ہوتا ہے۔",
+      "Our content, product pages and subscription system educate customers before selling to them. That is how a local farm can become a national food brand over time.": "ہمارا مواد، پروڈکٹ صفحات اور سبسکرپشن نظام فروخت سے پہلے صارفین کو آگاہ کرتے ہیں۔ یہی طریقہ ایک مقامی فارم کو وقت کے ساتھ قومی فوڈ برانڈ بنا سکتا ہے۔",
+      "Read Our Vision": "ہمارا وژن پڑھیں",
+      "Future fresh chicken meat": "مستقبل کی تازہ چکن سپلائی",
+      "This section keeps the future Siran Valley fresh meat line visible while eggs remain the lead product. The same trust-first approach will guide future meat supply.": "یہ سیکشن مستقبل کی سیرن ویلی تازہ گوشت لائن کو ظاہر رکھتا ہے جبکہ انڈے ابھی مرکزی پروڈکٹ ہیں۔ یہی اعتماد پر مبنی طریقہ مستقبل کی گوشت سپلائی میں بھی ہوگا۔",
+      "Siran Knowledge Centre": "سیرن معلوماتی مرکز",
+      "Deep customer education pages designed to answer real Pakistani search questions and build long-term trust before purchase.": "تفصیلی تعلیمی صفحات جو پاکستانی صارفین کے اصل سوالات کا جواب دیتے ہیں اور خریداری سے پہلے طویل مدتی اعتماد بناتے ہیں۔",
+      "Freshness": "تازگی",
+      "Farm Fresh Eggs in Pakistan - What Fresh Really Means": "پاکستان میں فارم فریش انڈے - تازگی کا اصل مطلب",
+      "Why freshness is a process, not a slogan, and why fewer handling points matter.": "تازگی صرف نعرہ نہیں بلکہ ایک عمل ہے، اور کم ہینڈلنگ کیوں اہم ہے۔",
+      "Read guide →": "گائیڈ پڑھیں ←",
+      "Supply Chain": "سپلائی چین",
+      "Egg Supply Chain in Pakistan - From Farm to Consumer": "پاکستان میں انڈوں کی سپلائی چین - فارم سے صارف تک",
+      "How eggs move through Pakistan's market and why the journey affects quality.": "پاکستانی مارکیٹ میں انڈے کیسے سفر کرتے ہیں اور یہ سفر معیار کو کیسے متاثر کرتا ہے۔",
+      "Taste": "ذائقہ",
+      "Why Farm Fresh Eggs Taste Better": "فارم فریش انڈوں کا ذائقہ بہتر کیوں ہوتا ہے",
+      "The science and kitchen experience behind better egg taste and texture.": "بہتر ذائقے اور ساخت کے پیچھے سائنس اور باورچی خانے کا تجربہ۔",
+      "Nutrition": "غذائیت",
+      "Brown Eggs vs White Eggs in Pakistan": "پاکستان میں براؤن انڈے بمقابلہ سفید انڈے",
+      "Truth, myths and what customers should actually look for.": "سچ، غلط فہمیاں، اور گاہکوں کو اصل میں کیا دیکھنا چاہیے۔",
+      "Savings": "بچت",
+      "Why Egg Subscriptions Save Money": "انڈوں کی سبسکرپشن پیسے کیوں بچاتی ہے",
+      "How direct farm supply and planned buying can reduce waste and uncertainty.": "براہ راست فارم سپلائی اور منصوبہ بندی سے خریداری ضیاع اور غیر یقینی کیسے کم کر سکتی ہے۔",
+      "Vision": "وژن",
+      "The Future of Farm Food in Pakistan": "پاکستان میں فارم فوڈ کا مستقبل",
+      "Trust, transparency and direct farm relationships as the future of food.": "اعتماد، شفافیت اور براہ راست فارم تعلقات خوراک کا مستقبل ہیں۔",
+      "Follow the farm journey": "فارم کا سفر فالو کریں",
+      "Watch Siran Valley updates on YouTube and TikTok. Real farm content will become one of the strongest proof layers for trust and SEO.": "یوٹیوب اور ٹک ٹاک پر سیرن ویلی اپڈیٹس دیکھیں۔ حقیقی فارم مواد اعتماد اور SEO کے لیے مضبوط ثبوت بنے گا۔",
+      "Siran Valley Farm Videos": "سیرن ویلی فارم ویڈیوز",
+      "Open the latest farm updates on YouTube without slowing this page down.": "اس صفحے کو سست کیے بغیر تازہ فارم اپڈیٹس یوٹیوب پر کھولیں۔",
+      "Video proof matters": "ویڈیو ثبوت اہم ہے",
+      "Customers trust what they can see. Short farm videos, packing clips, bird management updates and delivery moments can support every product page and guide without loading a heavy third-party iframe on first paint.": "گاہک وہی چیز زیادہ مانتے ہیں جو وہ دیکھ سکتے ہیں۔ مختصر فارم ویڈیوز، پیکنگ کلپس، پرندوں کی دیکھ بھال کی اپڈیٹس اور ڈیلیوری لمحات ہر پروڈکٹ پیج اور گائیڈ کو مضبوط بنا سکتے ہیں بغیر پہلے لوڈ پر بھاری تھرڈ پارٹی iframe کے۔",
+      "Open YouTube": "یوٹیوب کھولیں",
+      "Open TikTok": "ٹک ٹاک کھولیں",
+      "Siran Valley, Mansehra, KPK, Pakistan": "سیرن ویلی، مانسہرہ، کے پی کے، پاکستان",
+      "WhatsApp: +92 300 9111424": "واٹس ایپ: +92 300 9111424",
+      "Email: hello@siran.pk": "ای میل: hello@siran.pk",
+      "Quick Links": "فوری لنکس",
+      "Information": "معلومات",
+      "FAQs": "سوالات",
+      "Terms & Conditions": "شرائط و ضوابط",
+      "Our Vision": "ہمارا وژن",
+      "Follow Us": "ہمیں فالو کریں",
+      "YouTube": "یوٹیوب",
+      "TikTok": "ٹک ٹاک",
+      "© 2025 Siran Valley Organic Farm. All rights reserved.": "© 2025 سیرن ویلی آرگینک فارم۔ جملہ حقوق محفوظ ہیں۔",
+      "WhatsApp": "واٹس ایپ",
+      "Plans": "پلانز"
+};
 
-    function setLang(lang){
-      document.documentElement.lang = lang === "ur" ? "ur" : "en";
-      document.body.classList.toggle("rtl", lang === "ur");
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (!el.dataset.en) el.dataset.en = el.textContent.trim();
-        if (lang === "ur" && translations.ur[key]) {
-          el.textContent = translations.ur[key];
-        } else {
-          el.textContent = el.dataset.en;
+    function translateTextNodes(root, lang){
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node){
+          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentElement;
+          if (!parent || ["SCRIPT","STYLE","NOSCRIPT"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
         }
       });
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(node => {
+        if (!node.__en) node.__en = node.nodeValue;
+        const original = node.__en;
+        const trimmed = original.trim().replace(/\s+/g, " ");
+        if (lang === "ur" && urduText[trimmed]) {
+          node.nodeValue = original.replace(trimmed, urduText[trimmed]);
+        } else {
+          node.nodeValue = original;
+        }
+      });
+    }
+
+    function setLang(lang){
+      const isUr = lang === "ur";
+      document.documentElement.lang = isUr ? "ur" : "en";
+      document.documentElement.dir = isUr ? "rtl" : "ltr";
+      document.body.classList.toggle("rtl", isUr);
+      translateTextNodes(document.body, lang);
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-ur").classList.toggle("active", lang === "ur");
+      if (mobileMenuBtn) mobileMenuBtn.textContent = currentMenuLabel(false);
       try { localStorage.setItem("siran_lang", lang); } catch(e) {}
     }
+
     document.getElementById("btn-en").addEventListener("click", () => setLang("en"));
     document.getElementById("btn-ur").addEventListener("click", () => setLang("ur"));
     try { setLang(localStorage.getItem("siran_lang") || "en"); } catch(e) { setLang("en"); }
